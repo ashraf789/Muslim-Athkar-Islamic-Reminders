@@ -14,7 +14,6 @@ public interface MVPPresenter {
 
     }
     interface PrayerTimePresenter{
-
         void startCalculation();
     }
     interface QiblaPresenter{
@@ -34,5 +33,6 @@ public interface MVPPresenter {
     }
     interface SettingsPresenter{
 
+        void prepareAdapters();
     }
 }

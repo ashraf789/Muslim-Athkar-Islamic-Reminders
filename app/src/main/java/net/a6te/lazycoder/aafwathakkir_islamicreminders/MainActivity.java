@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.navUrlRl:
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Utils.WEB_URL));
                 startActivity(browserIntent);
-                changeSelectedNavBg(findViewById(R.id.navUrlRl));
 
                 break;
         }

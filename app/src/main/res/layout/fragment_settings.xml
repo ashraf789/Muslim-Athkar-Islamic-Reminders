@@ -7,40 +7,184 @@
     tools:context=".fragments.Settings"
     android:background="@drawable/background_image">
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/languageCv"
+        app:cardBackgroundColor="@color/colorPrimary"
         android:alpha="0.8"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <android.support.v7.widget.CardView
-            app:cardBackgroundColor="@color/colorPrimaryDark"
-            android:elevation="5dp"
-            android:layout_margin="5dp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp">
-            <RelativeLayout
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:alpha="0.9"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/languageTv"
-                    android:layout_marginLeft="10dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
                     android:textSize="18sp"
-                    android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Language"/>
+                    android:text="App Language"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"/>
+                <org.angmarch.views.NiceSpinner
+
+                    android:id="@+id/languageSp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_below="@+id/locationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/colorPrimaryDark"/>
+            <LinearLayout
+                android:alpha="0.9"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal">
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remainder Language"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"/>
                 <Spinner
+                    android:id="@+id/remainderLanguageSp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/spinner_bg"/>
+            </LinearLayout>
 
-                    android:layout_width="100dp"
-                    android:layout_height="100dp">
+            <TextView
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_below="@+id/locationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/colorPrimaryDark"/>
 
-                </Spinner>
-            </RelativeLayout>
-        </android.support.v7.widget.CardView>
-    </RelativeLayout>
+            <LinearLayout
+                android:alpha="0.9"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal">
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Frequency"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"/>
+                <org.angmarch.views.NiceSpinner
+                    android:id="@+id/frequencySp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_below="@+id/locationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/colorPrimaryDark"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:paddingLeft="15dp"
+                android:alpha="0.9"
+                android:background="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Prayer"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:alpha="0.8"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal">
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calculation method"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"/>
+                <org.angmarch.views.NiceSpinner
+                    android:id="@+id/prayerTimeCalculationMethodSp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:alpha="0.8"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal">
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Juristic Method"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"/>
+                <org.angmarch.views.NiceSpinner
+                    android:id="@+id/juristicMethodSp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 
 </FrameLayout>

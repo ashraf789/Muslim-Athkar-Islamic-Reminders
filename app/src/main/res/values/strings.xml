@@ -11,4 +11,72 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_hint">surah name or page no</string>
     <string name="required_data_connection">Sorry, this function requires a data connection. Please connect your device to the internet.</string>
+
+    <string-array name="app_languages">
+        <item>English or English</item>
+        <item>العربية Arabic or</item>
+        <item>Indonesian or bahasa indonesia</item>
+        <item>नहीं or Hindi</item>
+        <item>أردو Urdu or</item>
+        <item>বাংলা or Bengali</item>
+        <item>Türkçe or Turkish</item>
+        <item>Persian or فارسي</item>
+        <item>የእንግሊዝኛ or Amharic</item>
+        <item>پښتو  Pashto or</item>
+        <item>русский or Russian</item>
+        <item>簡體中文（普通話） or Chinese Simplified</item>
+        <item>繁體中文（普通話） or Chinese Traditional</item>
+        <item>Behasa Melayu or Malay</item>
+        <item>Azərbaycan or Azerbaijani</item>
+        <item>Español or Spanish</item>
+        <item>Français or French</item>
+        <item>Deutsch or German</item>
+    </string-array>
+
+    <string-array name="remainder_language">
+        <item>English</item>
+        <item>Français</item>
+        <item>Deutsch</item>
+        <item>العربية</item>
+        <item>أردو</item>
+        <item>فارسي</item>
+        <item>Bahasa Melayu</item>
+        <item>Türkçe</item>
+        <item>Hindi</item>
+        <item>Bahasa Indonesia</item>
+        <item>Swahili</item>
+        <item>Panjabi</item>
+        <item>Chinese traditional</item>
+        <item>Chinese simple</item>
+        <item>Russian</item>
+        <item>Azerbaijani</item>
+    </string-array>
+
+
+
+    <string-array name="frequency">
+        <item>Once a day</item>
+        <item>Every 12 hours</item>
+        <item>Every 6 hours</item>
+        <item>Every 3 hours</item>
+        <item>Every 1 hour</item>
+    </string-array>
+
+
+    <string-array name="prayer_calculation_method">
+        <item>Egypt</item>
+        <item>Karachi</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>Makkah</item>
+        <item>Jafari</item>
+        <item>Tehran</item>
+        <item>Custom</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>Shafii Shafii (standard)</item>
+        <item>Hanafi Hanafi</item>
+    </string-array>
+
 </resources>
