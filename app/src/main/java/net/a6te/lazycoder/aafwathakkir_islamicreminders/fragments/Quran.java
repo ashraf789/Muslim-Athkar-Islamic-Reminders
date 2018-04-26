@@ -135,11 +135,6 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
     public void printBookmarksTree(List<PdfDocument.Bookmark> tree, String sep) {
         for (PdfDocument.Bookmark b : tree) {
 
-//            Log.e("TEST", String.format("%s %s, p %d", sep, b.getTitle(), b.getPageIdx()));
-//            Log.d(TAG, "sep: : "+sep);
-//            Log.d(TAG, "Title : "+b.getTitle());
-//            Log.d(TAG, "getPageIndex : "+b.getPageIdx());
-
             surahs.add(new Surah(b.getTitle(),b.getPageIdx()));
             if (b.hasChildren()) {
                 printBookmarksTree(b.getChildren(), sep + "-");
@@ -190,10 +185,8 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
 
     @Override
     public void onSearchItemClick(String indexNo) {
-//        displayFromAsset(SAMPLE_FILE,Integer.valueOf(indexNo));//default pdf will be start from 0 page
-//        onPageChanged(60,500);
 
-//        searchBar.disableSearch();
+        searchBar.disableSearch();
         pdfView.jumpTo(Integer.parseInt(indexNo));
 
 

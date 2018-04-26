@@ -3,12 +3,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PrayerTime">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.PrayerTime"
+    android:background="@drawable/background_image">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_margin="20dp"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:id="@+id/refreshLayout">
+    <android.support.v7.widget.CardView
+        android:alpha="0.8"
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:elevation="5dp"
+        app:cardBackgroundColor="@color/colorPrimary">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--<TextView-->
+            <!--android:id="@+id/currentTimeTv"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:text="05.49"-->
+            <!--android:gravity="center"-->
+            <!--android:textColor="@color/cardview_light_background"-->
+            <!--android:textSize="60sp"/>-->
+            <LinearLayout
+                android:id="@+id/locationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:textSize="18sp"
+                    android:id="@+id/hintTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prayer times for today for"
+                    android:textColor="@color/cardview_light_background"/>
 
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_below="@+id/hintTv"
+                        android:id="@+id/locationIV"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/location_icon"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp" />
+
+                    <TextView
+                        android:layout_below="@+id/hintTv"
+                        android:layout_toRightOf="@+id/locationIV"
+                        android:id="@+id/cityNameTv"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="city"
+                        android:textColor="@color/cardview_light_background"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!--<TextView-->
+            <!--android:textSize="16sp"-->
+            <!--android:id="@+id/dateTv"-->
+            <!--android:layout_below="@+id/locationLayout"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:text="26 APRIL 2018"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@color/cardview_light_background"/>-->
+            <!--<TextView-->
+            <!--android:gravity="center"-->
+            <!--android:textSize="16sp"-->
+            <!--android:id="@+id/dateTv"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:text="26 APRIL 2018"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@color/cardview_light_background"/>-->
+
+
+            <TextView
+                android:id="@+id/singleLineTv"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/locationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:background="@color/colorPrimaryDark"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_below="@+id/singleLineTv"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:id="@+id/prayerTimeRV"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="50dp">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:visibility="gone"
+                android:padding="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:alpha="0.5"
+                android:background="#fff"
+                android:id="@+id/errorNoInternetTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/required_data_connection"
+                android:textStyle="bold"
+                android:textColor="#252222"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-condensed"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>

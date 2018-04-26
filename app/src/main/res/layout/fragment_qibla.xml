@@ -3,12 +3,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Qibla">
+    tools:context=".fragments.Qibla"
+    android:background="@drawable/background_image">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/refreshLayout">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <RelativeLayout
+
+                android:id="@+id/cantainer_layout"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:gravity="center"
+                android:background="@android:color/transparent">
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#fff"
+                android:text="0.00 °"
+                android:id="@+id/idDegree" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                >
+
+                <TextView
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Distance from Qibla "
+                    android:textColor="#fff"
+                    android:layout_gravity="center"
+                    android:layout_alignParentBottom="true"
+                    />
+                <TextView
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 0.00"
+                    android:textColor="#fff"
+                    android:id="@+id/idDistance" />
+                <TextView
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:text=" KM"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:alpha="0.5"
+                android:background="#fff"
+                android:layout_marginTop="10dp"
+                android:id="@+id/errorTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Magnetic sensor not available !!"
+                android:textStyle="bold"
+                android:textColor="#252222"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-condensed"/>
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </FrameLayout>
