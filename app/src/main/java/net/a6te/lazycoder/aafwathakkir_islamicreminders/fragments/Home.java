@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.TextViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,8 @@ public class Home extends Fragment {
     }
 
     private View view;
-//    private TextView autoSizeTv;
-    private AutofitTextView autoSizeTv;
+    //    private TextView autoSizeTv;
+    private TextView autoSizeTv;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,15 +39,13 @@ public class Home extends Fragment {
     }
 
     private void initializeAll() {
-//        autoSizeTv = view.findViewById(R.id.output_autofit);
-
+        autoSizeTv = view.findViewById(R.id.testAutoFill);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        AutofitHelper.create(autoSizeTv);
-//        autoSizeTv.setText(getContext().getResources().getString(R.string.maximum_text_limit));
+        TextViewCompat.setAutoSizeTextTypeWithDefaults(autoSizeTv, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM);
     }
 }
