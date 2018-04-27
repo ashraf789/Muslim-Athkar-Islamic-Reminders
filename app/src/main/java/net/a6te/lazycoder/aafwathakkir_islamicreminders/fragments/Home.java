@@ -20,7 +20,6 @@ import me.grantland.widget.AutofitTextView;
  */
 public class Home extends Fragment {
 
-
     public Home() {
         // Required empty public constructor
     }
@@ -39,7 +38,7 @@ public class Home extends Fragment {
     }
 
     private void initializeAll() {
-        autoSizeTv = view.findViewById(R.id.output_autofit);
+//        autoSizeTv = view.findViewById(R.id.output_autofit);
 
     }
 
@@ -47,7 +46,7 @@ public class Home extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        AutofitHelper.create(autoSizeTv);
-        autoSizeTv.setText(getContext().getResources().getString(R.string.maximum_text_limit));
+//        AutofitHelper.create(autoSizeTv);
+//        autoSizeTv.setText(getContext().getResources().getString(R.string.maximum_text_limit));
     }
 }
