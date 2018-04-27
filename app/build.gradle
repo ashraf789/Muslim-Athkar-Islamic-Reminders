@@ -31,15 +31,25 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
+    //material design library
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
+
+    //change shape of view i used it only on navigation header
     implementation 'com.github.florent37:shapeofview:1.0.7'
 
+    //pdf file read library used on quran pdf file reading
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    //material search bar library
     implementation 'com.github.mancj:MaterialSearchBar:0.7.6'
 
+    //prayer time calculation library
     implementation 'net.alhazmy13.PrayerTimes:library:1.0.1-beta'
+    //spinner view library
     implementation 'com.github.arcadefire:nice-spinner:1.3.1'
+
+    //auto fit textView library
+    implementation 'me.grantland:autofittextview:0.2.+'
 
 }

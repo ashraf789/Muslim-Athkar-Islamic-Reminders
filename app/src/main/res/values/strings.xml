@@ -11,6 +11,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_hint">surah name or page no</string>
     <string name="required_data_connection">Sorry, this function requires a data connection. Please connect your device to the internet.</string>
+    <string name="maximum_text_limit">Bangladesh is a middle power and a developing nation Listed as one of the Next Eleven its economy ranks 46th in terms of nominal gross domestic product (GDP) and 29th terms of purchasing power parity.</string>
+    <string name="two_line_text">Next Eleven its economy ranks 46th in terms of nominal gross domestic product and 29th terms of purchasing.</string>
+    <string name="one_line_text">Next Eleven its economy ranks 46th in terms of nation</string>
 
     <string-array name="app_languages">
         <item>English or English</item>

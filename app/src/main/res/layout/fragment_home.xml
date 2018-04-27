@@ -3,50 +3,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Home">
-
-
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.Home"
+    android:background="@drawable/background_image">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_above="@+id/bottomLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/createImageLayout"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
+            <me.grantland.widget.AutofitTextView
+                android:textColor="@color/white"
+                android:text="sadfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfasdfasdfasdf"
+                android:id="@+id/output_autofit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                autofit:minTextSize="8sp"
+                android:textSize="50sp"
+                android:singleLine="true"
 
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="sadfsdfsdfsdfsdfsdfsdfdsffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff">
+
+                </TextView>
+            </me.grantland.widget.AutofitTextView>
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:textSize="50sp"-->
+                <!--android:text="@string/maximum_text_limit"-->
+                <!--android:id="@+id/testAutoFill"-->
+                <!--android:textColor="@color/white"/>-->
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
+            android:alpha="0.8"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:id="@+id/bottomLayout"
             android:orientation="vertical"
-            android:gravity="center_vertical"
-            android:background="@color/colorPrimary">
+            android:gravity="center_vertical">
 
-            <LinearLayout
-                style="@android:style/Widget.Button"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:gravity="center">
+            <!--<LinearLayout-->
+            <!--style="@android:style/Widget.Button"-->
+            <!--android:foreground="?android:attr/selectableItemBackground"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:gravity="center">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Previous"/>
+            <!--<TextView-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="New"/>-->
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/next_icon"/>
-            </LinearLayout>
+            <!--<ImageView-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:background="@drawable/next_icon"/>-->
+            <!--</LinearLayout>-->
 
-        </LinearLayout>
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Generate New"/>
+            <ImageView
+                android:layout_marginRight="30dp"
+                android:src="@drawable/share_icon"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
+        </RelativeLayout>
     </RelativeLayout>
 
 </FrameLayout>
