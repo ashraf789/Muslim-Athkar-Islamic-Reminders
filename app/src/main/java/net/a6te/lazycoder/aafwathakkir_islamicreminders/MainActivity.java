@@ -138,15 +138,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public boolean checkLocationPermission() {
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
+
+        String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (ContextCompat.checkSelfPermission(this, String.valueOf(PERMISSIONS))
                 != PackageManager.PERMISSION_GRANTED) {
 
             //permission is not already granted we need to request for permission
 
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
-                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    String.valueOf(PERMISSIONS))) {
 
                 // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
@@ -168,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 // No explanation needed, we can request the permission.
                 ActivityCompat.requestPermissions(MainActivity.this,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        PERMISSIONS,
                         MY_PERMISSIONS_REQUEST_LOCATION);
 
             }

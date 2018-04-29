@@ -1,5 +1,7 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.widget.ArrayAdapter;
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.adapters.CustomSuggestionsAdapter;
@@ -10,6 +12,9 @@ import java.util.List;
 public interface MVPView {
     interface HomeView{
 
+        void storeBitMapImage(Bitmap bitmap);
+
+        void shareImage(Intent shareIntent);
     }
     interface PrayerTimeView{
 

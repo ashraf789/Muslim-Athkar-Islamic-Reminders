@@ -3,95 +3,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:autofit="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.Home"
     android:background="@drawable/background_image">
 
     <RelativeLayout
+        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_margin="10dp"
-            android:layout_above="@+id/bottomLayout"
+        <RelativeLayout
+            android:background="@drawable/background_image"
+            android:layout_above="@+id/createNewImageBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/createImageLayout"
+            android:id="@+id/createImageRL"
             android:orientation="vertical"
             android:gravity="center">
-
-
-            <!--<me.grantland.widget.AutofitLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!--<me.grantland.widget.AutofitTextView-->
-                    <!--android:textColor="@color/white"-->
-                    <!--android:text="@string/maximum_text_limit"-->
-                    <!--android:id="@+id/output_autofit"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="center"-->
-                    <!--autofit:minTextSize="8sp"-->
-                    <!--android:textSize="50sp">-->
-
-                <!--</me.grantland.widget.AutofitTextView>-->
-            <!--</me.grantland.widget.AutofitLayout>-->
-
-
-            <TextView
-                android:gravity="center"
+            <RelativeLayout
+                android:padding="10dp"
+                android:background="#c44caf50"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="50sp"
-                android:text="@string/one_line_text"
-                android:id="@+id/testAutoFill"
-                android:textColor="@color/white"/>
-            
-        </LinearLayout>
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/appNameTv"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:maxLines="2"/>
 
-        <RelativeLayout
-            android:alpha="0.8"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:id="@+id/bottomLayout"
-            android:orientation="vertical"
-            android:gravity="center_vertical">
+                <TextView
+                    android:layout_above="@+id/forumNameTv"
+                    android:layout_below="@+id/appNameTv"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="50sp"
+                    android:text="﻿اللهم اكفني بحلالك عن حرامك"
+                    android:id="@+id/atkharTv"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/forumUrlTv"
+                    android:id="@+id/forumNameTv"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/forum_name"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/forumUrlTv"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_url"/>
 
-            <!--<LinearLayout-->
-            <!--style="@android:style/Widget.Button"-->
-            <!--android:foreground="?android:attr/selectableItemBackground"-->
-            <!--android:layout_width="100dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:gravity="center">-->
+                <ImageButton
+                    android:id="@+id/shareIvBtn"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:elevation="5dp"
+                    android:background="@drawable/share_icon"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/share_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
 
-            <!--<TextView-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="New"/>-->
-
-            <!--<ImageView-->
-            <!--android:layout_width="20dp"-->
-            <!--android:layout_height="20dp"-->
-            <!--android:background="@drawable/next_icon"/>-->
-            <!--</LinearLayout>-->
-
-            <Button
-                android:layout_marginLeft="20dp"
-                android:layout_centerVertical="true"
-                android:textAllCaps="false"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Generate New"/>
-            <ImageView
-                android:layout_marginRight="30dp"
-                android:src="@drawable/share_icon"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="50dp"
-                android:layout_height="50dp" />
+            </RelativeLayout>
 
         </RelativeLayout>
+
+        <ImageView
+            android:visibility="gone"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tempImageView"/>
+
+        <Button
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/createNewImageBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create New"/>
+
     </RelativeLayout>
 
 </FrameLayout>

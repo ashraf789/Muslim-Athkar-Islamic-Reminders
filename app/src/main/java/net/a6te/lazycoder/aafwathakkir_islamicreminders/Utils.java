@@ -4,4 +4,5 @@ public class Utils {
     public static final String WEB_URL = "https://forumislam.com/";
     public static final String CITY_NAME = "cityName";
 
+
 }

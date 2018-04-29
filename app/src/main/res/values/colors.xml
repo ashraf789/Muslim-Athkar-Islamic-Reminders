@@ -6,5 +6,9 @@
     <color name="color_white">#FFFFFF</color>
     <color name="color_navy_blue">#8b31b4</color>
     <color name="color_black">#434242</color>
-    <color name="black_ligt">#999696</color>
+    <color name="black_light">#999696</color>
+
+    <color name="white_transparent">#80FFFFFF</color>
+    <color name="white_transparent_lowest">#67ffffff</color>
+
 </resources>

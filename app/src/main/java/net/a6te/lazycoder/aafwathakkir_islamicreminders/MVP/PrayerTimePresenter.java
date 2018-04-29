@@ -35,12 +35,13 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
 
         this.MVPView = (net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPView.PrayerTimeView) fragment;
         prayerTimes = new ArrayList<>();
-        gps = new GPSTracker(fragment.getContext());
     }
 
     @Override
     public void startCalculation() {
+        gps = new GPSTracker(fragment.getContext());
 
+        getLocation();
         PerformBackground background = new PerformBackground();
         background.execute();
 
@@ -51,7 +52,6 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
         @Override
         protected Boolean doInBackground(Void... voids) {
 
-            getLocation();
             calculateTime();
             getCity();
 

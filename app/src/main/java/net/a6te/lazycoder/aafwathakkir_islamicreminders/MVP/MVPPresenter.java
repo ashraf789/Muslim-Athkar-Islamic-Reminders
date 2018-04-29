@@ -3,16 +3,20 @@ package net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP;
 import android.content.Context;
 import android.hardware.SensorManager;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.model.Surah;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public interface MVPPresenter {
 
     interface HomePresenter{
+        void createBitMap(View view);
 
-    }
+        void createIntentToShareImage(File filePath);
+        }
     interface PrayerTimePresenter{
         void startCalculation();
     }
