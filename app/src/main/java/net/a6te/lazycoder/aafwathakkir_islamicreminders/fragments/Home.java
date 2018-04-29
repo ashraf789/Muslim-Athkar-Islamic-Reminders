@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.HomePresenter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPPresenter;
@@ -107,7 +108,6 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-
             case R.id.shareIvBtn:
                 shareImageBtn();
                 break;
@@ -147,11 +147,13 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
             bos.flush();
             bos.close();
 
+            Toast.makeText(getContext(),"New Image Created",Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
     }
 
