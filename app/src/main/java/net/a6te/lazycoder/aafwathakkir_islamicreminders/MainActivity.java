@@ -21,6 +21,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Home;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.PrayerTime;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Qibla;
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        Fabric.with(this, new Crashlytics());
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toggle.syncState();
         transaction.add(R.id.containerMain,fragment);
         transaction.commit();
+
+
 
     }
 

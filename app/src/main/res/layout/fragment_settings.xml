@@ -40,13 +40,12 @@
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"/>
-                <org.angmarch.views.NiceSpinner
-
+                <Spinner
                     android:id="@+id/languageSp"
-                    android:backgroundTint="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp"
+                    android:background="@drawable/spinner_bg"/>
             </LinearLayout>
             <TextView
                 android:layout_marginTop="1dp"
@@ -107,12 +106,12 @@
                     android:textStyle="bold"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"/>
-                <org.angmarch.views.NiceSpinner
+                <Spinner
                     android:id="@+id/frequencySp"
-                    android:backgroundTint="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp"
+                    android:background="@drawable/spinner_bg"/>
             </LinearLayout>
             <TextView
                 android:layout_marginTop="1dp"
@@ -151,9 +150,9 @@
                     android:textColor="@color/white"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"/>
-                <org.angmarch.views.NiceSpinner
+                <Spinner
                     android:id="@+id/prayerTimeCalculationMethodSp"
-                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:background="@drawable/spinner_bg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"/>
@@ -175,9 +174,9 @@
                     android:textColor="@color/white"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"/>
-                <org.angmarch.views.NiceSpinner
+                <Spinner
+                    android:background="@drawable/spinner_bg"
                     android:id="@+id/juristicMethodSp"
-                    android:backgroundTint="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"/>

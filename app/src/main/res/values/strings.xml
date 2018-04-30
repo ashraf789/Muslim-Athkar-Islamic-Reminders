@@ -1,9 +1,11 @@
 <resources>
+    <string name="facebook_app_id">179442992713579</string>
     <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
     <string name="app_title">AAF WaThakkir</string>
     <string name="app_slogan">Islamic Reminders</string>
     <string name="forum_name">Forumislam</string>
     <string name="app_url">www.Forumislam.com</string>
+    <string name="app_google_play_url">http://play.google.com/</string>
     <string name="settings">Settings</string>
     <string name="navigation_drawer_open">Navigation open</string>
     <string name="navigation_drawer_close">Navigation Close</string>
@@ -22,7 +24,9 @@
         Delivering unmatched sound quality and musical expression, the GT-1000 ushers in a new era of performance in amp/effects processors. This premium tone machine debuts the groundbreaking new AIRD (Augmented Impulse Response Dynamics) technology, realized with decades of advanced BOSS research and supported by an ultra-fast DSP engine, 32-bit AD/DA, 32-bit floating-point processing, and 96 kHz sampling rate throughout.
         Delivering unmatched sound quality and musical expression, the GT-1000 ushers in a new era of performance in amp/effects processors. This premium tone machine debuts the groundbreaking new AIRD (Augmented Impulse Response Dynamics) technology, realized with decades of advanced BOSS research and supported by an ultra-fast DSP engine, 32-bit AD/DA, 32-bit floating-point processing, and 96 kHz sampling rate throughout.
     </string>
-
+    <string name="atkhar_one">﻿اللهم اكفني بحلالك عن حرامك</string>
+    <string name="maximum_text_limit_check">Do you not know that to Allah belongs the dominion of the heavens and the earth and [that] you have not besides Allah any protector or any helper? - The Noble Koran ऐ ईमान लानेवालो! मारे जानेवालों के विषय में हत्यादंड (क़िसास) तुमपर अनिवार्य किया गया, स्वतंत्र-स्वतंत्र बराबर है और ग़़ुलाम-ग़ुलाम बराबर है और औरत-औरत बराबर है।. - महान कुरान 奉至仁至慈的真主之名，一切讚頌，全歸真主[古蘭經，開端章] ሰውን ሁሉ በእርግጥ በልፋት ውስጥ ኾኖ ፈጠርነው፡፡-ቅደስ ቁርአን የሀገር ምዕራፍ (አል በለድ) 4 لَقَدْ خَلَقْنَا الْإِنْسَانَ فِي كَبَدٍ (البلد4) ﻿اللهم اكفني بحلالك عن حرامك Bu, qətiyyən şübhə doğurmayan, müttəqilərə doğru yol göstərən bir Kitabdır. (2) (Müqəddəs Quran: Bəqərə surəsi) Dengan nama Allah Yang Maha Pemurah Lagi Maha Penyayang. - Al- Quran: Al-Fatihah: 1 অনেক মানুষ আল্লাহর প্রতি বিশ্বাস স্থাপন করে, কিন্তু সাথে সাথে শিরকও করে।وَمَا يُؤْمِنُ أَكْثَرُهُمْ بِاللَّهِ إِلَّا وَهُمْ مُشْرِكُونَ (يوسف106) Auront-ils une part du royaume, eux qui ne seraient pas capables de donner aux hommes même le creux d\'un noyau de datte ? -- Le Coran</string>
+    <string name="app_signature">Download this beautiful free and ad-free app of Koran / Islamic reminders from the </string>
     <string-array name="app_languages">
         <item>English or English</item>
         <item>العربية Arabic or</item>

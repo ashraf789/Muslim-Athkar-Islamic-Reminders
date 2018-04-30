@@ -39,10 +39,11 @@ public interface MVPView {
         void initializeSearchView(CustomSuggestionsAdapter adapter);
     }
     interface SettingsView{
-        void initializeLanguageSpinner(List<String> dataSet);
-        void initializeFrequencySpinner(List<String> dataSet);
-        void initializePrayerTimeCalculationSpinner(List<String> dataSet);
-        void initializeJuristicSpinner(List<String> dataSet);
+        void initializeLanguageSpinner(ArrayAdapter adapter);
+
+        void initializeFrequencySpinner(ArrayAdapter adapter);
+        void initializePrayerTimeCalculationSpinner(ArrayAdapter adapter);
+        void initializeJuristicSpinner(ArrayAdapter adapter);
 
         void initializeRemainderLanguage(ArrayAdapter adapter);
     }

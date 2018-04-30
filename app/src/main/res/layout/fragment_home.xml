@@ -45,7 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="50sp"
-                    android:text="﻿اللهم اكفني بحلالك عن حرامك"
+                    android:text="@string/atkhar_one"
                     android:id="@+id/atkharTv"
                     android:textColor="@color/white"/>
                 <TextView
@@ -85,13 +85,6 @@
             </RelativeLayout>
 
         </RelativeLayout>
-
-        <ImageView
-            android:visibility="gone"
-            android:background="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/tempImageView"/>
 
         <Button
             android:textStyle="bold"

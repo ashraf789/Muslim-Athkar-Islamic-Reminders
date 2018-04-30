@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -21,6 +22,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareButton;
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.HomePresenter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPPresenter;
@@ -50,7 +54,6 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
     private LocalData localData;
     private RelativeLayout createImageRL;//relative layout that we will convert to an image bitmap
-    private ImageView tempImageView;
     private ImageView shareIvBtn;
     private Button createNewImageBtn;
     private String appName;
@@ -59,6 +62,8 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     private MVPPresenter.HomePresenter presenter;
 
     private int hour, min;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -76,12 +81,10 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         hour = localData.get_hour();
         min = localData.get_min();
         createImageRL = view.findViewById(R.id.createImageRL);
-        tempImageView = view.findViewById(R.id.tempImageView);
         shareIvBtn = view.findViewById(R.id.shareIvBtn);
         createNewImageBtn = view.findViewById(R.id.createNewImageBtn);
 
-        shareIvBtn.setOnClickListener(this);
-        createNewImageBtn.setOnClickListener(this);
+
 
         appName = getContext().getResources().getString(R.string.app_title);
         imageDirectory = new File(Environment.getExternalStorageDirectory() + "/"+appName+"/");
@@ -89,6 +92,8 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
         presenter = new HomePresenter(this);
 
+        shareIvBtn.setOnClickListener(this);
+        createNewImageBtn.setOnClickListener(this);
     }
 
     @Override
@@ -103,16 +108,24 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
             NotificationScheduler.cancelReminder(getContext(), AlarmReceiver.class);
         }
 
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.shareIvBtn:
+
+                File filePath = new File(imageDirectory,"/"+imageName);
+                if (!filePath.exists()){
+                    presenter.createBitMap(createImageRL);
+                }
                 shareImageBtn();
                 break;
             case R.id.createNewImageBtn:
                 presenter.createBitMap(createImageRL);
+                Toast.makeText(getContext(),"New Image Created",Toast.LENGTH_SHORT).show();
+
                 break;
 
         }
@@ -128,6 +141,10 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     @Override
     public void shareImage(Intent shareIntent){
         startActivity(Intent.createChooser(shareIntent, "Share Via..."));
+
+//        ShareLinkContent content = new ShareLinkContent.Builder()
+//                .setContentUrl(Uri.parse("https://developers.facebook.com"))
+//                .build();
     }
 
     @Override
@@ -147,7 +164,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
             bos.flush();
             bos.close();
 
-            Toast.makeText(getContext(),"New Image Created",Toast.LENGTH_SHORT).show();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

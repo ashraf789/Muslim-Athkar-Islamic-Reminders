@@ -7,16 +7,12 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 
-import java.io.BufferedOutputStream;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
+
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class HomePresenter implements MVPPresenter.HomePresenter {
 
@@ -40,7 +36,6 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
         mvpView.shareImage(getShareIntent(filePath));
 
     }
-
 
 
     //this method will create a bitmap image from given view
@@ -67,15 +62,13 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
     public Intent getShareIntent(File filePath){
 
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT,
+                context.getResources().getString(R.string.app_signature)+" "+context.getResources().getString(R.string.app_google_play_url)+".");
 
         shareIntent.setType("image/*");
         shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(filePath));
-        shareIntent
-                .putExtra(
-                        Intent.EXTRA_TEXT,
-                        "**my message with URL **");
+
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
         return shareIntent;
     }

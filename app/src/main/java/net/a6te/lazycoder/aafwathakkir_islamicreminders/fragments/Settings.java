@@ -7,15 +7,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPPresenter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPView;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.SettingsPresenter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
 
-import org.angmarch.views.NiceSpinner;
 
 import java.util.List;
 
@@ -23,8 +24,8 @@ import java.util.List;
 public class Settings extends Fragment implements MVPView.SettingsView{
 
     private View view;
-    private NiceSpinner languageSp, frequencySp, prayerTimeCalculationSp, juristicSp;
-    private Spinner remainderSp;
+    private Spinner frequencySp, prayerTimeCalculationSp, juristicSp;
+    private Spinner remainderSp,languageSp;
     private MVPPresenter.SettingsPresenter presenter;
 
     @Override
@@ -54,32 +55,46 @@ public class Settings extends Fragment implements MVPView.SettingsView{
         presenter = new SettingsPresenter(this);
     }
 
-
-
     @Override
-    public void initializeLanguageSpinner(List<String> dataSet) {
-        languageSp.attachDataSource(dataSet);
+    public void initializeLanguageSpinner(ArrayAdapter adapter) {
+        languageSp.setAdapter(adapter);
     }
 
     @Override
-    public void initializeFrequencySpinner(List<String> dataSet) {
-        frequencySp.attachDataSource(dataSet);
+    public void initializeFrequencySpinner(ArrayAdapter adapter) {
+        frequencySp.setAdapter(adapter);
+
+        frequencySp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+
+            }
+
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+    }
+
+
+
+    @Override
+    public void initializePrayerTimeCalculationSpinner(ArrayAdapter adapter) {
+        prayerTimeCalculationSp.setAdapter(adapter);
     }
 
     @Override
-    public void initializePrayerTimeCalculationSpinner(List<String> dataSet) {
-        prayerTimeCalculationSp.attachDataSource(dataSet);
-    }
-
-    @Override
-    public void initializeJuristicSpinner(List<String> dataSet) {
-        juristicSp.attachDataSource(dataSet);
+    public void initializeJuristicSpinner(ArrayAdapter adapter) {
+        juristicSp.setAdapter(adapter);
     }
 
     @Override
     public void initializeRemainderLanguage(ArrayAdapter adapter){
         remainderSp.setAdapter(adapter);
     }
-
-
 }

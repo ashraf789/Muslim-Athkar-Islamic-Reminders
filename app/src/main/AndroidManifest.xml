@@ -34,6 +34,14 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider179442992713579"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="27b695160327127fcd19210e585688fd69fa5d22" />
     </application>
 
 </manifest>
