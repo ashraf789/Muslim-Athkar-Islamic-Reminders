@@ -30,12 +30,10 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
     private List<String > prayerTimeCalculationMethods;
     private List<String > frequencies;
     private List<String> languages;
-    private List<SpinnerWithCheckBoxItem> remainderLanguages;
 
     private MVPView.SettingsView mvpView;
     private SavedData savedData;
     private CallAttachBaseContext callAttachBaseContext;
-    private LocaleManager localeManager;
     private Home homeFragment;
     private ArrayAdapter<String> adapter;
 
@@ -47,7 +45,6 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
         mvpView = (MVPView.SettingsView) fragment;
         savedData = new SavedData(fragment.getContext());
         callAttachBaseContext = (CallAttachBaseContext) fragment.getContext();
-        localeManager = new LocaleManager();
         homeFragment = new Home();
     }
 
@@ -61,7 +58,6 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
     }
 
     private void remainderLanguageAdapter() {
-        remainderLanguages = new ArrayList<>();
 
         List<String> temp = Arrays.asList(fragment.getContext().getResources().getStringArray(R.array.remainder_language));
         int size = temp.size();
@@ -148,10 +144,6 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
     }
 
     @Override
-    public void saveRemainderLanguageId(int id){
-        savedData.setRemainderLanguageSelectedId(id);
-    }
-    @Override
     public void saveFrequencyId(int id){
         long newInterval = calculateInterval(id);
         Calendar calendar = Calendar.getInstance();
@@ -214,7 +206,7 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
         savedData.setJuristicMethodId(id);
     }
     @Override
-    public void saveSelectedLanguage(boolean[] selectedLanguage){
+    public void saveSelectedRemainderLanguage(boolean[] selectedLanguage){
         savedData.storeRemainderLanguages(selectedLanguage);
     }
 }

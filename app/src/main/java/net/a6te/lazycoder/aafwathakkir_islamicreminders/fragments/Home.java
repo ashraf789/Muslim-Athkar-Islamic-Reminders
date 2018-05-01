@@ -4,6 +4,7 @@ package net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -38,6 +39,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -57,6 +61,8 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     private File imageDirectory;
     private String imageName;
     private MVPPresenter.HomePresenter presenter;
+    private MediaPlayer ring;
+    public static final int SHARE_IMAGE_REQUEST_CODE=101;
 
 
     @Override
@@ -84,7 +90,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
         shareIvBtn.setOnClickListener(this);
         createNewImageBtn.setOnClickListener(this);
-
+        ring= MediaPlayer.create(getContext(),R.raw.shared_thank_you);
 
     }
 
@@ -139,11 +145,22 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     //this is method will call from presenter it will take a intent then it will make share event
     @Override
     public void shareImage(Intent shareIntent){
-        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_via)));
 
-//        ShareLinkContent content = new ShareLinkContent.Builder()
-//                .setContentUrl(Uri.parse("https://developers.facebook.com"))
-//                .build();
+        Intent intent2 = Intent.createChooser(shareIntent, getString(R.string.share_via));
+        startActivityForResult(intent2,SHARE_IMAGE_REQUEST_CODE);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == SHARE_IMAGE_REQUEST_CODE ){
+
+            if (!(resultCode == RESULT_CANCELED)){
+                playSound();
+            }
+        }
     }
 
     @Override
@@ -172,5 +189,15 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
 
     }
+    public void playSound(){
+        if (!ring.isPlaying()){
+//            ring.start();
+        }
+    }
 
+    @Override
+    public void onPause() {
+        ring.stop();
+        super.onPause();
+    }
 }

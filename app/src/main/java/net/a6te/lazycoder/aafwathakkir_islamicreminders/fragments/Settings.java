@@ -1,7 +1,6 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments;
 
-import android.content.Context;
-import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -20,13 +20,7 @@ import com.thomashaertel.widget.MultiSpinner;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPPresenter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPView;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.SettingsPresenter;
-import net.a6te.lazycoder.aafwathakkir_islamicreminders.MainActivity;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
-import net.a6te.lazycoder.aafwathakkir_islamicreminders.SavedData;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
 
 
 public class Settings extends Fragment implements MVPView.SettingsView{
@@ -41,7 +35,11 @@ public class Settings extends Fragment implements MVPView.SettingsView{
 
     private MultiSpinner remainderSp;
 
-    boolean[] selectedLanguage;
+    private boolean[] selectedLanguage;
+    private MediaPlayer ring;
+    private Button saveButton;
+
+    private int appLanguageId=-1,frequencyId=-1,prayerTimeId=-1,juristicMethodID=-1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,6 +55,7 @@ public class Settings extends Fragment implements MVPView.SettingsView{
         super.onViewCreated(view, savedInstanceState);
 
         presenter.prepareAdapters();
+
     }
 
     private void initializeAll() {
@@ -73,7 +72,9 @@ public class Settings extends Fragment implements MVPView.SettingsView{
         frequencyTv = view.findViewById(R.id.frequencyTv);
         calculationMethodTv = view.findViewById(R.id.calculationMethodTv);
         juristicMethodTv = view.findViewById(R.id.juristicMethodTv);
-
+        ring= MediaPlayer.create(getContext(),R.raw.saved_alhamdu);
+        saveButton = view.findViewById(R.id.savedBtn);
+        saveButton.setOnClickListener(saveBtnListener);
 
     }
 
@@ -96,7 +97,7 @@ public class Settings extends Fragment implements MVPView.SettingsView{
                 * */
                 if (!isFirstTime) {
                     appLanguageTv.setText(languageSp.getSelectedItem().toString());
-                    presenter.saveAppLanguageId(position);
+                    appLanguageId = position;
                 }else {
                     isFirstTime = false;
                 }
@@ -118,7 +119,7 @@ public class Settings extends Fragment implements MVPView.SettingsView{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 frequencyTv.setText(frequencySp.getSelectedItem().toString());
-                presenter.saveFrequencyId(position);
+                frequencyId = position;
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
@@ -138,7 +139,7 @@ public class Settings extends Fragment implements MVPView.SettingsView{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 calculationMethodTv.setText(prayerTimeCalculationSp.getSelectedItem().toString());
-                presenter.saveCalculationMethodId(position);
+                prayerTimeId = position;
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
@@ -156,7 +157,7 @@ public class Settings extends Fragment implements MVPView.SettingsView{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 juristicMethodTv.setText(juristicSp.getSelectedItem().toString());
-                presenter.saveJuristicMethodId(position);
+                juristicMethodID = position;
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
@@ -175,8 +176,41 @@ public class Settings extends Fragment implements MVPView.SettingsView{
         public void onItemsSelected(boolean[] selected) {
             // Do something here with the selected items
             selectedLanguage = selected;
-            presenter.saveSelectedLanguage(selectedLanguage);
+
+            Log.d("TEST", "onItemsSelected: ");
         }
     };
 
+    View.OnClickListener saveBtnListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            presenter.saveSelectedRemainderLanguage(selectedLanguage);
+            if (appLanguageId !=-1){
+                presenter.saveAppLanguageId(appLanguageId);
+            }
+            if (frequencyId !=-1){
+                presenter.saveFrequencyId(frequencyId);
+            }
+            if (prayerTimeId !=-1){
+                presenter.saveCalculationMethodId(prayerTimeId);
+            }
+            if (juristicMethodID !=-1){
+                presenter.saveJuristicMethodId(juristicMethodID);
+            }
+
+            playSound();
+        }
+    };
+
+    public void playSound(){
+        if (!ring.isPlaying()) {
+//            ring.start();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        ring.stop();
+        super.onStop();
+    }
 }

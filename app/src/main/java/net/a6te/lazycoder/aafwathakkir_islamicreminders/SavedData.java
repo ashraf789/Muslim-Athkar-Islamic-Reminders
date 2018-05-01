@@ -127,7 +127,6 @@ public class SavedData {
         boolean allFalse = true;
         for(int i=0;i<size;i++) {
 
-
             array[i] = appSharedPrefs.getBoolean(REMAINDER_LANGUAGES + i, false);
 
             if (array[i]) {
@@ -140,27 +139,5 @@ public class SavedData {
         }
         return array;
     }
-
-//    public boolean storeRemainderLanguages(Boolean[] array) {
-//
-//        prefsEditor.putInt(REMAINDER_LANGUAGES, array.length);
-//
-//        for(int i=0;i<array.length;i++)
-//            prefsEditor.putBoolean(REMAINDER_LANGUAGES + i, array[i]);
-//
-//        return prefsEditor.commit();
-//    }
-//
-//    public Boolean[] getRemainderLanguages(int defaultSize) {
-//
-//        int size = appSharedPrefs.getInt(REMAINDER_LANGUAGES, defaultSize);
-//        Boolean array[] = new Boolean[size];
-//        for(int i=0;i<size;i++)
-//            array[i] = appSharedPrefs.getBoolean(REMAINDER_LANGUAGES + i, false);
-//
-//        return array;
-//    }
-
-
 
 }

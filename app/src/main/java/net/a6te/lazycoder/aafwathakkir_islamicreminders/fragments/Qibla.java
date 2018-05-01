@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -44,6 +45,8 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private Context context;
     private TextView errorTv;
+    private MediaPlayer ring;
+
 
     public Qibla() {
         // Required empty public constructor
@@ -68,6 +71,8 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
 
         checkLocationPermission();
         refreshLayout.setOnRefreshListener(refreshListener);
+
+        playSound();
     }
 
 
@@ -81,6 +86,7 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
         presenter = new QiblaPresenter(this,context);
         refreshLayout = view.findViewById(R.id.refreshLayout);
         errorTv = view.findViewById(R.id.errorTv);
+        ring= MediaPlayer.create(getContext(),R.raw.prayer_allahu_akbar);
     }
 
 
@@ -153,17 +159,7 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
         }
     };
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        presenter.onPause();
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        presenter.onResume();
-    }
 
     public void permission(View view) {
     }
@@ -248,7 +244,23 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
         Toast.makeText(context, R.string.refresh_screen_for_permission_message,Toast.LENGTH_SHORT).show();
 
     }
+    public void playSound(){
+        if (!ring.isPlaying()) {
+//            ring.start();
+        }
+    }
 
+    @Override
+    public void onPause() {
+        presenter.onPause();
+        ring.stop();
+        super.onPause();
+    }
 
+    @Override
+    public void onResume() {
+        presenter.onResume();
+        super.onResume();
+    }
 
 }

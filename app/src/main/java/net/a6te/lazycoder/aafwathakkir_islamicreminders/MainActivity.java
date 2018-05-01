@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout selectedNav;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private View view;
+    private MediaPlayer ring;
 
 
     @Override
@@ -56,12 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
 //        Fabric.with(this, new Crashlytics());
 
-
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         initializeAll();
+        playSound();//this method will play opening sound
 
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     * */
     private void initializeAll() {
 
+        ring= MediaPlayer.create(MainActivity.this,R.raw.open_app_salam);
         navHomeRl = findViewById(R.id.navHomeRl);
         navPrayerRl = findViewById(R.id.navPrayerRl);
         navQiblaRl =  findViewById(R.id.navQiblaRl);
@@ -236,15 +239,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onAttachBaseContext(Context context){
-//        super.attachBaseContext(context);
 
         finish();
         startActivity(getIntent());
     }
 
-    @Override
-    public void recreate() {
-        super.recreate();
 
+
+    public void playSound(){
+//        ring.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        ring.stop();
+        super.onDestroy();
     }
 }

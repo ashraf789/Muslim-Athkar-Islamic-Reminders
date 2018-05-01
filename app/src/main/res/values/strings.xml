@@ -135,6 +135,7 @@
     <string name="required_data_connection">Sorry, this function requires a data connection. Please connect your device to the internet.</string>
     <string name="gps_setting_message">GPS is not enabled. Do you want to go to settings menu?</string>
     <string name="prayer_time_for">Prayer times for today for</string>
+    <string name="save">Save</string>
 
 
 </resources>

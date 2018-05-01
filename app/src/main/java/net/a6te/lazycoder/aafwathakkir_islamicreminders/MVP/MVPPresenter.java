@@ -43,14 +43,12 @@ public interface MVPPresenter {
 
         void saveAppLanguageId(int id);
 
-        void saveRemainderLanguageId(int id);
-
         void saveFrequencyId(int id);
 
         void saveCalculationMethodId(int id);
 
         void saveJuristicMethodId(int id);
 
-        void saveSelectedLanguage(boolean[] selectedLanguage);
+        void saveSelectedRemainderLanguage(boolean[] selectedLanguage);
     }
 }

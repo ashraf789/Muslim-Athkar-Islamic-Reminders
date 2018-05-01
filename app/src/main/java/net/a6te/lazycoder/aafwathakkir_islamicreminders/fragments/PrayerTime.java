@@ -4,6 +4,7 @@ package net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -22,6 +23,7 @@ import net.a6te.lazycoder.aafwathakkir_islamicreminders.CheckInternetConnection;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPPresenter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPView;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.PrayerTimePresenter;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.MainActivity;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.adapters.PrayerTimeAdapter;
 
@@ -39,6 +41,7 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
     private TextView errorNoInternetTv;
     private SwipeRefreshLayout refreshLayout;
     private CheckInternetConnection internetConnectionTest;
+    private MediaPlayer ring;
 
     public PrayerTime() {
         // Required empty public constructor
@@ -66,7 +69,7 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         refreshLayout = v.findViewById(R.id.refreshLayout);
         refreshLayout.setOnRefreshListener(refreshListener);
         internetConnectionTest = new CheckInternetConnection();
-
+        ring= MediaPlayer.create(getContext(),R.raw.prayer_allahu_akbar);
     }
 
     @Override
@@ -74,6 +77,7 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         super.onViewCreated(view, savedInstanceState);
 
         callPresenter();
+        playSound();//it will play allhu akbar sound
     }
 
     private void callPresenter() {
@@ -160,4 +164,16 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
             refreshLayout.setRefreshing(false);
         }
     };
+
+    public void playSound(){
+        if (!ring.isPlaying()) {
+//            ring.start();
+        }
+    }
+    @Override
+    public void onPause() {
+        ring.stop();
+        super.onPause();
+    }
+
 }
