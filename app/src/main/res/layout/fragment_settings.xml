@@ -17,32 +17,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left">
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <LinearLayout
-                android:alpha="0.9"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:gravity="center"
                 android:background="@color/colorPrimaryDark"
                 android:orientation="horizontal">
-                <TextView
-                    android:textSize="18sp"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="App Language"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_language"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                    <TextView
+
+                        android:layout_weight="1"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white_dark"
+                        android:textStyle="bold"
+                        android:id="@+id/appLanguageTv"/>
+
+                </LinearLayout>
                 <Spinner
+                    android:layout_weight="1"
                     android:id="@+id/languageSp"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:background="@drawable/spinner_bg"/>
@@ -55,26 +78,37 @@
                 android:layout_height="1.5dp"
                 android:background="@color/colorPrimaryDark"/>
             <LinearLayout
-                android:alpha="0.9"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:gravity="center"
                 android:background="@color/colorPrimaryDark"
                 android:orientation="horizontal">
-                <TextView
-                    android:textSize="18sp"
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Remainder Language"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"/>
-                <Spinner
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/remainder_language"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <com.thomashaertel.widget.MultiSpinner
+                    android:textSize="16sp"
+                    android:gravity="left|center_vertical"
+                    android:textColor="@color/color_green"
+                    android:layout_weight="1"
                     android:id="@+id/remainderLanguageSp"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:background="@drawable/spinner_bg"/>
@@ -89,26 +123,43 @@
                 android:background="@color/colorPrimaryDark"/>
 
             <LinearLayout
-                android:alpha="0.9"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:gravity="center"
                 android:background="@color/colorPrimaryDark"
                 android:orientation="horizontal">
-                <TextView
-                    android:textSize="18sp"
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Frequency"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/frequency"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/frequencyTv"
+                        android:layout_weight="1"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white_dark"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
                 <Spinner
+                    android:layout_weight="1"
                     android:id="@+id/frequencySp"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:background="@drawable/spinner_bg"/>
@@ -124,17 +175,15 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:paddingLeft="15dp"
-                android:alpha="0.9"
                 android:background="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="Prayer"
+                android:text="@string/prayer"
                 android:gravity="center_vertical"
                 android:textSize="18sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
             <LinearLayout
-                android:alpha="0.8"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_width="match_parent"
@@ -142,23 +191,40 @@
                 android:gravity="center"
                 android:background="@color/colorPrimaryDark"
                 android:orientation="horizontal">
-                <TextView
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Calculation method"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/calculation_method"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/calculationMethodTv"
+                        android:layout_weight="1"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white_dark"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
                 <Spinner
+                    android:layout_weight="1"
                     android:id="@+id/prayerTimeCalculationMethodSp"
                     android:background="@drawable/spinner_bg"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"/>
             </LinearLayout>
             <LinearLayout
-                android:alpha="0.8"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_width="match_parent"
@@ -166,18 +232,35 @@
                 android:gravity="center"
                 android:background="@color/colorPrimaryDark"
                 android:orientation="horizontal">
-                <TextView
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Juristic Method"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/juristic_method"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/juristicMethodTv"
+                        android:layout_weight="1"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white_dark"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
                 <Spinner
+                    android:layout_weight="1"
                     android:background="@drawable/spinner_bg"
                     android:id="@+id/juristicMethodSp"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"/>
             </LinearLayout>

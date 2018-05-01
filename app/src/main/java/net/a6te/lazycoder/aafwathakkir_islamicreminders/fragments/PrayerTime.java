@@ -1,7 +1,11 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -117,7 +121,36 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
 //    };
 
 
+    @Override
+    public void showGpsSettingAlert(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
 
+        // Setting Dialog Title
+        alertDialog.setTitle(R.string.gps_setting_title);
+
+        // Setting Dialog Message
+        alertDialog.setMessage(R.string.gps_setting_message);
+
+        // On pressing Settings button
+        alertDialog.setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int which) {
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                getContext().startActivity(intent);
+            }
+        });
+
+        // on pressing cancel button
+        alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        // Showing Alert Message
+        alertDialog.show();
+
+
+    }
 
     SwipeRefreshLayout.OnRefreshListener refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override

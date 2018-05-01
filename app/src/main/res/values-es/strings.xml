@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="required_data_connection">Lo sentimos, esta función requiere una conexión de datos. Por favor, conecte su dispositivo a internet.</string>
+    <string name="gps_setting_message">Lo sentimos, esta función requiere que habilites el GPS (ubicación) de tu dispositivo.</string>
+    <string name="prayer_time_for">Tiempos de oración para hoy para</string>
+</resources>

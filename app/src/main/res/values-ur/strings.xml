@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="gps_setting_message">افسوس، یہ فنکشن ڈیٹا کنکشن کی ضرورت ہے. براہ مہربانی اپنا آلہ انٹرنیٹ پر متصل کریں.</string>
+    <string name="required_data_connection">افسوس، اس فنکشن کی ضرورت ہے کہ آپ اپنے آلے کے GPS (مقام) کو فعال کریں.</string>
+    <string name="prayer_time_for">آج کے لئے نماز کے وقت</string>
+</resources>

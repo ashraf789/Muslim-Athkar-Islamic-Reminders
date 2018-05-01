@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:background="@color/colorPrimaryDark"
+    android:elevation="5dp">
 
     <TextView
         android:layout_toLeftOf="@+id/checkbox"
@@ -14,9 +16,10 @@
         android:layout_height="wrap_content"
         android:text="text"
         android:textAlignment="gravity"
-        android:textColor="#333333"/>
+        android:textColor="@color/color_green"/>
 
     <CheckBox
+        android:textColor="@color/color_green"
         android:layout_centerVertical="true"
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"

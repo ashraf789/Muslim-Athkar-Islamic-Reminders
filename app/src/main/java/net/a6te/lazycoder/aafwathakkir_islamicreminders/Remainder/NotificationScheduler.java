@@ -25,7 +25,7 @@ public class NotificationScheduler
     public static final int DAILY_REMINDER_REQUEST_CODE=100;
     public static final String TAG="NotificationScheduler";
 
-    public static void setReminder(Context context,Class<?> cls,int hour, int min)
+    public static void setReminder(Context context,Class<?> cls,int hour, int min, long interval)
     {
         Calendar calendar = Calendar.getInstance();
 
@@ -34,14 +34,15 @@ public class NotificationScheduler
         setCalendar.set(Calendar.MINUTE, min);
         setCalendar.set(Calendar.SECOND, 0);
 
-        // cancel already scheduled reminders
+//         cancel already scheduled reminders
         cancelReminder(context,cls);
 
         if(setCalendar.before(calendar))
-            setCalendar.add(Calendar.DATE,1);
+            setCalendar.add(Calendar.HOUR_OF_DAY,1);
+
+        setCalendar.add(Calendar.DATE,2);
 
         // Enable a receiver
-
         ComponentName receiver = new ComponentName(context, cls);
         PackageManager pm = context.getPackageManager();
 
@@ -53,7 +54,7 @@ public class NotificationScheduler
         Intent intent1 = new Intent(context, cls);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, DAILY_REMINDER_REQUEST_CODE, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager am = (AlarmManager) context.getSystemService(ALARM_SERVICE);
-        am.setInexactRepeating(AlarmManager.RTC_WAKEUP, setCalendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        am.setInexactRepeating(AlarmManager.RTC_WAKEUP, setCalendar.getTimeInMillis(), interval, pendingIntent);
 
     }
 

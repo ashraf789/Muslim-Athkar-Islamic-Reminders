@@ -91,7 +91,7 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
         displayFromAsset(SAMPLE_FILE,0);//default pdf will be start from 0 page
         try {
             searchBar.setMaxSuggestionCount(2);
-            searchBar.setHint("Find surah..");
+            searchBar.setHint(getString(R.string.find_surah));
 
             searchBar.addTextChangeListener(textWatcher);
 

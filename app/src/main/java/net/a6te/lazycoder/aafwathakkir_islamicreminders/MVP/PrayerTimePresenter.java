@@ -4,9 +4,11 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.GPSTracker;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.SavedData;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.adapters.PrayerTimeAdapter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.model.PrayerTimeModel;
 import net.alhazmy13.PrayerTimes.PrayerTime;
@@ -18,6 +20,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
     private MVPView.PrayerTimeView MVPView;
@@ -28,6 +31,9 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
     private GPSTracker gps;
     private double latitude, longitude;
     private String city = null;
+    private int calculationMethodId;
+    private int juristicMethodId;
+    private SavedData savedData;
 
 
     public PrayerTimePresenter(Fragment fragment) {
@@ -35,13 +41,16 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
 
         this.MVPView = (net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPView.PrayerTimeView) fragment;
         prayerTimes = new ArrayList<>();
+        savedData = new SavedData(fragment.getContext());
+        calculationMethodId = savedData.getCalculationMethodId();
+        juristicMethodId = savedData.getJuristicMethodId();
     }
 
     @Override
     public void startCalculation() {
         gps = new GPSTracker(fragment.getContext());
 
-        getLocation();
+        getLocation();// if gps setting is not available this method will call alert dialog message from prayerTime fragment so must call it from main Thread
         PerformBackground background = new PerformBackground();
         background.execute();
 
@@ -101,10 +110,31 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
 
         prayerTimes = new ArrayList<>();
 
+        // our prayer_calculation_method and juristic_method(from string) index number must be same as bellow format
+        //example for calculation method first index will be jafari = 0 position
+
+        /*
+        * // Calculation Methods
+        public static final int Jafari = 0; // Ithna Ashari
+        public static final int Karachi = 1; // University of Islamic Sciences, Karachi
+        public static final int ISNA = 2; // Islamic Society of North America (ISNA)
+        public static final int MWL = 3; // Muslim World League (MWL)
+        public static final int Makkah = 4; // Umm al-Qura, Makkah
+        public static final int Egypt = 5; // Egyptian General Authority of Survey
+        public static final int Custom = 6; // Custom Setting
+        public static final int Tehran = 7; // Institute of Geophysics, University of Tehran
+
+        final class Juristic{
+            // Juristic Methods
+            public static final int Shafii = 0; // Shafii (standard)
+            public static final int Hanafi = 1; // Hanafi
+        }*/
+
+
         PrayerTime prayers = new PrayerTime();
         prayers.setTimeFormat(PrayerTime.TimeFormat.Time12);
-        prayers.setCalcMethod(PrayerTime.Calculation.Karachi);
-        prayers.setAsrJuristic(PrayerTime.Juristic.Shafii);
+        prayers.setCalcMethod(calculationMethodId);//PrayerTime.Calculation.Karachi
+        prayers.setAsrJuristic(juristicMethodId);//PrayerTime.Juristic.Shafii
         prayers.setAdjustHighLats(PrayerTime.Adjusting.AngleBased);
         prayers.setOffsets(new int[]{0, 0, 0, 0, 0, 0, 0});
 
@@ -129,7 +159,7 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
             longitude = gps.getLongitude();
             return true;
         } else {
-            gps.showSettingsAlert();
+            MVPView.showGpsSettingAlert();
             return false;
         }
     }
@@ -140,14 +170,13 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
      * */
     public double getTimeZone() {
 
-        TimeZone tz = TimeZone.getDefault();
-        Calendar cal = GregorianCalendar.getInstance(tz);
-        int offsetInMillis = tz.getOffset(cal.getTimeInMillis());
 
-        String offset = String.format("%02d.%02d", Math.abs(offsetInMillis / 3600000), Math.abs((offsetInMillis / 60000) % 60));
-        offset = (offsetInMillis >= 0 ? "+" : "-") + offset;
+        Calendar mCalendar = new GregorianCalendar();
+        TimeZone mTimeZone = mCalendar.getTimeZone();
+        int mGMTOffset = mTimeZone.getRawOffset();
+        Double timeZone = Double.valueOf(TimeUnit.HOURS.convert(mGMTOffset, TimeUnit.MILLISECONDS));
 
-        return Double.valueOf(offset);
+        return timeZone;
     }
 
 }

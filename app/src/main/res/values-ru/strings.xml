@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="required_data_connection">К сожалению, для этой функции требуется подключение к данным. Подключите устройство к Интернету.</string>
+    <string name="gps_setting_message">К сожалению, для этой функции требуется подключение к данным. Подключите устройство к Интернету.</string>
+    <string name="prayer_time_for">К сожалению, для этой функции требуется подключение к данным. Подключите устройство к Интернету.</string>
+</resources>

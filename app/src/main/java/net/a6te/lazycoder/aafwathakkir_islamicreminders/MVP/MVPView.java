@@ -1,5 +1,6 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.widget.ArrayAdapter;
@@ -14,6 +15,9 @@ public interface MVPView {
 
         void storeBitMapImage(Bitmap bitmap);
 
+
+        void updateRemainder(Context context, int hour, int mint, long interval);
+
         void shareImage(Intent shareIntent);
     }
     interface PrayerTimeView{
@@ -22,6 +26,8 @@ public interface MVPView {
 
 
         void setCityName(String cityName);
+
+        void showGpsSettingAlert();
     }
     interface QiblaView{
         void setQiblaInfo(String qiblaDegree, String qiblaDistance);
@@ -39,13 +45,17 @@ public interface MVPView {
         void initializeSearchView(CustomSuggestionsAdapter adapter);
     }
     interface SettingsView{
-        void initializeLanguageSpinner(ArrayAdapter adapter);
 
-        void initializeFrequencySpinner(ArrayAdapter adapter);
-        void initializePrayerTimeCalculationSpinner(ArrayAdapter adapter);
-        void initializeJuristicSpinner(ArrayAdapter adapter);
+        void initializeLanguageSpinner(ArrayAdapter adapter, String selectedName, int position);
 
-        void initializeRemainderLanguage(ArrayAdapter adapter);
+        void initializeFrequencySpinner(ArrayAdapter adapter, String selectedName, int position);
+
+        void initializePrayerTimeCalculationSpinner(ArrayAdapter adapter, String selectedName, int position);
+
+        void initializeJuristicSpinner(ArrayAdapter adapter, String selectedName, int position);
+
+
+        void initializeRemainderLanguage(ArrayAdapter adapter, boolean[] selectedLanguage);
     }
 
 }

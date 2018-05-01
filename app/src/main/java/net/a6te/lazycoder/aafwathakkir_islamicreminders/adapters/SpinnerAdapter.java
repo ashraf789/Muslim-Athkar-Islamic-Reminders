@@ -21,14 +21,11 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
 
     private List<String > items;
     private Context mContext;
-    private int selectedItemIndex;
 
-
-    public SpinnerAdapter(@NonNull Context context, @NonNull List<String> objects, int selectedItemIndex) {
+    public SpinnerAdapter(@NonNull Context context, @NonNull List<String> objects) {
         super(context, 0, objects);
         items = objects;
         this.mContext = context;
-        this.selectedItemIndex = selectedItemIndex;
     }
 
     private class ViewHolder {
@@ -66,6 +63,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
         }
 
         holder.mTextView.setText(items.get(position));
+
 //        holder.mTextView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -74,7 +72,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
 //        });
 
 
-//        if ((position == selectedItemIndex)) {
+//        if ((position == selectedItemIndex  && selectedItemIndex != 0)) {
 //            holder.spinnerLl.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimary));
 //        }else{
 //            holder.spinnerLl.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimaryDark));

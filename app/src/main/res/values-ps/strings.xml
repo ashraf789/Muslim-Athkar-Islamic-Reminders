@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="required_data_connection">بخښنه غواړئ، دا فنکشن د ډاټا اړیکې ته اړتیا لري. مهرباني وکړئ خپل وسیله انټرنیټ ته وصل کړئ.</string>
+    <string name="gps_setting_message">بخښنه غواړئ، دا فعالیت ته اړتیا لري چې تاسو د خپل وسیله GPS (ځای) فعال کړئ.</string>
+    <string name="prayer_time_for">د نن ورځې لپاره د لمانځلو وخت</string>
+</resources>

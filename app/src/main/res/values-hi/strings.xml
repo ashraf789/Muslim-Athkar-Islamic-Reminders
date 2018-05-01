@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="required_data_connection">क्षमा करें, इस फ़ंक्शन को डेटा कनेक्शन की आवश्यकता होती है। कृपया अपने उपकरण को इंटरनेट से कनेक्ट करें</string>
+    <string name="gps_setting_message">क्षमा करें, इस फ़ंक्शन को आवश्यक है कि आप अपने डिवाइस की GPS (स्थान) को सक्षम करें।</string>
+    <string name="prayer_time_for">आज के लिए प्रार्थना समय</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="gps_setting_message">Maaf, fungsi ini membutuhkan koneksi data. Sambungkan perangkat Anda ke internet.</string>
+    <string name="required_data_connection">Maaf, fungsi ini mengharuskan Anda mengaktifkan GPS (lokasi) perangkat Anda.</string>
+    <string name="prayer_time_for">Waktu sholat untuk hari ini</string>
+</resources>

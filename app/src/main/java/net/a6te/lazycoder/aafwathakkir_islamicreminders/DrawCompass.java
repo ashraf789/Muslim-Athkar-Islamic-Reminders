@@ -1,6 +1,5 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,21 +7,16 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
-import java.text.DecimalFormat;
 
-/**
- * Created by BuAli_bluehorn on 12-May-15.
- */
+
 public class DrawCompass extends View {
 
 
     private float directionNorth = 0;
     private float directionQibla = 0;
 
-    private DecimalFormat df = new DecimalFormat("0.000");
     private Bitmap compassBackground;
     private Bitmap compassNeedle;
     private Matrix rotateNeedle = new Matrix();
@@ -32,6 +26,7 @@ public class DrawCompass extends View {
     private float centre_y = height * 0.5f;
     private Context context;
 
+    //all constructor
     public DrawCompass(Context context) {
         super(context);
         this.context = context;
@@ -56,6 +51,8 @@ public class DrawCompass extends View {
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(width, height);
     }
+
+    //this method will initialize the compass view
     private void initCompassView() {
         compassNeedle = BitmapFactory.decodeResource(getResources(), R.drawable.qibla_needle);
         compassBackground = BitmapFactory.decodeResource(getResources(), R.drawable.compass_view);
@@ -70,6 +67,8 @@ public class DrawCompass extends View {
         invalidate();
     }
 
+    //on this method compass direction will be set
+    //it will take three parameter northDirection, QiblaDirection and degree
     public void setDirections(float directionsNorth, float directionsQibla, float degree) {
         this.directionNorth = directionsNorth;
         this.directionQibla = directionsQibla;
@@ -80,6 +79,8 @@ public class DrawCompass extends View {
         invalidate();
     }
 
+    // now this method will draw the compass by using compass view
+    //which we already created on initCompassView() method
     @Override
     protected void onDraw(Canvas canvas) {
 

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Home"
+    android:background="@drawable/background_image">
+
+    <RelativeLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:background="@drawable/background_image"
+            android:layout_above="@+id/createNewImageBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/createImageRL"
+            android:orientation="vertical"
+            android:gravity="center">
+            <RelativeLayout
+                android:padding="10dp"
+                android:background="#c44caf50"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/appNameTv"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:maxLines="2"/>
+
+                <TextView
+                    android:layout_above="@+id/forumNameTv"
+                    android:layout_below="@+id/appNameTv"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="50sp"
+                    android:text="@string/atkhar_one"
+                    android:id="@+id/atkharTv"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/forumUrlTv"
+                    android:id="@+id/forumNameTv"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/forum_name"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/forumUrlTv"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_url"/>
+
+                <ImageButton
+                    android:id="@+id/shareIvBtn"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:elevation="5dp"
+                    android:background="@drawable/share_icon"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/share_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <Button
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/createNewImageBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_new"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

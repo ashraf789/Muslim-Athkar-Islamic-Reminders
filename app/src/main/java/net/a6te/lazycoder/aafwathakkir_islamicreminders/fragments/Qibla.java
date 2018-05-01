@@ -107,12 +107,12 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
 
     @Override
     public void notifyNoInternetConnection() {
-        Toast.makeText(context, "You have no Internet connection", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, R.string.no_internet_connection, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showSensorNotAvailable(){
-        Snackbar.make(view,"Sorry magnetic sensor not available",Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(view, R.string.magnetic_sensor_not_present,Snackbar.LENGTH_SHORT).show();
         errorTv.setVisibility(View.VISIBLE);
     }
 
@@ -121,20 +121,20 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
         // Setting Dialog Title
-        alertDialog.setTitle("GPS is settings");
+        alertDialog.setTitle(getContext().getResources().getString(R.string.gps_setting_title));
 
         // Setting Dialog Message
-        alertDialog.setMessage("GPS is not enabled. Do you want to go to settings menu?");
+        alertDialog.setMessage(getContext().getResources().getString(R.string.gps_setting_message));
 
         // On pressing Settings button
-        alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton(getContext().getResources().getString(R.string.settings), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
                 Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(intent);
             }
         });
         // on pressing cancel button
-        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton(getContext().getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
@@ -184,9 +184,9 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
                 new AlertDialog.Builder(context)
-                        .setTitle("Location Permission ")
-                        .setMessage("Access this device location")
-                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        .setTitle(getContext().getResources().getString(R.string.location_permission_title))
+                        .setMessage(getContext().getResources().getString(R.string.location_permission_message))
+                        .setPositiveButton(getContext().getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //Prompt the user once explanation has been shown
@@ -245,7 +245,7 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
     }
 
     public void permissionDenied(){
-        Toast.makeText(context,"please refresh screen to give permission",Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, R.string.refresh_screen_for_permission_message,Toast.LENGTH_SHORT).show();
 
     }
 

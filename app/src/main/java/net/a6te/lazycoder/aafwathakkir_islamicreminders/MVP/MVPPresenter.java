@@ -16,7 +16,9 @@ public interface MVPPresenter {
         void createBitMap(View view);
 
         void createIntentToShareImage(File filePath);
-        }
+
+        void initializeRemainder();
+    }
     interface PrayerTimePresenter{
         void startCalculation();
     }
@@ -38,5 +40,17 @@ public interface MVPPresenter {
     interface SettingsPresenter{
 
         void prepareAdapters();
+
+        void saveAppLanguageId(int id);
+
+        void saveRemainderLanguageId(int id);
+
+        void saveFrequencyId(int id);
+
+        void saveCalculationMethodId(int id);
+
+        void saveJuristicMethodId(int id);
+
+        void saveSelectedLanguage(boolean[] selectedLanguage);
     }
 }

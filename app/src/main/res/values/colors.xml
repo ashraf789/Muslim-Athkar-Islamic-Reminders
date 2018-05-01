@@ -10,5 +10,8 @@
 
     <color name="white_transparent">#80FFFFFF</color>
     <color name="white_transparent_lowest">#67ffffff</color>
+    <color name="color_green">#76FF03</color>
+    <color name="white_dark">#86ffffff</color>
+    <color name="black_transparent">#252222</color>
 
 </resources>

@@ -45,6 +45,7 @@ public class GPSTracker extends Service implements LocationListener {
 		getLocation();
 	}
 
+	//permission will be taken from MainActivity
 	@SuppressLint("MissingPermission")
 	public Location getLocation() {
 		try {
@@ -68,7 +69,6 @@ public class GPSTracker extends Service implements LocationListener {
 							LocationManager.NETWORK_PROVIDER,
 							MIN_TIME_BW_UPDATES,
 							MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-					Log.d("Network", "Network");
 					if (locationManager != null) {
 						location = locationManager
 								.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -85,7 +85,6 @@ public class GPSTracker extends Service implements LocationListener {
 								LocationManager.GPS_PROVIDER,
 								MIN_TIME_BW_UPDATES,
 								MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-						Log.d("GPS Enabled", "GPS Enabled");
 						if (locationManager != null) {
 							location = locationManager
 									.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -149,19 +148,20 @@ public class GPSTracker extends Service implements LocationListener {
 
 	/**
 	 * Function to show settings alert dialog
-	 * On pressing Settings button will lauch Settings Options
+	 * On pressing Settings button will launch Settings Options
 	 * */
+
 	public void showSettingsAlert(){
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
 
 		// Setting Dialog Title
-		alertDialog.setTitle("GPS is settings");
+		alertDialog.setTitle(R.string.gps_setting_title);
 
 		// Setting Dialog Message
-		alertDialog.setMessage("GPS is not enabled. Do you want to go to settings menu?");
+		alertDialog.setMessage(R.string.gps_setting_message);
 
 		// On pressing Settings button
-		alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+		alertDialog.setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog,int which) {
 				Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 				mContext.startActivity(intent);
@@ -169,7 +169,7 @@ public class GPSTracker extends Service implements LocationListener {
 		});
 
 		// on pressing cancel button
-		alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+		alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.cancel();
 			}
@@ -177,6 +177,8 @@ public class GPSTracker extends Service implements LocationListener {
 
 		// Showing Alert Message
 		alertDialog.show();
+
+
 	}
 
 	@Override

@@ -12,7 +12,6 @@ public class CheckInternetConnection {
 
     //checking internet connection if internet is connected then it will return true
     // otherwise it will return false
-
     public boolean netCheck(Context context){
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo nInfo = cm.getActiveNetworkInfo();

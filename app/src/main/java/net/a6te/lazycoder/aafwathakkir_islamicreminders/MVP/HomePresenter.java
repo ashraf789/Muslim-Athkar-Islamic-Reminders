@@ -8,9 +8,14 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.Remainder.AlarmReceiver;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.Remainder.NotificationScheduler;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.SavedData;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.Utils;
 
 import java.io.File;
 
@@ -19,11 +24,13 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
     private Fragment fragment;
     private Context context;
     private MVPView.HomeView mvpView;
+    private SavedData savedData;
 
     public HomePresenter(Fragment fragment) {
         this.fragment = fragment;
         mvpView = (MVPView.HomeView) fragment;
         context = fragment.getContext();
+        savedData = new SavedData(context);
     }
 
     @Override
@@ -35,6 +42,22 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
     public void createIntentToShareImage(File filePath){
         mvpView.shareImage(getShareIntent(filePath));
 
+    }
+
+    @Override
+    public void initializeRemainder(){
+
+        long newInterval = savedData.getNewRemainderInterval();
+        long oldInterval = savedData.getOldRemainderInterval();
+
+        if (newInterval != oldInterval) {
+
+            int hour = savedData.getAppStartHour();
+            int mint = savedData.getAppStartMin();
+
+            mvpView.updateRemainder(context, hour, mint, newInterval);
+            savedData.setOldRemainderInterval(newInterval);
+        }
     }
 
 

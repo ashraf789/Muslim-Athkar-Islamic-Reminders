@@ -1,15 +1,27 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.widget.ArrayAdapter;
 
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.LocaleManager;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.SavedData;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.adapters.SpinnerAdapter;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.adapters.SpinnerCheckBoxAdapter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.adapters.SpinnerWithCheckBoxAdapter;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Home;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.interfaces.CallAttachBaseContext;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.model.SpinnerWithCheckBoxItem;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
 
@@ -21,12 +33,22 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
     private List<SpinnerWithCheckBoxItem> remainderLanguages;
 
     private MVPView.SettingsView mvpView;
+    private SavedData savedData;
+    private CallAttachBaseContext callAttachBaseContext;
+    private LocaleManager localeManager;
+    private Home homeFragment;
+    private ArrayAdapter<String> adapter;
+
 
 
 
     public SettingsPresenter(Fragment fragment) {
         this.fragment = fragment;
         mvpView = (MVPView.SettingsView) fragment;
+        savedData = new SavedData(fragment.getContext());
+        callAttachBaseContext = (CallAttachBaseContext) fragment.getContext();
+        localeManager = new LocaleManager();
+        homeFragment = new Home();
     }
 
     @Override
@@ -44,13 +66,14 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
         List<String> temp = Arrays.asList(fragment.getContext().getResources().getStringArray(R.array.remainder_language));
         int size = temp.size();
 
-        // we are taking data from sting_array and prepare our custom adapter
-        for (int i = 0; i< size; i++){
-            remainderLanguages.add(new SpinnerWithCheckBoxItem(temp.get(i),false));
-        }
+        boolean[] selectedLanguage = savedData.getRemainderLanguages(size);
 
-        SpinnerWithCheckBoxAdapter adapter = new SpinnerWithCheckBoxAdapter(fragment.getContext(),remainderLanguages);
-        mvpView.initializeRemainderLanguage(adapter);
+        adapter = new ArrayAdapter<String>(fragment.getContext(), android.R.layout.simple_spinner_item);
+        for (String data: temp){
+            adapter.add(data);
+        }
+        mvpView.initializeRemainderLanguage(adapter,selectedLanguage);
+
     }
 
 
@@ -58,36 +81,140 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
         juristicMethods = null;
         juristicMethods = Arrays.asList(fragment.getContext().getResources().getStringArray(R.array.juristic_method));
 
-        SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), juristicMethods,0);
-        mvpView.initializeJuristicSpinner(adapter);
+        //get saved data from shared preferences
+        int indexNo = savedData.getJuristicMethodId();
+        String selectedName = juristicMethods.get(indexNo);
+
+        SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), juristicMethods);
+        mvpView.initializeJuristicSpinner(adapter,selectedName,indexNo);
     }
 
     private void prayerTimeCalculationMethod() {
         prayerTimeCalculationMethods = null;
         prayerTimeCalculationMethods = Arrays.asList(fragment.getContext().getResources().getStringArray(R.array.prayer_calculation_method));
 
-        SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), prayerTimeCalculationMethods,0);
-        mvpView.initializePrayerTimeCalculationSpinner(adapter);
+
+        int indexNo = savedData.getCalculationMethodId();
+        String selectedName = prayerTimeCalculationMethods.get(indexNo);
+
+
+        SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), prayerTimeCalculationMethods);
+        mvpView.initializePrayerTimeCalculationSpinner(adapter,selectedName, indexNo);
     }
 
     private void frequencyAdapter() {
         frequencies = null;
         frequencies = Arrays.asList(fragment.getContext().getResources().getStringArray(R.array.frequency));
 
-        SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), frequencies,0);
-        mvpView.initializeFrequencySpinner(adapter);
+        int indexNo = savedData.getFrequencySelectedId();
+        String selectedName = frequencies.get(indexNo);
+
+
+        SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), frequencies);
+        mvpView.initializeFrequencySpinner(adapter,selectedName, indexNo);
     }
 
     private void languageAdapter() {
         languages = null;
         languages = Arrays.asList(fragment.getContext().getResources().getStringArray(R.array.app_languages));
 
-        String temp = languages.get(0);
-        languages.set(0,languages.get(2));
-        languages.set(2,temp);
+        int indexNo = savedData.getAppLanguageSelectedId();
+        String selectedName = languages.get(indexNo);
+
+        SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), languages);
+        mvpView.initializeLanguageSpinner(adapter, selectedName, indexNo);
+
+    }
 
 
-        SpinnerAdapter adapter = new SpinnerAdapter(fragment.getContext(), languages,1);
-        mvpView.initializeLanguageSpinner(adapter);
+    //save selected item id into shared preferences
+
+    @Override
+    public void saveAppLanguageId(int id){
+        savedData.setAppLanguageSelectedId(id);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(500);
+                    callAttachBaseContext.onAttachBaseContext(fragment.getContext());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+    }
+
+    @Override
+    public void saveRemainderLanguageId(int id){
+        savedData.setRemainderLanguageSelectedId(id);
+    }
+    @Override
+    public void saveFrequencyId(int id){
+        long newInterval = calculateInterval(id);
+        Calendar calendar = Calendar.getInstance();
+
+        savedData.setFrequencySelectedId(id);
+        savedData.setNewRemainderInterval(newInterval);
+
+        savedData.setAppStartHour(calendar.get(Calendar.HOUR_OF_DAY));
+        savedData.setAppStartMin(calendar.get(Calendar.MINUTE));
+
+        if (newInterval != savedData.getOldRemainderInterval()) {
+            homeFragment.updateRemainder(fragment.getContext(),calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), newInterval);
+            savedData.setOldRemainderInterval(newInterval);
+        }
+    }
+
+    private long calculateInterval(int id) {
+        /*
+        <string-array name="frequency">
+            <item>Once a day</item>
+            <item>Every 12 hours</item>
+            <item>Every 6 hours</item>
+            <item>Every 3 hours</item>
+            <item>Every 1 hour</item>
+        </string-array>
+        */
+
+        switch (id){
+            case 0:
+//                return (1000);
+
+            //Once a day
+                return (24*60 * 60 * 1000);
+            case 1:
+                //Every 12 hours
+                return (12*60 * 60 * 1000);
+            case 2:
+                //Every 6 hours
+                return (6*60 * 60 * 1000);
+            case 3:
+                //Every 3 hours
+                return (3*60 * 60 * 1000);
+//                return (60 * 1000);
+            case 4:
+                //Every 1 hours
+                return (1*60 * 60 * 1000);
+//                return (60 * 500);
+
+        }
+
+        return (24*60 * 60 * 1000);
+    }
+
+    @Override
+    public void saveCalculationMethodId(int id){
+        savedData.setCalculationMethodId(id);
+    }
+    @Override
+    public void saveJuristicMethodId(int id){
+        savedData.setJuristicMethodId(id);
+    }
+    @Override
+    public void saveSelectedLanguage(boolean[] selectedLanguage){
+        savedData.storeRemainderLanguages(selectedLanguage);
     }
 }

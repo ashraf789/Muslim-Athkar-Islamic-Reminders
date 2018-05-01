@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="required_data_connection">对不起，这个功能需要数据连接。 请将您的设备连接到互联网。</string>
+    <string name="gps_setting_message">很抱歉，此功能要求您启用设备的GPS（位置）。</string>
+    <string name="prayer_time_for">祈祷时间的城市是</string>
+</resources>

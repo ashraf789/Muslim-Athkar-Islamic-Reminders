@@ -1,12 +1,9 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -17,22 +14,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.widget.ShareButton;
+import com.thomashaertel.widget.MultiSpinner;
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.HomePresenter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPPresenter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPView;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.Remainder.AlarmReceiver;
-import net.a6te.lazycoder.aafwathakkir_islamicreminders.Remainder.LocalData;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.Remainder.NotificationScheduler;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.SavedData;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.Utils;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -52,7 +50,6 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     private TextView autoSizeTv;
 
 
-    private LocalData localData;
     private RelativeLayout createImageRL;//relative layout that we will convert to an image bitmap
     private ImageView shareIvBtn;
     private Button createNewImageBtn;
@@ -61,14 +58,11 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     private String imageName;
     private MVPPresenter.HomePresenter presenter;
 
-    private int hour, min;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         view =  inflater.inflate(R.layout.fragment_home, container, false);
         initializeAll();
         return view;
@@ -76,10 +70,6 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
     private void initializeAll() {
         autoSizeTv = view.findViewById(R.id.atkharTv);
-        localData = new LocalData(getContext().getApplicationContext());
-
-        hour = localData.get_hour();
-        min = localData.get_min();
         createImageRL = view.findViewById(R.id.createImageRL);
         shareIvBtn = view.findViewById(R.id.shareIvBtn);
         createNewImageBtn = view.findViewById(R.id.createNewImageBtn);
@@ -94,21 +84,30 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
         shareIvBtn.setOnClickListener(this);
         createNewImageBtn.setOnClickListener(this);
+
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        autoSizeTv.setText(getContext().getResources().getString(R.string.atkhar_one));
         TextViewCompat.setAutoSizeTextTypeWithDefaults(autoSizeTv, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM);
 
-        if (localData.getReminderStatus()){
-            NotificationScheduler.setReminder(getContext(), AlarmReceiver.class, 11, 27);
-        }else {
-            NotificationScheduler.cancelReminder(getContext(), AlarmReceiver.class);
-        }
+        //initialize remainder
+        presenter.initializeRemainder();
+    }
 
 
+    @Override
+    public void updateRemainder(Context context,int hour, int mint, long interval){
+
+        //at first cancel previous reminder
+        NotificationScheduler.cancelReminder(context, AlarmReceiver.class);
+        NotificationScheduler.setReminder(context, AlarmReceiver.class, hour, mint,interval);
+
+        Log.d(Utils.TAG, "updated remainder time");
     }
 
     @Override
@@ -124,7 +123,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
                 break;
             case R.id.createNewImageBtn:
                 presenter.createBitMap(createImageRL);
-                Toast.makeText(getContext(),"New Image Created",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.new_image_created,Toast.LENGTH_SHORT).show();
 
                 break;
 
@@ -140,7 +139,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     //this is method will call from presenter it will take a intent then it will make share event
     @Override
     public void shareImage(Intent shareIntent){
-        startActivity(Intent.createChooser(shareIntent, "Share Via..."));
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_via)));
 
 //        ShareLinkContent content = new ShareLinkContent.Builder()
 //                .setContentUrl(Uri.parse("https://developers.facebook.com"))

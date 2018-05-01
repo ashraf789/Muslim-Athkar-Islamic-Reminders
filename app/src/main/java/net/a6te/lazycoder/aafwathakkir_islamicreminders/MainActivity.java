@@ -2,6 +2,7 @@ package net.a6te.lazycoder.aafwathakkir_islamicreminders;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,20 +17,25 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
-import com.crashlytics.android.Crashlytics;
-import io.fabric.sdk.android.Fabric;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Home;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.PrayerTime;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Qibla;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Quran;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Settings;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.interfaces.CallAttachBaseContext;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext{
 
     private RelativeLayout navHomeRl,navPrayerRl,navQiblaRl,navQuranRl,navSettingRl,navUrlRl;
 
@@ -39,10 +45,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private View view;
 
+
+    @Override
+    public void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleManager.setLocale(newBase));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        Fabric.with(this, new Crashlytics());
+
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -58,8 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toggle.syncState();
         transaction.add(R.id.containerMain,fragment);
         transaction.commit();
-
-
 
     }
 
@@ -90,6 +101,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         checkLocationPermission();//this method will take location permission from user
     }
 
+
+    //navigation menu onclick listener
+    //after click on a navigation menu fragment will be change
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -159,9 +173,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
                 new AlertDialog.Builder(this)
-                        .setTitle("Location Permission ")
-                        .setMessage("Access this device location")
-                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        .setTitle(R.string.location_permission_title)
+                        .setMessage(R.string.location_permission_message)
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //Prompt the user once explanation has been shown
@@ -172,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         })
                         .create()
                         .show();
+
             } else {
                 // No explanation needed, we can request the permission.
                 ActivityCompat.requestPermissions(MainActivity.this,
@@ -184,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
 
             //permission already granted
-            //like 4.0,4.9 don,t need runtime permission
+            //like android version < 5(lollipop) don,t need runtime permission
             return true;
 
         }
@@ -215,8 +230,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void permissionDenied() {
-        Toast.makeText(this,"Permission denied",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.permission_denied,Toast.LENGTH_SHORT).show();
     }
 
 
+    @Override
+    public void onAttachBaseContext(Context context){
+//        super.attachBaseContext(context);
+
+        finish();
+        startActivity(getIntent());
+    }
+
+    @Override
+    public void recreate() {
+        super.recreate();
+
+    }
 }

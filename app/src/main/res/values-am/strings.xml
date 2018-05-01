@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="required_data_connection">ይቅርታ ይህ ኣገልግሎት የኢንተርኔት ግንኙነት ይፈልጋል:: እባክዎ ስልኮን ከኢንተርኔት ጋር ያገናኙ::</string>
+    <string name="gps_setting_message">"ይቅርታ, ይህ ኣገልግሎት የስልኮን GPS ማብራት ይፈልጋል;; "</string>
+    <string name="prayer_time_for">የዛሬ የሶላት ሰኣቶች</string>
+</resources>

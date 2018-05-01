@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="gps_setting_message">عذرًا ، تتطلب هذه الوظيفة اتصالاً بالبيانات. يرجى توصيل جهازك بالإنترنت.</string>
+    <string name="required_data_connection">عذرًا ، تتطلب هذه الوظيفة اتصالاً بالبيانات. يرجى توصيل جهازك بالإنترنت.</string>
+    <string name="prayer_time_for">"أوقات الصلاة لهذا اليوم لمنطقة "</string>
+</resources>

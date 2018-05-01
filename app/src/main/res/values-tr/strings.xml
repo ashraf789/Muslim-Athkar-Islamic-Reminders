@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="gps_setting_message">Üzgünüz, bu işlev bir veri bağlantısı gerektirir. Lütfen cihazınızı internete bağlayın.</string>
+    <string name="required_data_connection">Maalesef bu işlev, cihazınızın GPS\'ini (konumunuzu) etkinleştirmenizi gerektirir.</string>
+    <string name="prayer_time_for">"Bugün için namaz vakitleri icin "</string>
+</resources>

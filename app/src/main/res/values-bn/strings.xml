@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="required_data_connection">" দুঃখিত, এই ফাংশনটির জন্য একটি ডেটা সংযোগ প্রয়োজন। আপনার ডিভাইসটি ইন্টারনেটে সংযুক্ত করুন।"</string>
+    <string name="gps_setting_message">দুঃখিত, এই ফাংশনটি আপনার ডিভাইসের GPS (অবস্থান) সক্ষম করার প্রয়োজন।</string>
+    <string name="prayer_time_for">আজকের জন্য প্রার্থনা বার</string>
+</resources>
