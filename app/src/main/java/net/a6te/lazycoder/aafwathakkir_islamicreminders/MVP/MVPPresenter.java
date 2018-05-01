@@ -18,6 +18,10 @@ public interface MVPPresenter {
         void createIntentToShareImage(File filePath);
 
         void initializeRemainder();
+
+        void prepareAtkhar();
+
+        void prepareAtkharBtnPress();
     }
     interface PrayerTimePresenter{
         void startCalculation();

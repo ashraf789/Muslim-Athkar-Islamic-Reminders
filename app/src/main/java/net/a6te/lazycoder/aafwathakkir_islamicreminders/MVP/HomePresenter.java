@@ -8,29 +8,33 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.text.format.DateUtils;
 import android.view.View;
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
-import net.a6te.lazycoder.aafwathakkir_islamicreminders.Remainder.AlarmReceiver;
-import net.a6te.lazycoder.aafwathakkir_islamicreminders.Remainder.NotificationScheduler;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.SavedData;
-import net.a6te.lazycoder.aafwathakkir_islamicreminders.Utils;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.database.MyDatabase;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Random;
 
 public class HomePresenter implements MVPPresenter.HomePresenter {
 
-    private Fragment fragment;
     private Context context;
     private MVPView.HomeView mvpView;
     private SavedData savedData;
+    private MyDatabase myDatabase;
+
 
     public HomePresenter(Fragment fragment) {
-        this.fragment = fragment;
         mvpView = (MVPView.HomeView) fragment;
         context = fragment.getContext();
         savedData = new SavedData(context);
+        myDatabase = new MyDatabase(context);
     }
 
     @Override
@@ -59,6 +63,8 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
             savedData.setOldRemainderInterval(newInterval);
         }
     }
+
+
 
 
     //this method will create a bitmap image from given view
@@ -95,5 +101,86 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
 
         return shareIntent;
     }
+
+    /*
+     * this method will make ready data for new atkhar image
+     * */
+    @Override
+    public void prepareAtkhar(){
+
+        GregorianCalendar gc = new GregorianCalendar();
+        long today = gc.getTimeInMillis();
+
+
+        long lastCreatedDay = savedData.getLastImageCreatedDate();
+        int lastAtkharId = savedData.getLastAthkarId();
+
+        if (DateUtils.isToday(lastCreatedDay)){
+            getAtkhar(lastAtkharId);
+        }else{
+            lastAtkharId += 1;
+            savedData.setLastAthkarId(lastAtkharId);
+            savedData.setLastImageCreatedDate(today);
+            getAtkhar(lastAtkharId);
+        }
+    }
+
+
+    /*
+    * if user press create button then we don't need to wait for new date also we will change old information
+    * */
+    @Override
+    public void prepareAtkharBtnPress(){
+
+        GregorianCalendar gc = new GregorianCalendar();
+        long today = gc.getTimeInMillis();
+        int lastAtkharId = savedData.getLastAthkarId();
+
+        lastAtkharId += 1;
+        savedData.setLastAthkarId(lastAtkharId);
+        savedData.setLastImageCreatedDate(today);
+        getAtkhar(lastAtkharId);
+    }
+
+    public void getAtkhar(int id){
+
+        String tableName = getTableName();
+        int lastDataId = myDatabase.getLastDataId(tableName);
+        String atkhar;
+
+        if (lastDataId >= id){
+            //still available new data
+            atkhar = myDatabase.getAtkhar(tableName, id);
+        }else {
+//            myDatabase.getLastDataId(tableName);//no new data available we already seen last atkhar
+            id = 0;
+            atkhar = myDatabase.getAtkhar(tableName, id);
+            savedData.setLastAthkarId(id);
+        }
+
+        mvpView.setTodayImage(atkhar);
+    }
+
+    public String getTableName(){
+        List<String > tableLanguages = Arrays.asList(context.getResources().getStringArray(R.array.remainder_language_table_name));
+
+        int size = tableLanguages.size();
+        boolean[] remainderLanguages = savedData.getRemainderLanguages(size);
+
+        ArrayList<Integer> indexNoOfSelectedLanguage = new ArrayList<>();
+
+        for (int i = 0; i < size; i++){
+            if (remainderLanguages[i]){
+                indexNoOfSelectedLanguage.add(i);
+            }
+        }
+
+        size = indexNoOfSelectedLanguage.size();
+        Random random= new Random();
+        int randomSelectedLanguageIndex = random.nextInt(size);
+
+        return tableLanguages.get(indexNoOfSelectedLanguage.get(randomSelectedLanguageIndex));
+    }
+
 
 }

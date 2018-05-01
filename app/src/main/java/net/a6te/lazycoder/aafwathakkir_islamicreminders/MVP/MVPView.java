@@ -13,6 +13,8 @@ import java.util.List;
 public interface MVPView {
     interface HomeView{
 
+        void setTodayImage(String data);
+
         void storeBitMapImage(Bitmap bitmap);
 
 

@@ -3,6 +3,8 @@ package net.a6te.lazycoder.aafwathakkir_islamicreminders;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.GregorianCalendar;
+
 public class SavedData {
     private static final String APP_PREFS_NAME = "SavedData";
 
@@ -21,6 +23,8 @@ public class SavedData {
     private static final String NEW_INTERVAL = "newInterval";
 
     private static final String REMAINDER_LANGUAGES = "remainderLanguages";
+    private static final String LAST_IMAGE_CREATED_DATE_IN_MILI = "lastImageCreatedDate";
+    private static final String LAST_ATHKAR_ID = "lastAthkarId";
 
 
     public SavedData(Context context)
@@ -135,9 +139,29 @@ public class SavedData {
         }
 
         if (allFalse){
-            array[0] = true;//if no language select then english index position[0] will be true
+            array[1] = true;//if no language select then arabic index position[1] will be true
         }
         return array;
     }
+
+    public long getLastImageCreatedDate(){
+        GregorianCalendar gc = new GregorianCalendar();
+        return appSharedPrefs.getLong(LAST_IMAGE_CREATED_DATE_IN_MILI,gc.getTimeInMillis());//default value is today time
+    }
+
+    public void setLastImageCreatedDate(long dateInMili){
+        prefsEditor.putLong(LAST_IMAGE_CREATED_DATE_IN_MILI, dateInMili);
+        prefsEditor.commit();
+    }
+
+    public int getLastAthkarId(){
+        return appSharedPrefs.getInt(LAST_ATHKAR_ID,0);//o means didn't create yet
+    }
+
+    public void setLastAthkarId(int id){
+        prefsEditor.putInt(LAST_ATHKAR_ID, id);
+        prefsEditor.commit();
+    }
+
 
 }

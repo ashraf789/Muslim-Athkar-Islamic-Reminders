@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.TextViewCompat;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,6 +92,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         shareIvBtn.setOnClickListener(this);
         createNewImageBtn.setOnClickListener(this);
         ring= MediaPlayer.create(getContext(),R.raw.shared_thank_you);
+        TextViewCompat.setAutoSizeTextTypeWithDefaults(autoSizeTv, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM);
 
     }
 
@@ -98,13 +100,11 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        autoSizeTv.setText(getContext().getResources().getString(R.string.atkhar_one));
-        TextViewCompat.setAutoSizeTextTypeWithDefaults(autoSizeTv, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM);
-
         //initialize remainder
         presenter.initializeRemainder();
-    }
+        presenter.prepareAtkhar();
 
+    }
 
     @Override
     public void updateRemainder(Context context,int hour, int mint, long interval){
@@ -128,10 +128,11 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
                 shareImageBtn();
                 break;
             case R.id.createNewImageBtn:
-                presenter.createBitMap(createImageRL);
+//                presenter.createBitMap(createImageRL);
+                presenter.prepareAtkharBtnPress();
                 Toast.makeText(getContext(), R.string.new_image_created,Toast.LENGTH_SHORT).show();
-
                 break;
+
 
         }
     }
@@ -163,6 +164,15 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         }
     }
 
+
+    @Override
+    public void setTodayImage(String  data){
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            autoSizeTv.setText(Html.fromHtml(data,Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            autoSizeTv.setText(Html.fromHtml(data));
+        }
+    }
     @Override
     public void storeBitMapImage(Bitmap bitmap){
 

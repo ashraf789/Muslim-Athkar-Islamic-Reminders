@@ -60,5 +60,6 @@ dependencies {
     }
 
     implementation('com.thomashaertel:multispinner:0.1.1')
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
 
 }

@@ -1,14 +1,13 @@
 <resources>
-    <string name="facebook_app_id" translatable="false">179442992713579</string>
+    <string name="facebook_app_id">179442992713579</string>
     <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
-    <string name="app_title" translatable="false">AAF WaThakkir</string>
-    <string name="app_slogan" translatable="false">Islamic Reminders</string>
-    <string name="forum_name" translatable="false">Forumislam</string>
-    <string name="app_url" translatable="false">www.Forumislam.com</string>
-    <string name="app_google_play_url" translatable="false">http://play.google.com/</string>
-    <string name="atkhar_one">﻿اللهم اكفني بحلالك عن حرامك</string>
-    <string name="qibla_degree" translatable="false">0.00 °</string>
-    <string name="km" translatable="false">KM</string>
+    <string name="app_title">AAF WaThakkir</string>
+    <string name="app_slogan">Islamic Reminders</string>
+    <string name="forum_name">Forumislam</string>
+    <string name="app_url">www.Forumislam.com</string>
+    <string name="app_google_play_url">http://play.google.com/</string>
+    <string name="qibla_degree">0.00 °</string>
+    <string name="km">KM</string>
 
     <string-array name="app_languages">
         <item>English or English</item>
@@ -54,24 +53,49 @@
 
 
 
+
     <string-array name="remainder_language">
         <item>English</item>
+        <item>العربية</item>
+        <item>Indonesian</item>
+        <item>नहीं</item>
+        <item>أردو</item>
+        <item>বাংলা</item>
+        <item>Türkçe</item>
+        <item>فارسي</item>
+        <item>የእንግሊዝኛ</item>
+        <item>پښتو</item>
+        <item>русский</item>
+        <item>Chinese Simplified</item>
+        <item>Chinese Traditional</item>
+        <item>Behasa Melayu</item>
+        <item>Azərbaycan</item>
+        <item>Español</item>
         <item>Français</item>
         <item>Deutsch</item>
-        <item>العربية</item>
-        <item>أردو</item>
-        <item>فارسي</item>
-        <item>Bahasa Melayu</item>
-        <item>Türkçe</item>
-        <item>Hindi</item>
-        <item>Bahasa Indonesia</item>
-        <item>Swahili</item>
-        <item>Panjabi</item>
-        <item>Chinese traditional</item>
-        <item>Chinese simple</item>
-        <item>Russian</item>
-        <item>Azerbaijani</item>
     </string-array>
+
+    <string-array name="remainder_language_table_name">
+        <item>english</item>
+        <item>arabic</item>
+        <item>indonesian</item>
+        <item>hindi</item>
+        <item>urdu</item>
+        <item>bengali</item>
+        <item>turkish</item>
+        <item>persian</item>
+        <item>amharic</item>
+        <item>pashto</item>
+        <item>russian</item>
+        <item>chinese_simplified</item>
+        <item>chinese_traditional</item>
+        <item>malay</item>
+        <item>azerbaijani</item>
+        <item>spanish</item>
+        <item>french</item>
+        <item>german</item>
+    </string-array>
+
 
     <string-array name="frequency">
         <item>Once a day</item>
@@ -80,9 +104,6 @@
         <item>Every 3 hours</item>
         <item>Every 1 hour</item>
     </string-array>
-
-
-
 
     <string-array name="prayer_calculation_method">
         <item>Jafari</item>
@@ -100,42 +121,38 @@
         <item>Hanafi Hanafi</item>
     </string-array>
 
-
-
-    <string name="gps_setting_title" translatable="false">GPS settings</string>
-    <string name="settings" translatable="false">Settings</string>
-    <string name="navigation_drawer_open" translatable="false">Navigation open</string>
-    <string name="navigation_drawer_close" translatable="false">Navigation Close</string>
-    <string name="search_hint" translatable="false">surah name or page no</string>
-    <string name="app_signature" translatable="false">Download this beautiful free and ad-free app of Koran / Islamic reminders from the </string>
-    <string name="permission_denied" translatable="false">Permission denied</string>
-    <string name="location_permission_title" translatable="false">Location Permission</string>
-    <string name="ok" translatable="false">OK</string>
-    <string name="location_permission_message" translatable="false">Access this device location</string>
-    <string name="cancel" translatable="false">Cancel</string>
-    <string name="notification_title" translatable="false">You have one quran athkar to read</string>
-    <string name="notification_subtitle" translatable="false">Watch this now?</string>
-    <string name="find_surah" translatable="false">Find surah..</string>
-    <string name="no_internet_connection" translatable="false">You have no Internet connection</string>
-    <string name="magnetic_sensor_not_present" translatable="false">Sorry magnetic sensor not available</string>
-    <string name="refresh_screen_for_permission_message" translatable="false">please refresh screen for permission message</string>
-    <string name="new_image_created" translatable="false">New Image Created</string>
-    <string name="share_via" translatable="false">Share Via…</string>
-    <string name="create_new" translatable="false">Create New</string>
-    <string name="city_name" translatable="false">City</string>
-    <string name="distance_from_qibla" translatable="false">Distance from Qibla</string>
-    <string name="magnetic_sensor_not_available" translatable="false">Magnetic sensor not available !!</string>
-    <string name="app_language" translatable="false">App Language</string>
-    <string name="remainder_language" translatable="false">Remainder Language</string>
-    <string name="frequency" translatable="false">Frequency</string>
-    <string name="prayer" translatable="false">Prayer</string>
-    <string name="calculation_method" translatable="false">Calculation method</string>
-    <string name="juristic_method" translatable="false">Juristic Method</string>
+    <string name="gps_setting_title">GPS settings</string>
+    <string name="settings">Settings</string>
+    <string name="navigation_drawer_open">Navigation open</string>
+    <string name="navigation_drawer_close">Navigation Close</string>
+    <string name="search_hint">surah name or page no</string>
+    <string name="app_signature">Download this beautiful free and ad-free app of Koran / Islamic reminders from the </string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="location_permission_title">Location Permission</string>
+    <string name="ok">OK</string>
+    <string name="location_permission_message">Access this device location</string>
+    <string name="cancel">Cancel</string>
+    <string name="notification_title">You have one quran athkar to read</string>
+    <string name="notification_subtitle">Watch this now?</string>
+    <string name="find_surah">Find surah..</string>
+    <string name="no_internet_connection">You have no Internet connection</string>
+    <string name="magnetic_sensor_not_present">Sorry magnetic sensor not available</string>
+    <string name="refresh_screen_for_permission_message">please refresh screen for permission message</string>
+    <string name="new_image_created">New Image Created</string>
+    <string name="share_via">Share Via…</string>
+    <string name="create_new">Create New</string>
+    <string name="city_name">City</string>
+    <string name="distance_from_qibla">Distance from Qibla</string>
+    <string name="magnetic_sensor_not_available">Magnetic sensor not available !!</string>
+    <string name="app_language">App Language</string>
+    <string name="remainder_language">Remainder Language</string>
+    <string name="frequency">Frequency</string>
+    <string name="prayer">Prayer</string>
+    <string name="calculation_method">Calculation method</string>
+    <string name="juristic_method">Juristic Method</string>
 
     <string name="required_data_connection">Sorry, this function requires a data connection. Please connect your device to the internet.</string>
     <string name="gps_setting_message">GPS is not enabled. Do you want to go to settings menu?</string>
     <string name="prayer_time_for">Prayer times for today for</string>
     <string name="save">Save</string>
-
-
 </resources>
