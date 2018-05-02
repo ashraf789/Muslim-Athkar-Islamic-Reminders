@@ -68,6 +68,7 @@
 
             </LinearLayout>
             <TextView
+                android:visibility="gone"
                 android:alpha="0.5"
                 android:background="#fff"
                 android:layout_marginTop="10dp"

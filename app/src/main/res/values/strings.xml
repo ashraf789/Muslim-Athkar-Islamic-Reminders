@@ -63,7 +63,7 @@
         <item>বাংলা</item>
         <item>Türkçe</item>
         <item>فارسي</item>
-        <item>የእንግሊዝኛ</item>
+        <item>Amharic</item>
         <item>پښتو</item>
         <item>русский</item>
         <item>Chinese Simplified</item>
@@ -150,6 +150,7 @@
     <string name="prayer">Prayer</string>
     <string name="calculation_method">Calculation method</string>
     <string name="juristic_method">Juristic Method</string>
+    <string name="gps_permission">Sorry, this function requires a GPS connection. Please refresh your screen.</string>
 
     <string name="required_data_connection">Sorry, this function requires a data connection. Please connect your device to the internet.</string>
     <string name="gps_setting_message">GPS is not enabled. Do you want to go to settings menu?</string>

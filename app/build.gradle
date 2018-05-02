@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "net.a6te.lazycoder.aafwathakkir_islamicreminders"
-        minSdkVersion 17
+        minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -14,6 +14,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        lintOptions {
+            disable 'MissingTranslation'
+            checkReleaseBuilds false
+            abortOnError false
+        }
         release {
             minifyEnabled true
             shrinkResources true

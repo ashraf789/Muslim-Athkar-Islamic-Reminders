@@ -24,6 +24,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
+import com.crashlytics.android.Crashlytics;
+
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Home;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.PrayerTime;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Qibla;
@@ -35,6 +37,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
+
+import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext{
 
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Fabric.with(this, new Crashlytics());
+        Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -77,8 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /*
-    * initializing all variable object ect
-    * */
+     * initializing all variable object ect
+     * */
     private void initializeAll() {
 
         ring= MediaPlayer.create(MainActivity.this,R.raw.open_app_salam);
@@ -160,52 +164,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public boolean checkLocationPermission() {
+    public void checkLocationPermission() {
 
-        String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        if (ContextCompat.checkSelfPermission(this, String.valueOf(PERMISSIONS))
-                != PackageManager.PERMISSION_GRANTED) {
+        final String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+        if(!hasPermissions(this, PERMISSIONS)){
+//            ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
+
+//        }
+//        if (ContextCompat.checkSelfPermission(this, String.valueOf(PERMISSIONS))
+//                != PackageManager.PERMISSION_GRANTED) {
 
             //permission is not already granted we need to request for permission
 
-            // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
-                    String.valueOf(PERMISSIONS))) {
+//            // Should we show an explanation?
+//            if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, PERMISSIONS)) {
 
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-                new AlertDialog.Builder(this)
-                        .setTitle(R.string.location_permission_title)
-                        .setMessage(R.string.location_permission_message)
-                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                //Prompt the user once explanation has been shown
-                                ActivityCompat.requestPermissions(MainActivity.this,
-                                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                                        MY_PERMISSIONS_REQUEST_LOCATION);
-                            }
-                        })
-                        .create()
-                        .show();
+            // Show an explanation to the user *asynchronously* -- don't block
+            // this thread waiting for the user's response! After the user
+            // sees the explanation, try again to request the permission.
+//            new AlertDialog.Builder(this)
+//                    .setTitle(R.string.location_permission_title)
+//                    .setMessage(R.string.location_permission_message)
+//                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            //Prompt the user once explanation has been shown
+//                            ActivityCompat.requestPermissions(MainActivity.this,
+//                                    PERMISSIONS,
+//                                    MY_PERMISSIONS_REQUEST_LOCATION);
+//                        }
+//                    })
+//                    .create()
+//                    .show();
+//
 
-            } else {
-                // No explanation needed, we can request the permission.
-                ActivityCompat.requestPermissions(MainActivity.this,
-                        PERMISSIONS,
-                        MY_PERMISSIONS_REQUEST_LOCATION);
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    PERMISSIONS,
+                    MY_PERMISSIONS_REQUEST_LOCATION);
 
-            }
+//            } else {
+//                // No explanation needed, we can request the permission.
+//                ActivityCompat.requestPermissions(MainActivity.this,
+//                        PERMISSIONS,
+//                        MY_PERMISSIONS_REQUEST_LOCATION);
+//
+//            }
 
-            return false;
         } else {
 
             //permission already granted
             //like android version < 5(lollipop) don,t need runtime permission
-            return true;
 
         }
+    }
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 
@@ -234,6 +256,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void permissionDenied() {
         Toast.makeText(this, R.string.permission_denied,Toast.LENGTH_SHORT).show();
+
     }
 
 
@@ -247,7 +270,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void playSound(){
-//        ring.start();
+        ring.start();
     }
 
     @Override

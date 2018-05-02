@@ -42,7 +42,7 @@ public class CustomSuggestionsAdapter extends SuggestionsAdapter<Surah, CustomSu
     @Override
     public void onBindSuggestionHolder(final Surah suggestion, SuggestionHolder holder, int position) {
         holder.title.setText(suggestion.getName());
-        holder.subtitle.setText("Page "+String.valueOf(suggestion.getIndexNo()+1));
+        holder.subtitle.setText(String.valueOf(suggestion.getIndexNo()+1));
 
 
         holder.layoutSuggestionLl.setOnClickListener(new View.OnClickListener() {

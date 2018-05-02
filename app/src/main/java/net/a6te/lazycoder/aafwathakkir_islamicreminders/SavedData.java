@@ -1,8 +1,10 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders;
 
+import android.app.AlarmManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class SavedData {
@@ -76,16 +78,20 @@ public class SavedData {
     //when user change remainder frequency that time will be starting time for remainder
     //default value is 9am 0min
     public int getAppStartHour(){
-        return appSharedPrefs.getInt(HOUR,9);
+
+        Calendar calendar = Calendar.getInstance();
+        return appSharedPrefs.getInt(HOUR,calendar.get(Calendar.HOUR_OF_DAY));
     }
 
     public void setAppStartHour(int hour){
+
         prefsEditor.putInt(HOUR, hour);
         prefsEditor.commit();
     }
 
     public int getAppStartMin(){
-        return appSharedPrefs.getInt(MIN,0);
+        Calendar calendar = Calendar.getInstance();
+        return appSharedPrefs.getInt(MIN,calendar.get(Calendar.MINUTE));
     }
 
     public void setAppStartMin(int min){
@@ -95,7 +101,8 @@ public class SavedData {
 
 
     public long getNewRemainderInterval(){
-        return appSharedPrefs.getLong(NEW_INTERVAL,(24*60 * 60 * 1000));//(24*60 * 60 * 1000) = 24 interval is once a day remainder
+//        return appSharedPrefs.getLong(NEW_INTERVAL,(24*60 * 60 * 1000));//(24*60 * 60 * 1000) = 24 interval is once a day remainder
+        return appSharedPrefs.getLong(NEW_INTERVAL, AlarmManager.INTERVAL_DAY);//24 hours once a day remainder
     }
 
     public void setNewRemainderInterval(long inteval){

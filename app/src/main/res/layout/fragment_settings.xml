@@ -103,6 +103,8 @@
                 </LinearLayout>
 
                 <com.thomashaertel.widget.MultiSpinner
+                    android:backgroundTint="@color/colorPrimaryDark"
+
                     android:textSize="16sp"
                     android:gravity="left|center_vertical"
                     android:textColor="@color/color_green"

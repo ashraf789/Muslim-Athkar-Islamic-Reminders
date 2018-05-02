@@ -204,8 +204,14 @@ public class Settings extends Fragment implements MVPView.SettingsView{
 
     public void playSound(){
         if (!ring.isPlaying()) {
-//            ring.start();
+            ring.start();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ring= MediaPlayer.create(getContext(),R.raw.saved_alhamdu);
     }
 
     @Override

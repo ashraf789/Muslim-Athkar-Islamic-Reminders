@@ -110,7 +110,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     public void updateRemainder(Context context,int hour, int mint, long interval){
 
         //at first cancel previous reminder
-        NotificationScheduler.cancelReminder(context, AlarmReceiver.class);
+//        NotificationScheduler.cancelReminder(context, AlarmReceiver.class);
         NotificationScheduler.setReminder(context, AlarmReceiver.class, hour, mint,interval);
 
         Log.d(Utils.TAG, "updated remainder time");
@@ -122,13 +122,10 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
             case R.id.shareIvBtn:
 
                 File filePath = new File(imageDirectory,"/"+imageName);
-                if (!filePath.exists()){
-                    presenter.createBitMap(createImageRL);
-                }
+                presenter.createBitMap(createImageRL);//this will create new image
                 shareImageBtn();
                 break;
             case R.id.createNewImageBtn:
-//                presenter.createBitMap(createImageRL);
                 presenter.prepareAtkharBtnPress();
                 Toast.makeText(getContext(), R.string.new_image_created,Toast.LENGTH_SHORT).show();
                 break;
@@ -201,7 +198,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     }
     public void playSound(){
         if (!ring.isPlaying()){
-//            ring.start();
+            ring.start();
         }
     }
 

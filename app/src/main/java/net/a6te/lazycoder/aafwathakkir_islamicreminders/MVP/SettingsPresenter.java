@@ -1,5 +1,6 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP;
 
+import android.app.AlarmManager;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -173,26 +174,28 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
 
         switch (id){
             case 0:
-//                return (1000);
+//                return (3*60*1000);
 
             //Once a day
-                return (24*60 * 60 * 1000);
+                return AlarmManager.INTERVAL_DAY;
             case 1:
                 //Every 12 hours
-                return (12*60 * 60 * 1000);
+                return AlarmManager.INTERVAL_HALF_DAY;
             case 2:
                 //Every 6 hours
-                return (6*60 * 60 * 1000);
+                return (AlarmManager.INTERVAL_HOUR*6);
             case 3:
                 //Every 3 hours
-                return (3*60 * 60 * 1000);
+                return (AlarmManager.INTERVAL_HOUR*3);
 //                return (60 * 1000);
             case 4:
                 //Every 1 hours
-                return (1*60 * 60 * 1000);
+                return AlarmManager.INTERVAL_HOUR;
 //                return (60 * 500);
 
         }
+
+        Log.d("TEST", "calculateInterval:  called");
 
         return (24*60 * 60 * 1000);
     }
