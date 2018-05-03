@@ -156,4 +156,5 @@
     <string name="gps_setting_message">GPS is not enabled. Do you want to go to settings menu?</string>
     <string name="prayer_time_for">Prayer times for today for</string>
     <string name="save">Save</string>
+    <string name="settings_saved">New settings saved</string>
 </resources>

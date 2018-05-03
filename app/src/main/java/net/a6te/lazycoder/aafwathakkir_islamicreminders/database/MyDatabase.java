@@ -5,8 +5,11 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
+import android.util.Log;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+
+import java.io.File;
 
 public class MyDatabase extends SQLiteAssetHelper {
     private static final String DATABASE_NAME = "quran_atkhar.db";
@@ -17,10 +20,13 @@ public class MyDatabase extends SQLiteAssetHelper {
 
     public static final String COL_ID = "id";
     public static final String COL_ATKHAR = "atkhar";
+    public static String DB_PATH;
+    private Context context;
 
     public MyDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
+        this.context = context;
+        DB_PATH = "/data/data/"+context.getPackageName()+"/databases/";
         // you can use an alternate constructor to specify a database location
         // (such as a folder on the sd card)
         // you must ensure that this folder is available and you have permission
@@ -30,6 +36,8 @@ public class MyDatabase extends SQLiteAssetHelper {
     }
 
     public String getAtkhar(String table, int id) {
+
+        deleteAssetsFolderDb();//already copied assets folder database now delete that old database
 
         //if no data found then this will be the message
         String getData="no data found on '"+table+"' table";
@@ -60,35 +68,22 @@ public class MyDatabase extends SQLiteAssetHelper {
 
     }
 
-    public int getLastDataId(String table) {
-//
-//        int lastIndex = 0;
-        SQLiteDatabase db = getReadableDatabase();
-        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+    public void deleteAssetsFolderDb(){
+        File file = new File(DB_PATH+DATABASE_NAME);
+        if(file.exists()) {
+            file.delete();
+            Log.d("TEST", "Database deleted.");
+        }
 
-//        String [] sqlSelect = {"id","atkhar"};
-//        String sqlTables = table;
-//
-//        qb.setTables(sqlTables);
-//
-//        try {
-//            Cursor cursor = qb.query(db, sqlSelect, null, null,
-//                    null, null, COL_ID+" DESC");
-//
-//            cursor.moveToFirst();
-//            lastIndex = cursor.getInt(cursor.getColumnIndex(COL_ID)+0);
-//
-//
-//            Cursor cursor= db.rawQuery("SELECT COUNT (*) FROM " + table, null);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
-//        DatabaseUtils.queryNumEntries(
-//
+        boolean b = context.deleteDatabase(DATABASE_NAME);
+        Log.d("TEST", "deleteAssetsFolderDb: is database deleted = "+b);
+    }
+
+    public int getLastDataId(String table) {
+
+        SQLiteDatabase db = getReadableDatabase();
         int totalData = (int) DatabaseUtils.queryNumEntries(db, table);
         db.close();
-//
 
         //database index start from 1 but array index start from 0 so we are subtracting 1 from database index
         return (totalData-1);

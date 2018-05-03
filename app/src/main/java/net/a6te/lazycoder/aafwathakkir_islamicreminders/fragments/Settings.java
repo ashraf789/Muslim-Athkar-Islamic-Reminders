@@ -4,6 +4,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.thomashaertel.widget.MultiSpinner;
 
@@ -199,6 +201,7 @@ public class Settings extends Fragment implements MVPView.SettingsView{
             }
 
             playSound();
+            Snackbar.make(view,getContext().getResources().getString(R.string.settings_saved),Snackbar.LENGTH_SHORT).show();
         }
     };
 

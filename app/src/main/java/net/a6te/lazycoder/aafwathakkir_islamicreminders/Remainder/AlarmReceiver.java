@@ -13,11 +13,15 @@ import net.a6te.lazycoder.aafwathakkir_islamicreminders.SavedData;
 public class AlarmReceiver extends BroadcastReceiver {
 
     String TAG = "AlarmReceiver";
+    private Context context;
+    private SavedData savedData;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         // TODO Auto-generated method stub
 
+        this.context = context;
+        savedData = new SavedData(context);
         if (intent.getAction() != null && context != null) {
             if (intent.getAction().equalsIgnoreCase(Intent.ACTION_BOOT_COMPLETED)) {
                 // Set the alarm here.
@@ -32,6 +36,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotificationScheduler.showNotification(context, MainActivity.class,
                 context.getString(R.string.notification_title), context.getString(R.string.notification_subtitle));
 
+
+        savedData.setLastAthkarId((savedData.getLastAthkarId()+1));
     }
 }
 

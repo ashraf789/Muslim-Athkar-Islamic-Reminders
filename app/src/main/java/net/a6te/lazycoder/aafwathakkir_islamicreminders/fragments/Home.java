@@ -120,8 +120,6 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.shareIvBtn:
-
-                File filePath = new File(imageDirectory,"/"+imageName);
                 presenter.createBitMap(createImageRL);//this will create new image
                 shareImageBtn();
                 break;
@@ -155,9 +153,13 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
         if (requestCode == SHARE_IMAGE_REQUEST_CODE ){
 
-            if (!(resultCode == RESULT_CANCELED)){
+            if (resultCode == RESULT_OK){
                 playSound();
+                Log.d("TEST", "onActivityResult: play sound ");
+
             }
+
+            Log.d("TEST", "onActivityResult: "+resultCode);
         }
     }
 
@@ -197,9 +199,15 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
     }
     public void playSound(){
-        if (!ring.isPlaying()){
-            ring.start();
-        }
+        ring= MediaPlayer.create(getContext(),R.raw.shared_thank_you);
+        ring.start();
+
+    }
+
+    @Override
+    public void onResume() {
+        ring= MediaPlayer.create(getContext(),R.raw.shared_thank_you);
+        super.onResume();
     }
 
     @Override

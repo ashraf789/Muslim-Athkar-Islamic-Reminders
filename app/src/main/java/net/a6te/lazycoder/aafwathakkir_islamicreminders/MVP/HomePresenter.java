@@ -115,14 +115,16 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
         long lastCreatedDay = savedData.getLastImageCreatedDate();
         int lastAtkharId = savedData.getLastAthkarId();
 
-        if (DateUtils.isToday(lastCreatedDay)){
-            getAtkhar(lastAtkharId);
-        }else{
-            lastAtkharId += 1;
-            savedData.setLastAthkarId(lastAtkharId);
-            savedData.setLastImageCreatedDate(today);
-            getAtkhar(lastAtkharId);
-        }
+        getAtkhar(lastAtkharId);
+
+//        if (DateUtils.isToday(lastCreatedDay)){
+//            getAtkhar(lastAtkharId);
+//        }else{
+//            lastAtkharId += 1;
+//            savedData.setLastAthkarId(lastAtkharId);
+//            savedData.setLastImageCreatedDate(today);
+//            getAtkhar(lastAtkharId);
+//        }
     }
 
 
@@ -174,13 +176,10 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
                 indexNoOfSelectedLanguage.add(i);
             }
         }
-
         size = indexNoOfSelectedLanguage.size();
         Random random= new Random();
         int randomSelectedLanguageIndex = random.nextInt(size);
 
         return tableLanguages.get(indexNoOfSelectedLanguage.get(randomSelectedLanguageIndex));
     }
-
-
 }

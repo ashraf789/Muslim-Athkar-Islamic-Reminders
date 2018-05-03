@@ -174,8 +174,6 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
 
         switch (id){
             case 0:
-//                return (3*60*1000);
-
             //Once a day
                 return AlarmManager.INTERVAL_DAY;
             case 1:
@@ -191,13 +189,9 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
             case 4:
                 //Every 1 hours
                 return AlarmManager.INTERVAL_HOUR;
-//                return (60 * 500);
-
         }
 
-        Log.d("TEST", "calculateInterval:  called");
-
-        return (24*60 * 60 * 1000);
+        return AlarmManager.INTERVAL_HOUR;
     }
 
     @Override
