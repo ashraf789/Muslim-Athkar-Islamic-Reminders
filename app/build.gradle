@@ -11,6 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField("String", "API_KEY", API_KEY)
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -65,6 +66,9 @@ dependencies {
     }
 
     implementation('com.thomashaertel:multispinner:0.1.1')
-    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+
+
+    implementation 'com.squareup.retrofit2:retrofit:2.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
 
 }

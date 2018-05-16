@@ -56,7 +56,11 @@ public class Settings extends Fragment implements MVPView.SettingsView{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        presenter.prepareAdapters();
+        try {
+            presenter.prepareAdapters();
+        }catch (Exception e){
+
+        }
 
     }
 

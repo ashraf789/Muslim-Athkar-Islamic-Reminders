@@ -27,6 +27,7 @@ public class SavedData {
     private static final String REMAINDER_LANGUAGES = "remainderLanguages";
     private static final String LAST_IMAGE_CREATED_DATE_IN_MILI = "lastImageCreatedDate";
     private static final String LAST_ATHKAR_ID = "lastAthkarId";
+    private static final String LAST_UPDATE_CODE = "lastUpdateCode";
 
 
     public SavedData(Context context)
@@ -170,5 +171,13 @@ public class SavedData {
         prefsEditor.commit();
     }
 
+
+    public void saveLastUpdateCode(int updateCode){
+        prefsEditor.putInt(LAST_UPDATE_CODE,updateCode);
+        prefsEditor.commit();
+    }
+    public int getLastUpdateCode(){
+        return appSharedPrefs.getInt(LAST_UPDATE_CODE,0);
+    }
 
 }

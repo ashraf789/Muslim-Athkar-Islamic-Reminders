@@ -39,6 +39,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Set;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -64,6 +66,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     private MVPPresenter.HomePresenter presenter;
     private MediaPlayer ring;
     public static final int SHARE_IMAGE_REQUEST_CODE=101;
+    private Set<String > test;
 
 
     @Override
@@ -72,6 +75,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_home, container, false);
         initializeAll();
+
         return view;
     }
 
@@ -85,7 +89,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
         appName = getContext().getResources().getString(R.string.app_title);
         imageDirectory = new File(Environment.getExternalStorageDirectory() + "/"+appName+"/");
-        imageName = "test.jpg";
+        imageName = "Athkar.jpg";
 
         presenter = new HomePresenter(this);
 

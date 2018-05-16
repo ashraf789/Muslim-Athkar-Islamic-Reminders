@@ -45,6 +45,10 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="27b695160327127fcd19210e585688fd69fa5d22" />
+
+        <service
+            android:name=".DownloadData"
+            android:exported="false" />
     </application>
 
 </manifest>

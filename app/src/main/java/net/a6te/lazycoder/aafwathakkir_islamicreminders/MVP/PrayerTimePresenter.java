@@ -88,15 +88,6 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
             MVPView.initializeRecyclerView(adapter);
             MVPView.setCityName(city);
 
-//            if (aVoid){
-//                MVPView.setCityName(city);
-//
-//            }else {
-//                MVPView.setCityName("null");
-//            }
-//
-
-
         }
     }
 

@@ -108,39 +108,23 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
     @Override
     public void prepareAtkhar(){
 
-        GregorianCalendar gc = new GregorianCalendar();
-        long today = gc.getTimeInMillis();
 
+        int lastAthkarId = savedData.getLastAthkarId();
+        getAtkhar(lastAthkarId);
 
-        long lastCreatedDay = savedData.getLastImageCreatedDate();
-        int lastAtkharId = savedData.getLastAthkarId();
-
-        getAtkhar(lastAtkharId);
-
-//        if (DateUtils.isToday(lastCreatedDay)){
-//            getAtkhar(lastAtkharId);
-//        }else{
-//            lastAtkharId += 1;
-//            savedData.setLastAthkarId(lastAtkharId);
-//            savedData.setLastImageCreatedDate(today);
-//            getAtkhar(lastAtkharId);
-//        }
     }
 
 
     /*
-    * if user press create button then we don't need to wait for new date also we will change old information
-    * */
+     * if user press create button then we don't need to wait for new date also we will change old information
+     * */
     @Override
     public void prepareAtkharBtnPress(){
 
-        GregorianCalendar gc = new GregorianCalendar();
-        long today = gc.getTimeInMillis();
         int lastAtkharId = savedData.getLastAthkarId();
 
         lastAtkharId += 1;
         savedData.setLastAthkarId(lastAtkharId);
-        savedData.setLastImageCreatedDate(today);
         getAtkhar(lastAtkharId);
     }
 
@@ -154,7 +138,8 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
             //still available new data
             atkhar = myDatabase.getAtkhar(tableName, id);
         }else {
-//            myDatabase.getLastDataId(tableName);//no new data available we already seen last atkhar
+
+            //no new data available we already seen last atkhar lets start again from first
             id = 0;
             atkhar = myDatabase.getAtkhar(tableName, id);
             savedData.setLastAthkarId(id);

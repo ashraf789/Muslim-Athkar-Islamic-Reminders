@@ -2,9 +2,11 @@ package net.a6te.lazycoder.aafwathakkir_islamicreminders;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -12,8 +14,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +30,7 @@ import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.database.DBHelper;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Home;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.PrayerTime;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Qibla;
@@ -40,7 +45,7 @@ import java.util.concurrent.TimeUnit;
 
 import io.fabric.sdk.android.Fabric;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext, SwipeRefreshLayout.OnRefreshListener{
 
     private RelativeLayout navHomeRl,navPrayerRl,navQiblaRl,navQuranRl,navSettingRl,navUrlRl;
 
@@ -50,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private View view;
     private MediaPlayer ring;
+    private Intent mServiceIntent;
+    private SwipeRefreshLayout swipeLayout;
+
 
 
     @Override
@@ -104,8 +112,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         transaction = getSupportFragmentManager().beginTransaction();
 
         selectedNav = findViewById(R.id.navHomeRl);//navigation default selected menu is home menu
+        swipeLayout = findViewById(R.id.swipeLayout);
+        swipeLayout.setOnRefreshListener(this);
 
         checkLocationPermission();//this method will take location permission from user
+
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver
+                ,new IntentFilter(Utils.BROADCAST_ACTION));
+        mServiceIntent = new Intent(this, DownloadData.class);
+        this.startService(mServiceIntent);//start IntentService for fetch data from online server
+
     }
 
 
@@ -169,53 +186,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
         if(!hasPermissions(this, PERMISSIONS)){
-//            ActivityCompat.requestPermissions(this, PERMISSIONS, MY_PERMISSIONS_REQUEST_LOCATION);
-
-//        }
-//        if (ContextCompat.checkSelfPermission(this, String.valueOf(PERMISSIONS))
-//                != PackageManager.PERMISSION_GRANTED) {
-
-            //permission is not already granted we need to request for permission
-
-//            // Should we show an explanation?
-//            if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, PERMISSIONS)) {
-
-            // Show an explanation to the user *asynchronously* -- don't block
-            // this thread waiting for the user's response! After the user
-            // sees the explanation, try again to request the permission.
-//            new AlertDialog.Builder(this)
-//                    .setTitle(R.string.location_permission_title)
-//                    .setMessage(R.string.location_permission_message)
-//                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            //Prompt the user once explanation has been shown
-//                            ActivityCompat.requestPermissions(MainActivity.this,
-//                                    PERMISSIONS,
-//                                    MY_PERMISSIONS_REQUEST_LOCATION);
-//                        }
-//                    })
-//                    .create()
-//                    .show();
-//
-
             ActivityCompat.requestPermissions(MainActivity.this,
                     PERMISSIONS,
                     MY_PERMISSIONS_REQUEST_LOCATION);
 
-//            } else {
-//                // No explanation needed, we can request the permission.
-//                ActivityCompat.requestPermissions(MainActivity.this,
-//                        PERMISSIONS,
-//                        MY_PERMISSIONS_REQUEST_LOCATION);
-//
-//            }
-
         } else {
-
             //permission already granted
             //like android version < 5(lollipop) don,t need runtime permission
-
         }
     }
 
@@ -277,5 +254,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         ring.stop();
         super.onDestroy();
+    }
+
+
+    //broadcast receiver
+    BroadcastReceiver messageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean isUpdateData = intent.getBooleanExtra(Utils.EXTENDED_IS_UPDATE_DATA,false);
+
+            String message = intent.getStringExtra(Utils.EXTENDED_DATA_STATUS_MESSAGE);
+
+            swipeLayout.setRefreshing(false);
+            /*
+            * if all data is up to date then we don't need to show this message to user
+            * */
+            if (!message.equals(getString(R.string.data_all_up_to_date))){
+                Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
+            }
+            //new data update
+            if (isUpdateData){
+                fragment = new Home();
+                changeSelectedNavBg(findViewById(R.id.navHomeRl));
+
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.containerMain,fragment);
+                transaction.commit();
+                closeDrawer();
+            }
+        }
+    };
+
+    @Override
+    public void onRefresh() {
+        this.startService(mServiceIntent);
+
     }
 }
