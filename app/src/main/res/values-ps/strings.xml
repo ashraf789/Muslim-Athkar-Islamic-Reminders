@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">او یادونه - اسلامي یادونه</string>
     <string name="required_data_connection">بخښنه غواړئ، دا فنکشن د ډاټا اړیکې ته اړتیا لري. مهرباني وکړئ خپل وسیله انټرنیټ ته وصل کړئ.</string>
     <string name="gps_setting_message">بخښنه غواړئ، دا فعالیت ته اړتیا لري چې تاسو د خپل وسیله GPS (ځای) فعال کړئ.</string>
     <string name="prayer_time_for">د نن ورځې لپاره د لمانځلو وخت</string>
+    <string name="isha">عشا</string>
+    <string name="magrib">مغرب</string>
+    <string name="asr">عصر</string>
+    <string name="dhuhr">ظهر</string>
+    <string name="sunrise">شروق</string>
+    <string name="fajr">فجر</string>
+    <string name="create_new">نوی</string>
+    <string name="share_thanks">شریک کړئ. مننه.</string>
+    <string name="save">خوندي شوی</string>
+    <string name="app_signature">د نوبل قرآن کریم / د سټیټورور لخوا د اسلامي یاددښتانو دغه وړیا وړیا او وړیا وړیا اپلوډ ډاونلوډ کړئ.</string>
+    <string name="remainder_language">په کوم ژبو کې غواړئ چې یادونکو ته وګورئ؟ (تاسو کولی شئ لاندې لاندې ژبو انتخاب کړئ)</string>
+    <string name="frequency">تاسو څو ځله غواړئ چې یو ایت / یادونکی وګورئ؟</string>
+    <string name="app_language">مهرباني وکړئ خپل ژبه غوره کړئ:</string>
+
+    <string name="app_title">او یادونه</string>
+    <string name="app_slogan">اسلامي یادونه</string>
+
+    <string-array name="frequency">
+        <item>هر یو ساعت</item>
+        <item>هر درې ساعته</item>
+        <item>هر شپږ ساعته</item>
+        <item>هر 12 ساعته</item>
+        <item>یوه ورځ یو ځل</item>
+    </string-array>
+
 </resources>

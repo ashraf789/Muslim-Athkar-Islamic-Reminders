@@ -1,8 +1,10 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments;
 
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.TextViewCompat;
 import android.text.Html;
 import android.util.Log;
@@ -79,6 +82,8 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         return view;
     }
 
+
+
     private void initializeAll() {
         autoSizeTv = view.findViewById(R.id.atkharTv);
         createImageRL = view.findViewById(R.id.createImageRL);
@@ -97,6 +102,9 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         createNewImageBtn.setOnClickListener(this);
         ring= MediaPlayer.create(getContext(),R.raw.shared_thank_you);
         TextViewCompat.setAutoSizeTextTypeWithDefaults(autoSizeTv, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM);
+
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(connectionStatusReceiver
+                ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
 
     }
 
@@ -117,7 +125,6 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 //        NotificationScheduler.cancelReminder(context, AlarmReceiver.class);
         NotificationScheduler.setReminder(context, AlarmReceiver.class, hour, mint,interval);
 
-        Log.d(Utils.TAG, "updated remainder time");
     }
 
     @Override
@@ -129,7 +136,6 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
                 break;
             case R.id.createNewImageBtn:
                 presenter.prepareAtkharBtnPress();
-                Toast.makeText(getContext(), R.string.new_image_created,Toast.LENGTH_SHORT).show();
                 break;
 
 
@@ -202,6 +208,23 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
 
     }
+
+    BroadcastReceiver connectionStatusReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle bundle = intent.getExtras();
+            String message = bundle.getString(Utils.CONNECTION_STATUS);
+
+            if (bundle.getInt(Utils.STATUS_CODE) == Utils.ALL_CONNECTED){
+                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+
+            }else if (bundle.getInt(Utils.STATUS_CODE) == Utils.NO_CONNECTION_CODE){
+                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    };
+
     public void playSound(){
         ring= MediaPlayer.create(getContext(),R.raw.shared_thank_you);
         ring.start();

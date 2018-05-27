@@ -3,9 +3,11 @@ package net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,8 +31,8 @@ import net.a6te.lazycoder.aafwathakkir_islamicreminders.CheckInternetConnection;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPPresenter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPView;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.PrayerTimePresenter;
-import net.a6te.lazycoder.aafwathakkir_islamicreminders.MainActivity;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.Utils;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.adapters.PrayerTimeAdapter;
 
 
@@ -77,6 +80,10 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         refreshLayout.setOnRefreshListener(refreshListener);
         internetConnectionTest = new CheckInternetConnection();
         ring= MediaPlayer.create(getContext(),R.raw.prayer_allahu_akbar);
+
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(connectionStatusReceiver
+                ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
+
     }
 
     @Override
@@ -92,12 +99,14 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         if (internetConnectionTest.netCheck(getContext())){
 
             if (checkLocationPermission()){
-                presenter.startCalculation();
-                errorNoInternetTv.setVisibility(View.GONE);
+                presenter.startCalculationPrayerTime();
+                unVisibleErrorTv();
             }else {
-                Toast.makeText(getContext(),getResources().getString(R.string.gps_permission), Toast.LENGTH_SHORT).show();
-                errorNoInternetTv.setText(getContext().getResources().getString(R.string.gps_permission));
-                errorNoInternetTv.setVisibility(View.VISIBLE);
+                Toast.makeText(getContext(),getResources().getString(R.string.gps_setting_message), Toast.LENGTH_SHORT).show();
+//                errorNoInternetTv.setText(getContext().getResources().getString(R.string.gps_permission));
+//                errorNoInternetTv.setVisibility(View.VISIBLE);
+
+                visibleErrorTv(getContext().getResources().getString(R.string.gps_setting_message));
             }
 
         }else {
@@ -112,6 +121,14 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         if (adapter != null) {
             prayerTimeRV.setAdapter(adapter);
         }
+    }
+
+    public void visibleErrorTv(String message){
+        errorNoInternetTv.setVisibility(View.VISIBLE);
+        errorNoInternetTv.setText(message);
+    }
+    public void unVisibleErrorTv(){
+        errorNoInternetTv.setVisibility(View.GONE);
     }
 
     @Override
@@ -165,6 +182,7 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
+                visibleErrorTv(getContext().getString(R.string.gps_setting_message));
             }
         });
 
@@ -295,4 +313,19 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
 
     }
 
+    BroadcastReceiver connectionStatusReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle bundle = intent.getExtras();
+            String message = bundle.getString(Utils.CONNECTION_STATUS);
+
+            if (bundle.getInt(Utils.STATUS_CODE) == Utils.ALL_CONNECTED){
+                unVisibleErrorTv();
+                presenter.startCalculationPrayerTime();
+            }else if (bundle.getInt(Utils.STATUS_CODE) == Utils.NO_CONNECTION_CODE){
+                visibleErrorTv(message);
+            }
+
+        }
+    };
 }

@@ -163,32 +163,30 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
 
     private long calculateInterval(int id) {
         /*
-        <string-array name="frequency">
-            <item>Once a day</item>
-            <item>Every 12 hours</item>
-            <item>Every 6 hours</item>
-            <item>Every 3 hours</item>
-            <item>Every 1 hour</item>
-        </string-array>
+    <string-array name="frequency">
+        <item>Every 1 hour</item>
+        <item>Every 3 hours</item>
+        <item>Every 6 hours</item>
+        <item>Every 12 hours</item>
+        <item>Once a day</item>
         */
 
         switch (id){
             case 0:
-            //Once a day
-                return AlarmManager.INTERVAL_DAY;
+                //Every 1 hours
+                return AlarmManager.INTERVAL_HOUR;
             case 1:
-                //Every 12 hours
-                return AlarmManager.INTERVAL_HALF_DAY;
+                //Every 3 hours
+                return (AlarmManager.INTERVAL_HOUR*3);
             case 2:
                 //Every 6 hours
                 return (AlarmManager.INTERVAL_HOUR*6);
             case 3:
-                //Every 3 hours
-                return (AlarmManager.INTERVAL_HOUR*3);
-//                return (60 * 1000);
+                //Every 12 hours
+                return AlarmManager.INTERVAL_HALF_DAY;
             case 4:
-                //Every 1 hours
-                return AlarmManager.INTERVAL_HOUR;
+                //Once a day
+                return AlarmManager.INTERVAL_DAY;
         }
 
         return AlarmManager.INTERVAL_HOUR;

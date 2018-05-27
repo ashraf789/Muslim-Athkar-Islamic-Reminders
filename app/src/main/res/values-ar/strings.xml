@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">وذكّر - تنبيهات إسلاميّة</string>
     <string name="gps_setting_message">عذرًا ، تتطلب هذه الوظيفة اتصالاً بالبيانات. يرجى توصيل جهازك بالإنترنت.</string>
     <string name="required_data_connection">عذرًا ، تتطلب هذه الوظيفة اتصالاً بالبيانات. يرجى توصيل جهازك بالإنترنت.</string>
     <string name="prayer_time_for">"أوقات الصلاة لهذا اليوم لمنطقة "</string>
+    <string name="app_language">من فضلك قم باختيار لغتك</string>
+    <string name="remainder_language">بأي لغة تحب ان ترى التنبيهات؟ (باستطاعتك اختيار أكثر من لغة)</string>
+    <string name="app_signature">قم بتحميل هذا التطبيق المجاني الرائع والخالي من أي إعلانات، عن القرآن الكريم وتذكيرات إسلاميّة، من متجر غوغل</string>
+    <string name="save">تمّ الحفظ</string>
+    <string name="share_thanks">"شارك. شكرا لك. "</string>
+    <string name="create_new">جديد</string>
+    <string name="fajr">الفجر</string>
+    <string name="sunrise">الشروق</string>
+    <string name="dhuhr">الظهر</string>
+    <string name="asr">العصر</string>
+    <string name="magrib">المغرب</string>
+    <string name="isha">العشاء</string>
+    <string name="frequency">"كل كم تحب ان نذكرك؟ "</string>
+
+    <string name="app_title">وذكّر</string>
+    <string name="app_slogan">تنبيهات إسلاميّة</string>
+
+    <string-array name="frequency">
+        <item>مرة كل ساعة</item>
+        <item>مرة كل ثلاث ساعات</item>
+        <item>مرة كل ست ساعات</item>
+        <item>مرتين في اليوم</item>
+        <item>مرة في اليوم</item>
+    </string-array>
+
 </resources>

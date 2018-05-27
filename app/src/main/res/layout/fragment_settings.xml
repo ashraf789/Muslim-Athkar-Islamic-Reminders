@@ -81,7 +81,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="130dp"
                 android:gravity="center"
                 android:background="@color/colorPrimaryDark"
                 android:orientation="horizontal">
@@ -128,7 +128,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="90dp"
                 android:gravity="center"
                 android:background="@color/colorPrimaryDark"
                 android:orientation="horizontal">
@@ -146,14 +146,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/frequency"
                         android:textColor="@color/white"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:id="@+id/frequencyTv"
-                        android:layout_weight="1"
-                        android:textSize="14sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white_dark"
                         android:textStyle="bold"/>
 
                 </LinearLayout>
@@ -271,7 +263,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:background="@color/colorPrimaryDark"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"

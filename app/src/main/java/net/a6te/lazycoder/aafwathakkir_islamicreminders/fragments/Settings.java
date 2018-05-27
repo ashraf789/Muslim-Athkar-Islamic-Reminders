@@ -32,7 +32,7 @@ public class Settings extends Fragment implements MVPView.SettingsView{
     private Spinner languageSp;
     private MVPPresenter.SettingsPresenter presenter;
 
-    private TextView appLanguageTv, frequencyTv,calculationMethodTv,juristicMethodTv;
+    private TextView appLanguageTv,calculationMethodTv,juristicMethodTv;
     private boolean isFirstTime = true;
 
     private MultiSpinner remainderSp;
@@ -55,13 +55,7 @@ public class Settings extends Fragment implements MVPView.SettingsView{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        try {
-            presenter.prepareAdapters();
-        }catch (Exception e){
-
-        }
-
+        presenter.prepareAdapters();
     }
 
     private void initializeAll() {
@@ -75,7 +69,6 @@ public class Settings extends Fragment implements MVPView.SettingsView{
         presenter = new SettingsPresenter(this);
 
         appLanguageTv = view.findViewById(R.id.appLanguageTv);
-        frequencyTv = view.findViewById(R.id.frequencyTv);
         calculationMethodTv = view.findViewById(R.id.calculationMethodTv);
         juristicMethodTv = view.findViewById(R.id.juristicMethodTv);
         ring= MediaPlayer.create(getContext(),R.raw.saved_alhamdu);
@@ -97,10 +90,11 @@ public class Settings extends Fragment implements MVPView.SettingsView{
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 /*
-                * when we open setting page first time this listener automatically(without click language spinner
-                * so we by pass this by this technique)
-                * its most important for setting page
-                * */
+                 * when we open setting page first time this listener automatically(without click language spinner
+                 * so we by pass this by this technique)
+                 * its most important for setting page
+                 * */
+
                 if (!isFirstTime) {
                     appLanguageTv.setText(languageSp.getSelectedItem().toString());
                     appLanguageId = position;
@@ -117,14 +111,12 @@ public class Settings extends Fragment implements MVPView.SettingsView{
     @Override
     public void initializeFrequencySpinner(ArrayAdapter adapter, String selectedName, int position) {
 
-        frequencyTv.setText(selectedName);
         frequencySp.setAdapter(adapter);
 
         frequencySp.setSelection(position);
         frequencySp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                frequencyTv.setText(frequencySp.getSelectedItem().toString());
                 frequencyId = position;
             }
             @Override

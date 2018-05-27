@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">提醒 - 伊斯兰教的提醒</string>
     <string name="required_data_connection">对不起，这个功能需要数据连接。 请将您的设备连接到互联网。</string>
     <string name="gps_setting_message">很抱歉，此功能要求您启用设备的GPS（位置）。</string>
     <string name="prayer_time_for">祈祷时间的城市是</string>
+    <string name="isha">宵礼</string>
+    <string name="magrib">昏礼</string>
+    <string name="asr">脯礼</string>
+    <string name="dhuhr">晌礼</string>
+    <string name="sunrise">日出</string>
+    <string name="fajr">晨礼</string>
+    <string name="create_new">新</string>
+    <string name="share_thanks">社交媒体上分享。谢谢。</string>
+    <string name="save">设置已保存</string>
+    <string name="app_signature">快从Play Store下载这个美丽又免费及无广告的提醒应用来阅读您的《古兰经》经文吧？</string>
+    <string name="remainder_language">您希望使用那些语言显示提醒呢？ （您可以在下面选择多种语言）</string>
+    <string name="frequency">请选择您要多久提醒看一次经文呢？</string>
+    <string name="app_language">请选择您的语言：</string>
+
+    <string name="app_title">提醒</string>
+    <string name="app_slogan">伊斯兰教的提醒</string>
+
+    <string-array name="frequency">
+        <item>每1小時</item>
+        <item>每3小時</item>
+        <item>每6小時</item>
+        <item>每12小時</item>
+        <item>每天一次</item>
+    </string-array>
 </resources>

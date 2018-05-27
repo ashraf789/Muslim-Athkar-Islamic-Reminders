@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">Y recordar - Recordatorios islámicos</string>
     <string name="required_data_connection">Lo sentimos, esta función requiere una conexión de datos. Por favor, conecte su dispositivo a internet.</string>
     <string name="gps_setting_message">Lo sentimos, esta función requiere que habilites el GPS (ubicación) de tu dispositivo.</string>
     <string name="prayer_time_for">Tiempos de oración para hoy para</string>
+    <string name="isha">Icha\'a</string>
+    <string name="magrib">Maghrib</string>
+    <string name="asr">Asr</string>
+    <string name="dhuhr">Zuhur</string>
+    <string name="sunrise">Churuq</string>
+    <string name="fajr">Fagr</string>
+    <string name="create_new">Nuevo</string>
+    <string name="share_thanks">Comparte. Muchas Gracias</string>
+    <string name="save">Hecho</string>
+    <string name="app_signature">"Descarga esta magnífica aplicación gratuitamente y sin anuncios sobre El Noble Corán y recordatorios Islámicos desde Play Store "</string>
+    <string name="remainder_language">¿En qué idioma quieres ver los recordatorios? (Puedes elegir más de una lengua.)</string>
+    <string name="frequency">¿Cuántas veces quieres recordarte?</string>
+    <string name="app_language">Eliges Tu Lengua por favor.</string>
+
+    <string name="app_title">Y recordar</string>
+    <string name="app_slogan">Recordatorios islámicos</string>
+
+    <string-array name="frequency">
+        <item>Cada Hora</item>
+        <item>Cada tres horas  </item>
+        <item>Cada seis horas </item>
+        <item>Dos veces por el día </item>
+        <item>Una vez por el día</item>
+    </string-array>
 </resources>

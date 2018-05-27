@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">И Напоминай - Напоминания относящиеся к Исламу</string>
     <string name="required_data_connection">К сожалению, для этой функции требуется подключение к данным. Подключите устройство к Интернету.</string>
     <string name="gps_setting_message">К сожалению, для этой функции требуется подключение к данным. Подключите устройство к Интернету.</string>
     <string name="prayer_time_for">К сожалению, для этой функции требуется подключение к данным. Подключите устройство к Интернету.</string>
+    <string name="isha">Иша</string>
+    <string name="magrib">Магриб</string>
+    <string name="asr">Аср</string>
+    <string name="dhuhr">Зухр</string>
+    <string name="sunrise">Восход</string>
+    <string name="fajr">Фаджр</string>
+    <string name="create_new">Новая</string>
+    <string name="share_thanks">Поделитесь. Спасибо.</string>
+    <string name="save">Сохранено</string>
+    <string name="app_signature">Скачайте это прекрасное, бесплатное и не содержащее рекламы приложение о Благородном Коране / Исламские напоминания из Play маркета</string>
+    <string name="remainder_language">Скачайте это прекрасное, бесплатное и не содержащее рекламы приложение о Благородном Коране / Исламские напоминания из Play маркета</string>
+    <string name="frequency">Как часто ты хотел бы видеть какую-нибудь из сур / напоминание?</string>
+    <string name="app_language">Пожалуйста, веберите ваш язык</string>
+
+    <string name="app_title">И Напоминай</string>
+    <string name="app_slogan">Напоминания относящиеся к Исламу</string>
+
+    <string-array name="frequency">
+        <item>Каждый час</item>
+        <item>Каждые 3 часа</item>
+        <item>Каждые шесть часов</item>
+        <item>Каждые 12 часов</item>
+        <item>Раз в день</item>
+    </string-array>
 </resources>

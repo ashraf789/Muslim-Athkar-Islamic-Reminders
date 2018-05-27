@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">Et Rappelle - Rappels Islamiques</string>
     <string name="required_data_connection">Désolé, cette fonction nécessite une connexion de données. Veuillez connecter votre appareil à Internet.</string>
     <string name="gps_setting_message">Désolé, cette fonction nécessite que vous activiez le GPS (emplacement) de votre appareil.</string>
     <string name="prayer_time_for">Les temps de prière pour aujourd\'hui pour</string>
+    <string name="isha">Isha</string>
+    <string name="magrib">Maghrib</string>
+    <string name="asr">Asr</string>
+    <string name="dhuhr">Dohr</string>
+    <string name="sunrise">Lever du soleil</string>
+    <string name="fajr">Fajr</string>
+    <string name="create_new">Nouveau</string>
+    <string name="share_thanks">Partager. Merci</string>
+    <string name="save">Enregistré</string>
+    <string name="app_signature">Téléchargez cette belle application gratuite et sans publicité du Noble Coran / rappels islamiques depuis le Playstore.</string>
+    <string name="remainder_language">Dans quelles langues souhaitez-vous voir des rappels? (Vous pouvez choisir plusieurs langues ci-dessous)</string>
+    <string name="frequency">Combien de fois souhaitez-vous voir un verset / un rappel?</string>
+    <string name="app_language">Veuillez choisir votre langue:</string>
+
+    <string name="app_title">Et Rappelle</string>
+    <string name="app_slogan">Rappels Islamiques</string>
+
+    <string-array name="frequency">
+        <item>Toutes les heures</item>
+        <item>Toutes les 3 heures </item>
+        <item>Toutes les 6 heures</item>
+        <item>Toutes les 12 heures</item>
+        <item>Une fois par jour</item>
+    </string-array>
 </resources>

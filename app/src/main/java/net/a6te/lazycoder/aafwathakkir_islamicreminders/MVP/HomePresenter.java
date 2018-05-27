@@ -108,12 +108,11 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
     @Override
     public void prepareAtkhar(){
 
-
         int lastAthkarId = savedData.getLastAthkarId();
-        getAtkhar(lastAthkarId);
+        String tableName = savedData.getAthkarTableName();//get saved athkar table name
+        getAtkhar(lastAthkarId,tableName);
 
     }
-
 
     /*
      * if user press create button then we don't need to wait for new date also we will change old information
@@ -148,6 +147,28 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
         mvpView.setTodayImage(atkhar);
     }
 
+    public void getAtkhar(int id, String tableName){
+
+        if (tableName == null){
+            tableName = getTableName();
+        }
+        int lastDataId = myDatabase.getLastDataId(tableName);
+        String atkhar;
+
+        if (lastDataId >= id){
+            //still available new data
+            atkhar = myDatabase.getAtkhar(tableName, id);
+        }else {
+
+            //no new data available we already seen last atkhar lets start again from first
+            id = 0;
+            atkhar = myDatabase.getAtkhar(tableName, id);
+            savedData.setLastAthkarId(id);
+        }
+
+        mvpView.setTodayImage(atkhar);
+    }
+
     public String getTableName(){
         List<String > tableLanguages = Arrays.asList(context.getResources().getStringArray(R.array.remainder_language_table_name));
 
@@ -165,6 +186,8 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
         Random random= new Random();
         int randomSelectedLanguageIndex = random.nextInt(size);
 
-        return tableLanguages.get(indexNoOfSelectedLanguage.get(randomSelectedLanguageIndex));
+        String tableName = tableLanguages.get(indexNoOfSelectedLanguage.get(randomSelectedLanguageIndex));
+        savedData.saveAthkarTableName(tableName);//new image generated table name
+        return tableName;
     }
 }

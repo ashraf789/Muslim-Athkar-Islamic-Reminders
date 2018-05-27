@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="facebook_app_id">179442992713579</string>
     <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
-    <string name="app_title">AAF WaThakkir</string>
-    <string name="app_slogan">Islamic Reminders</string>
+    <string name="facebook_app_id">179442992713579</string>
     <string name="forum_name">Forumislam</string>
     <string name="app_url">www.Forumislam.com</string>
     <string name="app_google_play_url">http://play.google.com/</string>
     <string name="qibla_degree">0.00 °</string>
     <string name="km">KM</string>
+    <string name="navigation_drawer_open">Navigation open</string>
+    <string name="navigation_drawer_close">Navigation Close</string>
+
 
 
     <string name="gps_setting_title">GPS settings</string>
     <string name="settings">Settings</string>
-    <string name="navigation_drawer_open">Navigation open</string>
-    <string name="navigation_drawer_close">Navigation Close</string>
+
     <string name="search_hint">surah name or page no</string>
-    <string name="app_signature">Download this beautiful free and ad-free app of Koran / Islamic reminders from the </string>
     <string name="permission_denied">Permission denied</string>
     <string name="location_permission_title">Location Permission</string>
     <string name="ok">OK</string>
@@ -30,24 +29,48 @@
     <string name="refresh_screen_for_permission_message">please refresh screen for permission message</string>
     <string name="new_image_created">New Image Created</string>
     <string name="share_via">Share Via…</string>
-    <string name="create_new">Create New</string>
     <string name="city_name">City</string>
     <string name="distance_from_qibla">Distance from Qibla</string>
     <string name="magnetic_sensor_not_available">Magnetic sensor not available !!</string>
-    <string name="app_language">App Language</string>
-    <string name="remainder_language">Remainder Language</string>
-    <string name="frequency">Frequency</string>
+
     <string name="prayer">Prayer</string>
     <string name="calculation_method">Calculation method</string>
     <string name="juristic_method">Juristic Method</string>
-    <string name="gps_permission">Sorry, this function requires a GPS connection. Please refresh your screen.</string>
+    <string name="gps_permission">GPS is not enabled. Do you want to go to settings menu?.</string>
 
     <string name="required_data_connection">Sorry, this function requires a data connection. Please connect your device to the internet.</string>
-    <string name="gps_setting_message">GPS is not enabled. Do you want to go to settings menu?</string>
+    <string name="gps_setting_message">Sorry, this function requires that you enable your device\'s GPS (location). </string>
     <string name="prayer_time_for">Prayer times for today for</string>
-    <string name="save">Save</string>
     <string name="settings_saved">New settings saved</string>
     <string name="data_all_up_to_date">All is up to date</string>
+
+
+    <string name="app_language">Please choose your language: </string>
+    <string name="frequency">How often do you wish to see a verse / reminder?</string>
+    <string name="remainder_language">In which languages do you wish to see reminders?  (You can choose many languages below)</string>
+    <string name="app_signature">Download this beautiful free and ad-free app of Koran / Islamic reminders from the </string>
+    <string name="save">Saved</string>
+    <string name="share_thanks">Share. Thank you.</string>
+    <string name="create_new">New</string>
+
+    <string name="fajr">Fajr</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="dhuhr">Dhuhr</string>
+    <string name="asr">Asr</string>
+    <string name="magrib">Maghrib</string>
+    <string name="isha">Isha</string>
+    <string name="app_sub_name">And Remind - Islamic Reminders</string>
+    <string name="app_title">AAF WaThakkir</string>
+    <string name="app_slogan">Islamic Reminders</string>
+    <string name="no_data">No data found</string>
+
+    <string-array name="frequency">
+        <item>Every 1 hour</item>
+        <item>Every 3 hours</item>
+        <item>Every 6 hours</item>
+        <item>Every 12 hours</item>
+        <item>Once a day</item>
+    </string-array>
 
 
     <!--Don't rearrange any string item from  bellow string_array as we are not using any database this string array index number is too much important-->
@@ -84,7 +107,7 @@
         <item>am</item>
         <item>ps</item>
         <item>ru</item>
-        <item>zh-rCN</item>
+        <item>zh</item>
         <item>zh</item>
         <item>ms</item>
         <item>az</item>
@@ -139,13 +162,7 @@
     </string-array>
 
 
-    <string-array name="frequency">
-        <item>Once a day</item>
-        <item>Every 12 hours</item>
-        <item>Every 6 hours</item>
-        <item>Every 3 hours</item>
-        <item>Every 1 hour</item>
-    </string-array>
+
 
     <string-array name="prayer_calculation_method">
         <item>Jafari</item>

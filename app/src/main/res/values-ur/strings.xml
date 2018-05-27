@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">اور یاد رکھنا - اسلامی یاد دہانیاں</string>
     <string name="gps_setting_message">افسوس، یہ فنکشن ڈیٹا کنکشن کی ضرورت ہے. براہ مہربانی اپنا آلہ انٹرنیٹ پر متصل کریں.</string>
     <string name="required_data_connection">افسوس، اس فنکشن کی ضرورت ہے کہ آپ اپنے آلے کے GPS (مقام) کو فعال کریں.</string>
     <string name="prayer_time_for">آج کے لئے نماز کے وقت</string>
+    <string name="isha">عشاء</string>
+    <string name="magrib">مغرب</string>
+    <string name="asr">عصر</string>
+    <string name="dhuhr">ظ‬ہر</string>
+    <string name="sunrise">طلوع آفتاب</string>
+    <string name="fajr">فجر</string>
+    <string name="create_new">نئی</string>
+    <string name="share_thanks">بانٹیں. شکریہ</string>
+    <string name="save">محفوظ کرنا</string>
+    <string name="app_signature">نوبل قران / اسلامی یاد دہانیوں کے لے اس خوبصورت اور ایڈورٹائزنگ سے محفوظ ایپ کو پلے اسٹور سے ڈاؤن لوڈ کریں.</string>
+    <string name="remainder_language">آپ کونسی زبانوں میں یاد دہانیوں کو دیکھنا چاہتے ہیں؟ (آپ ذیل میں بہت سے زبانوں کا انتخاب کرسکتے ہیں)</string>
+    <string name="frequency">آپ کتنی بار آیت / یاد دہانی دیکھنا چاہتے ہیں؟</string>
+    <string name="app_language">برائے مہربانی اپنی زبان منتخب کریں:</string>
+
+    <string name="app_title">اسلامی یاد دہانیاں</string>
+    <string name="app_slogan"> اور یاد رکھنا</string>
+
+    <string-array name="frequency">
+        <item>ہر ایک گھنٹے</item>
+        <item>ہر 3 گھنٹے</item>
+        <item>ہر 6 گھنٹے</item>
+        <item>ہر 12 گھنٹے</item>
+        <item>دن میں ایک دفحہ</item>
+    </string-array>
 </resources>

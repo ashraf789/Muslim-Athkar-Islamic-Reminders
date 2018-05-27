@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">और ध्यान दे - इस्लामिक रिमाइंडर्स</string>
     <string name="required_data_connection">क्षमा करें, इस फ़ंक्शन को डेटा कनेक्शन की आवश्यकता होती है। कृपया अपने उपकरण को इंटरनेट से कनेक्ट करें</string>
     <string name="gps_setting_message">क्षमा करें, इस फ़ंक्शन को आवश्यक है कि आप अपने डिवाइस की GPS (स्थान) को सक्षम करें।</string>
     <string name="prayer_time_for">आज के लिए प्रार्थना समय</string>
+    <string name="isha">ईशा</string>
+    <string name="magrib">मगरीब</string>
+    <string name="asr">असर</string>
+    <string name="dhuhr">दुहर</string>
+    <string name="sunrise">सूरज उगना</string>
+    <string name="fajr">फज्र</string>
+    <string name="create_new">नया</string>
+    <string name="share_thanks">शेयर धन्यवाद</string>
+    <string name="save">सेव्ड</string>
+    <string name="app_signature">डाउनलोड करे इस खूबसरत और प्रचार मुक्त ऐप्प दी नोबल कुरान / इस्लामिक रिमाइंडर को प्ले स्टोर से</string>
+    <string name="remainder_language">कौन से भाषा मे आप रिमाइंडर देखना चाहते है?  (आप नीचे दिए गए भाषा को चुन सकते है)</string>
+    <string name="frequency">आप कितनी बार देखना चाहेंगे वर्स / रिमाइंडर को?</string>
+    <string name="app_language">"अपनी भाषा चुने "</string>
+
+
+    <string name="app_title">और ध्यान दे</string>
+    <string name="app_slogan">इस्लामिक रिमाइंडर्स</string>
+
+    <string-array name="frequency">
+        <item>हर 1 घंटे म</item>
+        <item>हर 3 घंटे म </item>
+        <item>हर 6 घंटे म</item>
+        <item>हर 12 घंटे में</item>
+        <item>दिन में एक बार</item>
+    </string-array>
 </resources>

@@ -8,11 +8,13 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.LocaleManager;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
 
 import java.util.Calendar;
@@ -22,6 +24,7 @@ import static android.content.Context.ALARM_SERVICE;
 
 public class NotificationScheduler
 {
+
     public static final int DAILY_REMINDER_REQUEST_CODE=100;
     public static final String TAG="NotificationScheduler";
 

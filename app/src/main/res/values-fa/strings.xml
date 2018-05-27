@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">و یادآوری - یادآورهای اسلامی</string>
     <string name="required_data_connection">با عرض پوزش برای انجام این کار شما نیاز دارید به یک منبع اطلاعات وصل شوید. لطفا دستگاه خود را به اینترنت وصل کنید.</string>
     <string name="gps_setting_message">"با عرض پوزش شما برای انجام این کار باید مکان نما و یا جی پی اس دستگاه خود را فعال کنید. "</string>
     <string name="prayer_time_for">اوقات نماز برای امروز</string>
+    <string name="isha">عشا</string>
+    <string name="magrib">مغرب</string>
+    <string name="asr">عصر</string>
+    <string name="dhuhr">ظهر</string>
+    <string name="sunrise">شروق</string>
+    <string name="fajr">فجر</string>
+    <string name="create_new">جدید</string>
+    <string name="share_thanks">به اشتراک بگذارید. متشکرم.</string>
+    <string name="save">ذخیره شد.</string>
+    <string name="app_signature">این برنامه رایگان و زیبا از یادآوری قرآن کریم / اسلام را که بدون تبلیغ است، از PlayStore دانلود کنید.</string>
+    <string name="remainder_language">به چه زبانهایی می خواهید یادآوری را ببینید؟ (می‌توانید یکی از چندین زبان زیر را انتخاب کنید)</string>
+    <string name="frequency">چقدر دوست دارید آیه / یادآوری را ببینید؟</string>
+    <string name="app_language">لطفا زبان خود را انتخاب کنید:</string>
+
+    <string name="app_title">و یادآوری</string>
+    <string name="app_slogan">یادآورهای اسلامی</string>
+    <string-array name="frequency">
+        <item>هر 1 ساعت</item>
+        <item>هر 3 ساعت </item>
+        <item>هر 6 ساعت </item>
+        <item>هر 12 ساعت</item>
+        <item>روزی یک بار</item>
+    </string-array>
 </resources>

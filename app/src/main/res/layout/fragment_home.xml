@@ -18,6 +18,12 @@
             android:id="@+id/createImageRL"
             android:orientation="vertical"
             android:gravity="center">
+            <ProgressBar
+                android:id="@+id/mainActivityPB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+
             <RelativeLayout
                 android:padding="10dp"
                 android:background="#c44caf50"
@@ -33,7 +39,7 @@
                     android:textSize="20sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name"
+                    android:text="@string/app_sub_name"
                     android:maxLines="2"/>
 
                 <TextView

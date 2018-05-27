@@ -126,14 +126,14 @@
                         android:paddingLeft="15dp"
                         android:clickable="true"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
                             android:id="@+id/navImg1"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
                             android:src="@drawable/home_icon"/>
                         <!--<TextView-->
                             <!--android:layout_marginLeft="25dp"-->
@@ -151,15 +151,16 @@
                         android:paddingLeft="15dp"
                         android:id="@+id/navPrayerRl"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:src="@drawable/prayertimes_512"
-                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
                             android:id="@+id/navImg2"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"/>
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            />
                         <!--<TextView-->
                             <!--android:layout_marginLeft="25dp"-->
                             <!--android:layout_toRightOf="@+id/navImg2"-->
@@ -175,15 +176,16 @@
                         android:paddingLeft="15dp"
                         android:id="@+id/navQiblaRl"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:src="@drawable/qibla_512"
-                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
                             android:id="@+id/navImg3"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"/>
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            />
                         <!--<TextView-->
                             <!--android:layout_marginLeft="25dp"-->
                             <!--android:layout_toRightOf="@+id/navImg3"-->
@@ -199,15 +201,16 @@
                         android:paddingLeft="15dp"
                         android:id="@+id/navQuranRl"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:src="@drawable/qoran_athkar_512"
-                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
                             android:id="@+id/navImg4"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"/>
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            />
                         <!--<TextView-->
                             <!--android:layout_marginLeft="25dp"-->
                             <!--android:layout_toRightOf="@+id/navImg4"-->
@@ -233,15 +236,15 @@
                         android:paddingLeft="15dp"
                         android:id="@+id/navSettingRl"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="70dp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:src="@drawable/settings_512"
-                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
                             android:id="@+id/navImg5"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"/>
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"/>
                         <!--<TextView-->
                             <!--android:layout_marginLeft="25dp"-->
                             <!--android:layout_toRightOf="@+id/navImg5"-->

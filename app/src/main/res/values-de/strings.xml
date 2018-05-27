@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">Und Erinnern - Islamische Erinnerungen</string>
     <string name="required_data_connection">Entschuldigung, diese Funktion benötigt eine Datenverbindung. Bitte verbinden Sie Ihr Gerät mit dem Internet.</string>
     <string name="gps_setting_message">Entschuldigung, diese Funktion erfordert, dass Sie das GPS (Standort) Ihres Geräts aktivieren.</string>
     <string name="prayer_time_for">Gebetszeiten für heute für</string>
+    <string name="isha">Ischaa</string>
+    <string name="magrib">Maghrib</string>
+    <string name="asr">\'Assr</string>
+    <string name="dhuhr">Dhuhur</string>
+    <string name="sunrise">S\'Aufgang</string>
+    <string name="fajr">Fadschr</string>
+    <string name="create_new">Neu</string>
+    <string name="share_thanks">Teilen. Vielen Dank.</string>
+    <string name="save">Gespeichert</string>
+    <string name="app_signature">Laden Sie diese schöne, kostenlose und werbefreie App des Edle Koran / Islamische Erinnerungen aus dem PlayStore herunter.</string>
+    <string name="remainder_language">In welchen Sprachen möchten Sie Erinnerungen sehen? (Sie können unten viele Sprachen wählen)</string>
+    <string name="frequency">Wie oft möchten sie einen Vers / eine Erinnerung sehen?</string>
+    <string name="app_language">Bitte wählen Ihre Sprache:</string>
+
+    <string name="app_title">Und Erinnern</string>
+    <string name="app_slogan">Islamische Erinnerungen</string>
+
+    <string-array name="frequency">
+        <item>Alle 1 Stunde</item>
+        <item>Alle 3 Stunden </item>
+        <item>Alle 6 Stunden</item>
+        <item>Alle 12 Stunden</item>
+        <item>Einmal am Tag</item>
+    </string-array>
 </resources>

@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">Və xatırladın - İslam ilə əlaqədar Xatırlatmalar</string>
     <string name="required_data_connection">Bağışlayın, bu funksiya bir məlumat bağlantısı tələb edir. Cihazınızı internetə qoşun.</string>
     <string name="gps_setting_message">Üzr istəyirik, bu funksiya cihazınızın GPS-i (yeri) aktiv etməsini tələb edir.</string>
     <string name="prayer_time_for">Bu günә namaz vaxtları Bakı</string>
+    <string name="isha">İşa (xiftən)</string>
+    <string name="magrib">Məğrib (Şam)</string>
+    <string name="asr">Əsr</string>
+    <string name="dhuhr">Zöhr</string>
+    <string name="sunrise">Günəş çıxır</string>
+    <string name="fajr">Fəcr</string>
+    <string name="create_new">Yeni</string>
+    <string name="share_thanks">Paylaşın. Çox sağ olun.</string>
+    <string name="save">Yaddaşa yazıldı</string>
+    <string name="app_signature">Play Store-dan Quran haqqında olan və İslam xatırlatmaları üçün bu gözəl, pulsuz və reklamsız bir programı yükləyin</string>
+    <string name="remainder_language">Hansı dildə xatırlatmaları görmək istərdiniz? (Aşağıda bir çox dildən birini seçə bilərsiniz)</string>
+    <string name="frequency">Gündə bir dəfə</string>
+    <string name="app_language">Neçə saatdan bir hansısa bir suranı/xatırlatmanı görmək istərdiniz?</string>
+
+
+
+    <string name="app_title">Və xatırladın</string>
+    <string name="app_slogan">İslam ilə əlaqədar Xatırlatmalar</string>
+    <string-array name="frequency">
+        <item>Hər saat</item>
+        <item>3 saatdan bir</item>
+        <item>6 saatdan bir</item>
+        <item>12 saatdan bir</item>
+        <item>Gündə bir dəfə</item>
+    </string-array>
+
 </resources>

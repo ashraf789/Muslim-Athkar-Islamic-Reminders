@@ -14,7 +14,6 @@ public class SavedData {
     private SharedPreferences.Editor prefsEditor;
 
     private static final String APP_LANGUAGE_SELECTED_ID ="appLanguageSelectedId";
-    private static final String REMAINDER_LANGUAGE_SELECTED_ID ="remainderLanguageSelectedId";
     private static final String FREQUENCY_SELECTED_ID = "frequencyId";
     private static final String CALCULATION_METHOD_ID = "calculationMethodId";
     private static final String JURISTIC_METHOD_ID = "juristicMethodId";
@@ -25,9 +24,10 @@ public class SavedData {
     private static final String NEW_INTERVAL = "newInterval";
 
     private static final String REMAINDER_LANGUAGES = "remainderLanguages";
-    private static final String LAST_IMAGE_CREATED_DATE_IN_MILI = "lastImageCreatedDate";
     private static final String LAST_ATHKAR_ID = "lastAthkarId";
     private static final String LAST_UPDATE_CODE = "lastUpdateCode";
+    private static final String ATHKAR_TABLE_NAME = "athkarTableName";
+    private static final String FIRST_TIME_DATA_SYNCHRONIZED = "dataFirstTimeAlreadySynchronized";
 
 
     public SavedData(Context context)
@@ -44,14 +44,6 @@ public class SavedData {
         return appSharedPrefs.getInt(APP_LANGUAGE_SELECTED_ID,0);
     }
 
-    public void setRemainderLanguageSelectedId(int id){
-        prefsEditor.putInt(REMAINDER_LANGUAGE_SELECTED_ID, id);
-        prefsEditor.commit();
-    }
-
-    public int getRemainderLanguageSelectedId() {
-        return appSharedPrefs.getInt(REMAINDER_LANGUAGE_SELECTED_ID,0);
-    }
     public void setFrequencySelectedId(int id){
         prefsEditor.putInt(FREQUENCY_SELECTED_ID, id);
         prefsEditor.commit();
@@ -102,8 +94,7 @@ public class SavedData {
 
 
     public long getNewRemainderInterval(){
-//        return appSharedPrefs.getLong(NEW_INTERVAL,(24*60 * 60 * 1000));//(24*60 * 60 * 1000) = 24 interval is once a day remainder
-        return appSharedPrefs.getLong(NEW_INTERVAL, AlarmManager.INTERVAL_DAY);//24 hours once a day remainder
+        return appSharedPrefs.getLong(NEW_INTERVAL, AlarmManager.INTERVAL_HOUR);// after every one hour
     }
 
     public void setNewRemainderInterval(long inteval){
@@ -147,20 +138,11 @@ public class SavedData {
         }
 
         if (allFalse){
-            array[1] = true;//if no language select then arabic index position[1] will be true
+            array[0] = true;//if no language select then english index position[0] will be true
         }
         return array;
     }
 
-    public long getLastImageCreatedDate(){
-        GregorianCalendar gc = new GregorianCalendar();
-        return appSharedPrefs.getLong(LAST_IMAGE_CREATED_DATE_IN_MILI,gc.getTimeInMillis());//default value is today time
-    }
-
-    public void setLastImageCreatedDate(long dateInMili){
-        prefsEditor.putLong(LAST_IMAGE_CREATED_DATE_IN_MILI, dateInMili);
-        prefsEditor.commit();
-    }
 
     public int getLastAthkarId(){
         return appSharedPrefs.getInt(LAST_ATHKAR_ID,0);//o means didn't create yet
@@ -180,4 +162,19 @@ public class SavedData {
         return appSharedPrefs.getInt(LAST_UPDATE_CODE,0);
     }
 
+    public void saveAthkarTableName(String tableName){
+        prefsEditor.putString(ATHKAR_TABLE_NAME,tableName);
+        prefsEditor.commit();
+    }
+    public String getAthkarTableName(){
+        return appSharedPrefs.getString(ATHKAR_TABLE_NAME,null);
+    }
+
+    public void saveDataSynchronizedStatusTrue(){
+        prefsEditor.putBoolean(FIRST_TIME_DATA_SYNCHRONIZED,true);
+        prefsEditor.commit();
+    }
+    public boolean getIsDataFirstTimeSynchronized(){
+        return appSharedPrefs.getBoolean(FIRST_TIME_DATA_SYNCHRONIZED,false);
+    }
 }

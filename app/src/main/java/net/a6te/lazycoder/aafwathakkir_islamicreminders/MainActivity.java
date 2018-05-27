@@ -1,15 +1,16 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders;
 
 import android.Manifest;
-import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -24,26 +25,18 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
-import com.crashlytics.android.Crashlytics;
-
-import net.a6te.lazycoder.aafwathakkir_islamicreminders.database.DBHelper;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.database.MyDatabase;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Home;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.PrayerTime;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Qibla;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Quran;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Settings;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.interfaces.CallAttachBaseContext;
-
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
-
-import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext, SwipeRefreshLayout.OnRefreshListener{
 
@@ -56,19 +49,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View view;
     private MediaPlayer ring;
     private Intent mServiceIntent;
-    private SwipeRefreshLayout swipeLayout;
+    private SavedData savedData;
+//    private SwipeRefreshLayout swipeLayout;
 
-
+    private NetworkChangeReceiver receiver = null;
+//    private ProgressBar progressBar;
+    private Context mContext;
+    private MyDatabase database;
 
     @Override
     public void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleManager.setLocale(newBase));
+        mContext = LocaleManager.setLocale(newBase);
+        super.attachBaseContext(mContext);
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+//        Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * initializing all variable object ect
      * */
     private void initializeAll() {
-
+        database = new MyDatabase(this);//when first time app open this will create a initial database
         ring= MediaPlayer.create(MainActivity.this,R.raw.open_app_salam);
         navHomeRl = findViewById(R.id.navHomeRl);
         navPrayerRl = findViewById(R.id.navPrayerRl);
@@ -100,6 +99,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navQuranRl =  findViewById(R.id.navQuranRl);
         navSettingRl = findViewById(R.id.navSettingRl);
         navUrlRl =  findViewById(R.id.navUrlRl);
+
+//        progressBar = findViewById(R.id.mainActivityPB);
 
         navHomeRl.setOnClickListener(this);
         navPrayerRl.setOnClickListener(this);
@@ -112,8 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         transaction = getSupportFragmentManager().beginTransaction();
 
         selectedNav = findViewById(R.id.navHomeRl);//navigation default selected menu is home menu
-        swipeLayout = findViewById(R.id.swipeLayout);
-        swipeLayout.setOnRefreshListener(this);
+//        swipeLayout = findViewById(R.id.swipeLayout);
+//        swipeLayout.setOnRefreshListener(this);
 
         checkLocationPermission();//this method will take location permission from user
 
@@ -122,6 +123,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ,new IntentFilter(Utils.BROADCAST_ACTION));
         mServiceIntent = new Intent(this, DownloadData.class);
         this.startService(mServiceIntent);//start IntentService for fetch data from online server
+
+
+
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+        filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        filter.addAction(LocationManager.PROVIDERS_CHANGED_ACTION);
+
+        receiver = new NetworkChangeReceiver();
+        this.registerReceiver(receiver, filter);
+
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(connectionStatusReceiver
+                ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
+
+        savedData = new SavedData(this);
+
 
     }
 
@@ -236,14 +255,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
     @Override
     public void onAttachBaseContext(Context context){
 
         finish();
         startActivity(getIntent());
     }
-
 
 
     public void playSound(){
@@ -253,6 +270,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         ring.stop();
+        unregisterReceiver();
         super.onDestroy();
     }
 
@@ -265,13 +283,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             String message = intent.getStringExtra(Utils.EXTENDED_DATA_STATUS_MESSAGE);
 
-            swipeLayout.setRefreshing(false);
             /*
-            * if all data is up to date then we don't need to show this message to user
-            * */
+             * if all data is up to date then we don't need to show this message to user
+             * */
             if (!message.equals(getString(R.string.data_all_up_to_date))){
                 Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
             }
+
+            setUnVisibleProgressBar();
+            Log.d("TEST", "onReceive: messageReciver called : "+message);
             //new data update
             if (isUpdateData){
                 fragment = new Home();
@@ -288,6 +308,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onRefresh() {
         this.startService(mServiceIntent);
+    }
+
+    private void unregisterReceiver() {
+        this.unregisterReceiver(receiver);
+    }
+
+    BroadcastReceiver connectionStatusReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle bundle = intent.getExtras();
+
+            if (bundle.getBoolean(Utils.DATA_CONNECTION_ENABLE)){
+                if (!savedData.getIsDataFirstTimeSynchronized()){
+                    setVisibleProgressBar();
+                    startServiceIntent();
+                }
+            }
+
+
+        }
+    };
+
+    public void startServiceIntent(){
+        startService(mServiceIntent);
+    }
+
+    public void setVisibleProgressBar()
+    {
+//        progressBar.setVisibility(View.VISIBLE);
+    }
+    public void setUnVisibleProgressBar(){
+//        progressBar.setVisibility(View.GONE);
 
     }
+
+
+
 }

@@ -16,4 +16,18 @@ public class Utils {
 
     public static final String EXTENDED_IS_UPDATE_DATA =
             "net.a6te.lazycoder.aafwathakkir_islamicreminders.MESSAGE";
+
+    public static final String BROADCAST_CONNECTION_STATUS = "locationAndGpsStatus";
+    public static final String CONNECTION_TYPE_GPS = "gpsConnection";
+    public static final String CONNECTION_TYPE_NETWORK = "networkConnection";
+    public static final String CONNECTION_STATUS = "connectionStatus";
+
+    public static final String DATA_CONNECTION_ENABLE = "dataConnectionEnable";
+
+    public static final int GPS_CODE = 200;
+    public static final int NETWORK_CODE = 201;
+    public static final String STATUS_CODE = "statusCode";
+
+    public static final int NO_CONNECTION_CODE = 220;
+    public static final int ALL_CONNECTED = 201;
 }

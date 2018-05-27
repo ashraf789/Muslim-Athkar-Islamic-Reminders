@@ -3,28 +3,25 @@ package net.a6te.lazycoder.aafwathakkir_islamicreminders.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteQueryBuilder;
-import android.nfc.Tag;
 import android.util.Log;
 
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.SavedData;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.model.Athkar;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class MyDatabase {
     private Context context;
 
     private DBHelper dbHelper;
     private SQLiteDatabase database;
+    private SavedData savedData;
 
     public MyDatabase(Context context) {
         dbHelper = new DBHelper(context);
         this.context = context;
+        savedData = new SavedData(context);
     }
     private void Open(){
         database = dbHelper.getWritableDatabase();
@@ -180,6 +177,8 @@ public class MyDatabase {
 
         }
 
+        savedData.saveDataSynchronizedStatusTrue();
+
         this.Close();
         if(dataInserted > 0 ){
             Log.d("TEST", "data: ------------ new data inserted");
@@ -315,7 +314,7 @@ public class MyDatabase {
     public String getAtkhar(String table, int id) {
 
         //if no data found then this will be the message
-        String getData="no data found on '"+table+"' table";
+        String getData=context.getString(R.string.no_data);
         id++;//array start from 0 but datase start from 1 so we are adding +1 to start it from first row
 
 

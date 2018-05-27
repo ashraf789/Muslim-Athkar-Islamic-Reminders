@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">እና አስታውሱ - የእስልምና አስታዋሾች</string>
     <string name="required_data_connection">ይቅርታ ይህ ኣገልግሎት የኢንተርኔት ግንኙነት ይፈልጋል:: እባክዎ ስልኮን ከኢንተርኔት ጋር ያገናኙ::</string>
-    <string name="gps_setting_message">"ይቅርታ, ይህ ኣገልግሎት የስልኮን GPS ማብራት ይፈልጋል;; "</string>
+    <string name="gps_setting_message">"ይቅርታ, ይህ ኣገልግሎት የስልኮን GPS ማብራት ይፈልጋል; "</string>
     <string name="prayer_time_for">የዛሬ የሶላት ሰኣቶች</string>
+    <string name="isha">Isha</string>
+    <string name="magrib">ማጊብ (ጸሐይ ስትጠልቅ)</string>
+    <string name="asr">Asr</string>
+    <string name="dhuhr">ዳኸር</string>
+    <string name="sunrise">ፀሐይዋ</string>
+    <string name="fajr">ንጋት (ፋጅ)</string>
+    <string name="create_new">አዲሱ</string>
+    <string name="share_thanks">አጋራ. አመሰግናለሁ.</string>
+    <string name="save">ተቀምጧል</string>
+    <string name="app_signature">ይህን ማራኪ ነፃ እና ከማስታወቂያ ነጻ የሆነውን የኖብ ኪራን / ኢስላማዊ አስታዋሾች ከ PlayStore ያውርዱ.</string>
+    <string name="remainder_language">የትኞቹ ቋንቋዎች አስታዋሾችን ማየት ይፈልጋሉ? (ብዙ ቋንቋዎችን ከዚህ በታች መምረጥ ይችላሉ)</string>
+    <string name="frequency">ቁጥር / ማሳሰቢያ ምን ያህል ጊዜ ማየት ይፈልጋሉ?</string>
+    <string name="app_language">እባክዎ ቋንቋዎን ይምረጡ:</string>
+
+    <string name="app_title">እና አስታውሱ</string>
+    <string name="app_slogan">የእስልምና አስታዋሾች</string>
+
+    <string-array name="frequency">
+        <item>Каждый час</item>
+        <item>Каждые 3 часа</item>
+        <item>Каждые шесть часов</item>
+        <item>Каждые 12 часов</item>
+        <item>Раз в день</item>
+    </string-array>
+
+
 </resources>

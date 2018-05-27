@@ -7,11 +7,9 @@
 
     <include layout="@layout/tool_bar"></include>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipeLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="match_parent">
 
         <FrameLayout
 
@@ -19,6 +17,7 @@
             android:layout_height="match_parent"
             android:id="@+id/containerMain">
         </FrameLayout>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </RelativeLayout>
+
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP;
 
+import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
@@ -8,6 +9,7 @@ import android.util.Log;
 
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.GPSTracker;
+import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.SavedData;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.adapters.PrayerTimeAdapter;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.model.PrayerTimeModel;
@@ -34,11 +36,12 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
     private int calculationMethodId;
     private int juristicMethodId;
     private SavedData savedData;
+    private Context mContext;
 
 
     public PrayerTimePresenter(Fragment fragment) {
         this.fragment = fragment;
-
+        mContext = fragment.getContext();
         this.MVPView = (net.a6te.lazycoder.aafwathakkir_islamicreminders.MVP.MVPView.PrayerTimeView) fragment;
         prayerTimes = new ArrayList<>();
         savedData = new SavedData(fragment.getContext());
@@ -47,7 +50,7 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
     }
 
     @Override
-    public void startCalculation() {
+    public void startCalculationPrayerTime() {
         gps = new GPSTracker(fragment.getContext());
 
         getLocation();// if gps setting is not available this method will call alert dialog message from prayerTime fragment so must call it from main Thread
@@ -133,26 +136,33 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
         ArrayList<String> times = prayers.getPrayerTimes(Calendar.getInstance(),
                 latitude, longitude, getTimeZone());
 
-        prayerTimes.add(new PrayerTimeModel("Fajr",times.get(PrayerTime.Time.Fajr)));
-        prayerTimes.add(new PrayerTimeModel("Sunrise",times.get(PrayerTime.Time.Sunrise)));
-        prayerTimes.add(new PrayerTimeModel("Dhuhr",times.get(PrayerTime.Time.Dhuhr)));
-        prayerTimes.add(new PrayerTimeModel("Asr",times.get(PrayerTime.Time.Asr)));
-        prayerTimes.add(new PrayerTimeModel("Maghrib",times.get(PrayerTime.Time.Maghrib)));
-        prayerTimes.add(new PrayerTimeModel("Isha",times.get(PrayerTime.Time.Isha)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.fajr),times.get(PrayerTime.Time.Fajr)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.sunrise),times.get(PrayerTime.Time.Sunrise)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.dhuhr),times.get(PrayerTime.Time.Dhuhr)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.asr),times.get(PrayerTime.Time.Asr)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.magrib),times.get(PrayerTime.Time.Maghrib)));
+        prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.isha),times.get(PrayerTime.Time.Isha)));
 
     }
 
     private boolean getLocation() {
 
-        // check if GPS enabled
-        if (gps.canGetLocation()) {
-            latitude = gps.getLatitude();
-            longitude = gps.getLongitude();
-            return true;
-        } else {
-            MVPView.showGpsSettingAlert();
-            return false;
+        try {
+            // check if GPS enabled
+            if (gps.canGetLocation()) {
+                latitude = gps.getLatitude();
+                longitude = gps.getLongitude();
+                return true;
+            } else {
+                MVPView.showGpsSettingAlert();
+                return false;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
+        return false;
+
     }
 
     /*

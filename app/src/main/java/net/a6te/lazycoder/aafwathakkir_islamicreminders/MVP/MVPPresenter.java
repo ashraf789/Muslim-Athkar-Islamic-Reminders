@@ -24,7 +24,7 @@ public interface MVPPresenter {
         void prepareAtkharBtnPress();
     }
     interface PrayerTimePresenter{
-        void startCalculation();
+        void startCalculationPrayerTime();
     }
     interface QiblaPresenter{
         void startCalculatingLocation();

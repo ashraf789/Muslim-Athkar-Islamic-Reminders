@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">স্মরণ করিয়ে দিন - ইসলামিক অনুস্মারক</string>
     <string name="required_data_connection">" দুঃখিত, এই ফাংশনটির জন্য একটি ডেটা সংযোগ প্রয়োজন। আপনার ডিভাইসটি ইন্টারনেটে সংযুক্ত করুন।"</string>
     <string name="gps_setting_message">দুঃখিত, এই ফাংশনটি আপনার ডিভাইসের GPS (অবস্থান) সক্ষম করার প্রয়োজন।</string>
     <string name="prayer_time_for">আজকের জন্য প্রার্থনা বার</string>
+    <string name="isha">"এশা "</string>
+    <string name="magrib">মাগরিব</string>
+    <string name="asr">আছর</string>
+    <string name="dhuhr">যোহর</string>
+    <string name="sunrise">সূর্যোদয়</string>
+    <string name="fajr">ফজর</string>
+    <string name="create_new">নতুন</string>
+    <string name="share_thanks">শেয়ার করুন। ধন্যবাদ।</string>
+    <string name="save">সংরক্ষিত</string>
+    <string name="app_signature">মহাগ্রন্থ কুরআন / ইসলামী অনুস্মারকগুলির এই সুন্দর ফ্রী এবং বিজ্ঞাপন মুক্ত অ্যাপ্লিকেশনটি প্লে-স্টোর থেকে ডাউনলোড করুন।</string>
+    <string name="remainder_language">কোন ভাষায় আপনি অনুস্মারক দেখতে চান? (আপনি নীচের অনেক ভাষা নির্বাচন করতে পারেন)</string>
+    <string name="frequency">আপনি কত বার আপনি একটি আয়াত / অনুস্মারক দেখতে চান?</string>
+    <string name="app_language">অনুগ্রহ করে আপনার ভাষা নির্বাচন করুন:</string>
+
+    <string name="app_title">স্মরণ করিয়ে দিন</string>
+    <string name="app_slogan">ইসলামিক অনুস্মারক</string>
+    <string-array name="frequency">
+        <item>প্রতি ১ ঘন্টায়</item>
+        <item>প্রতি ৩ ঘন্টায় </item>
+        <item>প্রতি ৬ ঘন্টায়</item>
+        <item>প্রতি ১২ ঘন্টায়</item>
+        <item>দিনে একবার</item>
+    </string-array>
+
 </resources>

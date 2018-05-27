@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+    <string name="app_sub_name">Dan Ingatkan - Peringatan Islam</string>
     <string name="required_data_connection">Maaf, fungsi ini memerlukan sambungan data. Sila sambungkan peranti anda ke internet.</string>
     <string name="gps_setting_message">Maaf, fungsi ini memerlukan anda mendayakan GPS (lokasi) peranti anda.</string>
     <string name="prayer_time_for">Waktu doa untuk hari ini</string>
+    <string name="isha">Isha\'</string>
+    <string name="magrib">Maghrib</string>
+    <string name="asr">Asar</string>
+    <string name="dhuhr">Zuhur</string>
+    <string name="sunrise">Syuruk</string>
+    <string name="fajr">Subuh</string>
+    <string name="create_new">Baru</string>
+    <string name="share_thanks">Kongsi. Terima Kasih.</string>
+    <string name="save">Disimpan</string>
+    <string name="app_signature">Muat turun aplikasi Al-Quran yang indah, percuma dan tanpa iklan ini daripada PlayStore.</string>
+    <string name="remainder_language">Dalam bahasa apakah ingin anda terima peringatan? (Anda boleh memilih banyak bahasa di bawah)</string>
+    <string name="frequency">"Berapa kerap ingin anda terima ayat Al-Quran / peringatan? "</string>
+    <string name="app_language">Sila pilih bahasa anda</string>
+
+    <string name="app_title">Dan Ingatkan</string>
+    <string name="app_slogan">Peringatan Islam</string>
+
+    <string-array name="frequency">
+        <item>Setiap 1 jam</item>
+        <item>Setiap 3 jam</item>
+        <item>Setiap 6 jam</item>
+        <item>Setiap 12 jam</item>
+        <item>Sekali sehari</item>
+    </string-array>
 </resources>
