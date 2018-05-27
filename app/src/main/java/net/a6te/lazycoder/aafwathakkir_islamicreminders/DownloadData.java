@@ -12,6 +12,9 @@ import net.a6te.lazycoder.aafwathakkir_islamicreminders.database.MyDatabase;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.interfaces.RetrofitApiCaller;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.model.Athkar;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,6 +33,7 @@ public class DownloadData extends IntentService {
     private MyDatabase myDb;
     private CheckInternetConnection internetConnection;
     private Context context;
+    public static boolean alreadyDownloading = false;
 
 
     public DownloadData() {
@@ -40,7 +44,16 @@ public class DownloadData extends IntentService {
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         initialize();
-        download();
+
+//        final long period = 3000;
+//        new Timer().schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                Log.d(TAG, "onHandleIntent: running");
+                download();
+//
+//            }
+//        }, 0, period);
     }
 
     private void initialize() {
@@ -66,9 +79,11 @@ public class DownloadData extends IntentService {
     public void download(){
 
         //internet connection checking
-        if (!internetConnection.netCheck(context)){
+        if (!internetConnection.netCheck(context) || alreadyDownloading){
             return;
         }
+
+        alreadyDownloading = true;
         Call<Athkar> athkar = apiClient.getData(athkarAPI);
         athkar.enqueue(new Callback<Athkar>() {
             @Override
@@ -81,6 +96,8 @@ public class DownloadData extends IntentService {
                 }else{
                     Log.d(TAG, "onResponse: database is already up to date");
                     broadcastMessage(getString(R.string.data_all_up_to_date),false);
+                    alreadyDownloading = false;
+
                 }
             }
 
@@ -88,6 +105,8 @@ public class DownloadData extends IntentService {
             public void onFailure(Call<Athkar> call, Throwable t) {
                 Log.d(TAG, "onFailure: faield to store data");
                 t.printStackTrace();
+                alreadyDownloading = false;
+
             }
         });
 
@@ -119,5 +138,7 @@ public class DownloadData extends IntentService {
 
         //now our updated data is saved on our offline database so we need to save last data updateCode
         sharedPreference.saveLastUpdateCode(Integer.parseInt(updateCode));
+
+//        alreadyDownloading = false;
     }
 }

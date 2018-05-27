@@ -88,7 +88,7 @@ public class MyDatabase {
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
 
-            database.insert(dbHelper.CHINESE_TRADITIONAL_QUERY,null,contentValues);
+            database.insert(dbHelper.TABLE_CHINESE_TRADITIONAL,null,contentValues);
         }
         for (Athkar.English athkar: data.getEnglish()) {
             ContentValues contentValues = new ContentValues();
@@ -314,16 +314,13 @@ public class MyDatabase {
     public String getAtkhar(String table, int id) {
 
         //if no data found then this will be the message
-        String getData=context.getString(R.string.no_data);
+        String getData=context.getString(R.string.required_data_connection);
         id++;//array start from 0 but datase start from 1 so we are adding +1 to start it from first row
 
 
         Open();
 
         try {
-//            Cursor cursor = database.query(db, sqlSelect, COL_ID+" = ?",new String []{String.valueOf(id)},
-//                    null, null, null);
-
             Cursor cursor = database.query(table,new String[] {dbHelper.COL_ATHKAR}, dbHelper.COL_ID+"=?", new String[] {String.valueOf(id)}, null, null, null);
             cursor.moveToFirst();
 

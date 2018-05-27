@@ -52,10 +52,15 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
     @Override
     public void startCalculationPrayerTime() {
         gps = new GPSTracker(fragment.getContext());
-
         getLocation();// if gps setting is not available this method will call alert dialog message from prayerTime fragment so must call it from main Thread
-        PerformBackground background = new PerformBackground();
-        background.execute();
+
+        try {
+            PerformBackground background = new PerformBackground();
+            background.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
 
     }
 

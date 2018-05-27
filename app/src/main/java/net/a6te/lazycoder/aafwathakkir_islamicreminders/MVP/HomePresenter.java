@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.View;
 
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.R;
@@ -133,6 +134,9 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
         int lastDataId = myDatabase.getLastDataId(tableName);
         String atkhar;
 
+        Log.d("TEST", "total atkar or table "+tableName+" athkar = "+lastDataId);
+        Log.d("TEST", "get athkar ID : "+id);
+
         if (lastDataId >= id){
             //still available new data
             atkhar = myDatabase.getAtkhar(tableName, id);
@@ -153,6 +157,9 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
             tableName = getTableName();
         }
         int lastDataId = myDatabase.getLastDataId(tableName);
+
+        Log.d("TEST", "total atkar or table "+tableName+" athkar = "+lastDataId);
+        Log.d("TEST", "get athkar ID : "+lastDataId);
         String atkhar;
 
         if (lastDataId >= id){

@@ -18,14 +18,12 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
 
         this.context = context;
         if (!checkConnect()) {
-            Log.d("TEST", "onReceive: internet connected");
-            // TODO
-
+            Log.d("TEST", "onReceive: No internet connection");
             sendMessage(context.getString(R.string.required_data_connection),Utils.NO_CONNECTION_CODE, false);
 
         }else if (!checkLocation()) {
-            Log.d("TEST", "onReceive: internet disconnected");
-            sendMessage(context.getString(R.string.required_data_connection),Utils.NO_CONNECTION_CODE, true);
+            Log.d("TEST", "onReceive: no location connection");
+            sendMessage(context.getString(R.string.gps_setting_message),Utils.NO_CONNECTION_CODE, true);
         }else{
             sendMessage("All are connected",Utils.ALL_CONNECTED, true);
         }

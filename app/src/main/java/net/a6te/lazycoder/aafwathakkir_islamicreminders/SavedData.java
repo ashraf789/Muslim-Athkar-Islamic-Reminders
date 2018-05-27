@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class SavedData {
     private static final String APP_PREFS_NAME = "SavedData";
@@ -28,6 +27,7 @@ public class SavedData {
     private static final String LAST_UPDATE_CODE = "lastUpdateCode";
     private static final String ATHKAR_TABLE_NAME = "athkarTableName";
     private static final String FIRST_TIME_DATA_SYNCHRONIZED = "dataFirstTimeAlreadySynchronized";
+    private static final String FIRST_TIME_APP_OPEN = "firstTimeAppOpen";
 
 
     public SavedData(Context context)
@@ -177,4 +177,15 @@ public class SavedData {
     public boolean getIsDataFirstTimeSynchronized(){
         return appSharedPrefs.getBoolean(FIRST_TIME_DATA_SYNCHRONIZED,false);
     }
+
+    public void saveAppAlreadyOpen(){
+        prefsEditor.putBoolean(FIRST_TIME_APP_OPEN,false);
+        prefsEditor.commit();
+    }
+    public boolean getIsAppFirstTimeOpen(){
+        boolean isFirstTime = appSharedPrefs.getBoolean(FIRST_TIME_APP_OPEN,true);
+        saveAppAlreadyOpen();
+        return isFirstTime;
+    }
+
 }

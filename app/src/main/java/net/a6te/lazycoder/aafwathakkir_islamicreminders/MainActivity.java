@@ -38,7 +38,7 @@ import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Quran;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.fragments.Settings;
 import net.a6te.lazycoder.aafwathakkir_islamicreminders.interfaces.CallAttachBaseContext;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext, SwipeRefreshLayout.OnRefreshListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext{
 
     private RelativeLayout navHomeRl,navPrayerRl,navQiblaRl,navQuranRl,navSettingRl,navUrlRl;
 
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initializeAll();
         playSound();//this method will play opening sound
+        this.startService(mServiceIntent);//start IntentService for fetch data from online server
 
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -82,6 +83,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         drawer.addDrawerListener(toggle);
 
         toggle.syncState();
+
+        if (savedData.getIsAppFirstTimeOpen()){
+            fragment = new Settings();
+        }
         transaction.add(R.id.containerMain,fragment);
         transaction.commit();
 
@@ -119,11 +124,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         checkLocationPermission();//this method will take location permission from user
 
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver
-                ,new IntentFilter(Utils.BROADCAST_ACTION));
-        mServiceIntent = new Intent(this, DownloadData.class);
-        this.startService(mServiceIntent);//start IntentService for fetch data from online server
 
+        mServiceIntent = new Intent(this, DownloadData.class);
 
 
         IntentFilter filter = new IntentFilter();
@@ -138,6 +140,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         LocalBroadcastManager.getInstance(this).registerReceiver(connectionStatusReceiver
                 ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
+        LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver
+                ,new IntentFilter(Utils.BROADCAST_ACTION));
 
         savedData = new SavedData(this);
 
@@ -294,21 +298,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d("TEST", "onReceive: messageReciver called : "+message);
             //new data update
             if (isUpdateData){
-                fragment = new Home();
-                changeSelectedNavBg(findViewById(R.id.navHomeRl));
+//                fragment = new Home();
+//                changeSelectedNavBg(findViewById(R.id.navHomeRl));
+//
+//                transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.containerMain,fragment);
+//                transaction.commit();
 
-                transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.containerMain,fragment);
-                transaction.commit();
+
                 closeDrawer();
             }
         }
     };
 
-    @Override
-    public void onRefresh() {
-        this.startService(mServiceIntent);
-    }
 
     private void unregisterReceiver() {
         this.unregisterReceiver(receiver);
@@ -320,10 +322,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Bundle bundle = intent.getExtras();
 
             if (bundle.getBoolean(Utils.DATA_CONNECTION_ENABLE)){
-                if (!savedData.getIsDataFirstTimeSynchronized()){
                     setVisibleProgressBar();
                     startServiceIntent();
-                }
             }
 
 

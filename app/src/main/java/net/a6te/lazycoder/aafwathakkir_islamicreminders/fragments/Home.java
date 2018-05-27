@@ -105,6 +105,8 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(connectionStatusReceiver
                 ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
+        LocalBroadcastManager.getInstance(getContext()).registerReceiver(messageReceiver
+                ,new IntentFilter(Utils.BROADCAST_ACTION));
 
     }
 
@@ -215,12 +217,12 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
             Bundle bundle = intent.getExtras();
             String message = bundle.getString(Utils.CONNECTION_STATUS);
 
-            if (bundle.getInt(Utils.STATUS_CODE) == Utils.ALL_CONNECTED){
-                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
-
-            }else if (bundle.getInt(Utils.STATUS_CODE) == Utils.NO_CONNECTION_CODE){
-                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
-            }
+//            if (bundle.getInt(Utils.STATUS_CODE) == Utils.ALL_CONNECTED){
+//                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+//
+//            }else if (bundle.getInt(Utils.STATUS_CODE) == Utils.NO_CONNECTION_CODE){
+//                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+//            }
 
         }
     };
@@ -242,4 +244,17 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         ring.stop();
         super.onPause();
     }
+
+    //broadcast receiver
+    BroadcastReceiver messageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean isUpdateData = intent.getBooleanExtra(Utils.EXTENDED_IS_UPDATE_DATA,false);
+            //new data update
+            if (isUpdateData){
+                presenter.prepareAtkhar();
+
+            }
+        }
+    };
 }
