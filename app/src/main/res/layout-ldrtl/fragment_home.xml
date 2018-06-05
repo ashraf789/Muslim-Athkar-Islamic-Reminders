@@ -7,10 +7,10 @@
     android:background="@drawable/background_image">
 
     <RelativeLayout
-        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
+            android:padding="5dp"
             android:background="@drawable/background_image"
             android:layout_above="@+id/createNewImageBtn"
             android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                     android:maxLines="2"/>
 
                 <TextView
-                    android:layout_above="@+id/forumNameTv"
+                    android:layout_above="@+id/forumUrlTv"
                     android:layout_below="@+id/appNameTv"
                     android:textStyle="bold"
                     android:layout_centerInParent="true"
@@ -48,27 +48,16 @@
                     android:id="@+id/atkharTv"
                     android:textColor="@color/white"/>
                 <TextView
-                    android:layout_centerHorizontal="true"
-                    android:layout_above="@+id/forumUrlTv"
-                    android:id="@+id/forumNameTv"
                     android:gravity="center"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/forum_name"/>
-                <TextView
                     android:layout_marginTop="5dp"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
                     android:id="@+id/forumUrlTv"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_url"/>
-
+                    android:text="@string/app_google_play_url"
+                    android:textSize="20sp"/>
                 <ImageButton
                     android:id="@+id/shareIvBtn"
                     android:layout_alignParentBottom="true"
@@ -86,22 +75,26 @@
         </RelativeLayout>
 
         <Button
+            android:layout_above="@+id/adView"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:background="@color/colorPrimaryDark"
             android:id="@+id/createNewImageBtn"
-            android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:layout_marginTop="10dp"
             android:textAllCaps="true"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="@string/create_new"/>
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/create_new"/>
-
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/add_unit_id">
+        </com.google.android.gms.ads.AdView>
     </RelativeLayout>
 
 </FrameLayout>

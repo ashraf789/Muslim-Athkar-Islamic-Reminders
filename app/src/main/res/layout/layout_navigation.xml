@@ -65,53 +65,6 @@
                     </LinearLayout>
 
                 </com.github.florent37.shapeofview.shapes.ArcView>
-                <!--<LinearLayout-->
-                <!--android:paddingBottom="30dp"-->
-                <!--android:background="@color/colorPrimary"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="horizontal">-->
-                <!--<ImageView-->
-                <!--android:id="@+id/navIcon"-->
-                <!--android:layout_weight="1"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="60dp"-->
-                <!--android:src="@drawable/app_icon_512"/>-->
-                <!--<LinearLayout-->
-                <!--android:layout_marginTop="5dp"-->
-                <!--android:layout_weight="2"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical">-->
-                <!--<TextView-->
-                <!--android:fontFamily="sans-serif-condensed"-->
-                <!--android:textSize="20sp"-->
-                <!--android:textColor="@color/color_white"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/app_name"-->
-                <!--android:textStyle="bold"/>-->
-                <!--<TextView-->
-                <!--android:layout_marginTop="2dp"-->
-                <!--android:textColor="@color/color_white"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/app_title"/>-->
-                <!--</LinearLayout>-->
-                <!--</LinearLayout>-->
-
-
-                <!--<TextView-->
-                <!--android:gravity="center"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:layout_marginBottom="20dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_marginLeft="20dp"-->
-                <!--android:layout_marginRight="20dp"-->
-                <!--android:layout_height="2dp"-->
-                <!--android:background="@drawable/single_line"/>-->
-
-
                 <LinearLayout
                     android:layout_below="@+id/headerLayout"
                     android:id="@+id/bodyLayout"
@@ -134,16 +87,9 @@
                             android:id="@+id/navImg1"
                             android:layout_width="65dp"
                             android:layout_height="65dp"
+                            android:padding="5dp"
                             android:src="@drawable/home_icon"/>
-                        <!--<TextView-->
-                            <!--android:layout_marginLeft="25dp"-->
-                            <!--android:layout_toRightOf="@+id/navImg1"-->
-                            <!--android:layout_centerVertical="true"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="Home"-->
-                            <!--android:gravity="center"-->
-                            <!--android:layout_gravity="center"/>-->
+
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -155,21 +101,13 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:src="@drawable/prayertimes_512"
+                            android:src="@drawable/prayer_icon_250"
                             android:layout_centerInParent="true"
                             android:id="@+id/navImg2"
                             android:layout_width="65dp"
                             android:layout_height="65dp"
                             />
-                        <!--<TextView-->
-                            <!--android:layout_marginLeft="25dp"-->
-                            <!--android:layout_toRightOf="@+id/navImg2"-->
-                            <!--android:layout_centerVertical="true"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="Prayer Times"-->
-                            <!--android:gravity="center"-->
-                            <!--android:layout_gravity="center"/>-->
+
                     </RelativeLayout>
                     <RelativeLayout
                         android:foreground="?android:attr/selectableItemBackground"
@@ -180,21 +118,12 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:src="@drawable/qibla_512"
+                            android:src="@drawable/qibla_icon_250"
                             android:layout_centerInParent="true"
                             android:id="@+id/navImg3"
                             android:layout_width="65dp"
                             android:layout_height="65dp"
                             />
-                        <!--<TextView-->
-                            <!--android:layout_marginLeft="25dp"-->
-                            <!--android:layout_toRightOf="@+id/navImg3"-->
-                            <!--android:layout_centerVertical="true"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="Qibla Direction"-->
-                            <!--android:gravity="center"-->
-                            <!--android:layout_gravity="center"/>-->
                     </RelativeLayout>
                     <RelativeLayout
                         android:foreground="?android:attr/selectableItemBackground"
@@ -205,21 +134,12 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:src="@drawable/qoran_athkar_512"
+                            android:src="@drawable/quran_icon_250"
                             android:layout_centerInParent="true"
                             android:id="@+id/navImg4"
                             android:layout_width="65dp"
                             android:layout_height="65dp"
                             />
-                        <!--<TextView-->
-                            <!--android:layout_marginLeft="25dp"-->
-                            <!--android:layout_toRightOf="@+id/navImg4"-->
-                            <!--android:layout_centerVertical="true"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="The Quran in Arabic"-->
-                            <!--android:gravity="center"-->
-                            <!--android:layout_gravity="center"/>-->
                     </RelativeLayout>
 
                     <TextView
@@ -240,20 +160,11 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:src="@drawable/settings_512"
+                            android:src="@drawable/setting_icon_250"
                             android:layout_centerInParent="true"
                             android:id="@+id/navImg5"
                             android:layout_width="65dp"
                             android:layout_height="65dp"/>
-                        <!--<TextView-->
-                            <!--android:layout_marginLeft="25dp"-->
-                            <!--android:layout_toRightOf="@+id/navImg5"-->
-                            <!--android:layout_centerVertical="true"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="Settings"-->
-                            <!--android:gravity="center"-->
-                            <!--android:layout_gravity="center"/>-->
                     </RelativeLayout>
                 </LinearLayout>
             </RelativeLayout>
@@ -265,18 +176,22 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:orientation="vertical"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            >
             <TextView
+                android:gravity="center"
+                android:layout_marginRight="10dp"
                 android:textAllCaps="true"
                 android:textColor="@color/color_white"
                 android:textStyle="bold"
-                android:layout_marginLeft="30dp"
                 android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_url"
+                android:text="@string/contact_with_us"
                 />
             <ImageView
+                android:id="@+id/arrowNext"
                 android:layout_marginRight="30dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"

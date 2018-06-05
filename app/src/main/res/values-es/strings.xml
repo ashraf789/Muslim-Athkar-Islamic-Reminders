@@ -28,4 +28,31 @@
         <item>Dos veces por el día </item>
         <item>Una vez por el día</item>
     </string-array>
+
+
+
+    <string name="magnetic_sensor_not_available">Sensor magnético no disponible !!</string>
+    <string name="distance_from_qibla">Distancia desde Qibla</string>
+    <string name="contact_with_us">Contactar con nosotros</string>
+    <string name="prayer">Oración</string>
+    <string name="calculation_method">Método de cálculo</string>
+    <string name="juristic_method">Método Jurístico</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>Jafari</item>
+        <item>Karachi</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>Makkah</item>
+        <item>Egipto</item>
+        <item>Personalizado</item>
+        <item>Teherán</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>Shafii Shafii (estándar)</item>
+        <item>Hanafi Hanafi</item>
+    </string-array>
+
+
 </resources>

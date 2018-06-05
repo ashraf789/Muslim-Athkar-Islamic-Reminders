@@ -29,4 +29,29 @@
         <item>हर 12 घंटे में</item>
         <item>दिन में एक बार</item>
     </string-array>
+
+
+    <string name="magnetic_sensor_not_available">चुंबकीय सेंसर उपलब्ध नहीं है !!</string>
+    <string name="distance_from_qibla">क्यूबाला से दूरी</string>
+    <string name="contact_with_us">हमारे साथ संपर्क करें</string>
+    <string name="prayer">प्रार्थना</string>
+    <string name="calculation_method"> गणना विधि</string>
+    <string name="juristic_method">न्यायवादी विधि</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>जाफरी</item>
+        <item>कराची</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>मक्का</item>
+        <item>मिस्र</item>
+        <item>रिवाज</item>
+        <item>तेहरान</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>शाफी शाफी (मानक)</item>
+        <item>हनफी हनफी</item>
+    </string-array>
+
 </resources>

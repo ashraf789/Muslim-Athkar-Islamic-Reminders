@@ -5,19 +5,38 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Quran">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/background_image">
+        android:background="@color/white">
 
-        <include layout="@layout/search_bar"></include>
-
-        <com.github.barteksc.pdfviewer.PDFView
-            android:id="@+id/pdfView"
+        <LinearLayout
+            android:layout_above="@+id/adView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <include layout="@layout/search_bar"></include>
+
+            <com.github.barteksc.pdfviewer.PDFView
+                android:layout_below="@+id/searchBar"
+                android:id="@+id/pdfView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+        <com.google.android.gms.ads.AdView
+            android:layout_gravity="bottom|center"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/add_unit_id">
+        </com.google.android.gms.ads.AdView>
+    </RelativeLayout>
 
 
 </FrameLayout>

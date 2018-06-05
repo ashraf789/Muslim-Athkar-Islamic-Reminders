@@ -29,4 +29,50 @@
         <item>مرة في اليوم</item>
     </string-array>
 
+
+    <string name="magnetic_sensor_not_available">استشعار مغناطيسي غير متوفر !!</string>
+    <string name="distance_from_qibla">المسافة من القبلة</string>
+    <string name="contact_with_us">اتصل بنا</string>
+    <string name="prayer">صلاة</string>
+    <string name="calculation_method">طريقة حساب</string>
+    <string name="juristic_method"> المنهج الشرعي</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>جعفري</item>
+        <item>كراتشي</item>
+        <item>ISNA</item>
+        <item>رابطة العالم الإسلامي</item>
+        <item>مكه</item>
+        <item>مصر</item>
+        <item>العادة</item>
+        <item>طهران</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>شافعي الشافعي (قياسي)</item>
+        <item>حنفي حنفي</item>
+    </string-array>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

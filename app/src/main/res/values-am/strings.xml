@@ -29,5 +29,27 @@
         <item>Раз в день</item>
     </string-array>
 
+    <string name="magnetic_sensor_not_available">መግነጢሳዊ ዳሳሽ የለም !!</string>
+    <string name="distance_from_qibla">ከ Qibla ርቀት</string>
+    <string name="contact_with_us">ከእኛ ጋር ተገናኝ</string>
+    <string name="prayer">ጸሎት</string>
+    <string name="calculation_method">የግቤት ስልት</string>
+    <string name="juristic_method">የውክልና ዘዴ</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>ጃፋሪ</item>
+        <item>ካራቺ</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>መካ</item>
+        <item>ግብጽ</item>
+        <item>ብጁ</item>
+        <item>ቴሄራን</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>ሻፊሂ ሻፋሂ (መደበኛ)</item>
+        <item>ሃንፊ ሂጃፊ</item>
+    </string-array>
 
 </resources>

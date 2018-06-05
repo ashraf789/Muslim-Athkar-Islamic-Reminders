@@ -27,4 +27,29 @@
         <item>هر 12 ساعت</item>
         <item>روزی یک بار</item>
     </string-array>
+
+    <string name="magnetic_sensor_not_available"> سنسور مغناطیسی در دسترس نیست !!</string>
+    <string name="distance_from_qibla">فاصله از قیبلا</string>
+    <string name="contact_with_us">با ما تماس بگیرید</string>
+    <string name="prayer">نماز</string>
+    <string name="calculation_method">روش محاسبه</string>
+    <string name="juristic_method">روش قانونی</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>جعفری</item>
+        <item>کراچی</item>
+        <item>ایسنا</item>
+        <item>MWL</item>
+        <item>مکه</item>
+        <item>مصر</item>
+        <item>سفارشی</item>
+        <item>تهران</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>شفیعی شفیعی (استاندارد)</item>
+        <item>Hanafi Hanafi</item>
+    </string-array>
+
+
 </resources>

@@ -28,4 +28,29 @@
         <item>Alle 12 Stunden</item>
         <item>Einmal am Tag</item>
     </string-array>
+
+
+    <string name="magnetic_sensor_not_available">Magnetsensor nicht verfügbar !!</string>
+    <string name="distance_from_qibla">Entfernung von Qibla</string>
+    <string name="contact_with_us">Kontakt mit uns</string>
+    <string name="prayer">Gebet</string>
+    <string name="calculation_method">Rechenmethode</string>
+    <string name="juristic_method">Juristische Methode</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>Jafari</item>
+        <item>Karatschi</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>Mekka</item>
+        <item>Ägypten</item>
+        <item>Brauch</item>
+        <item>Teheran</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>Shafii Shafii (Standard)</item>
+        <item>Hanafi Hanafi</item>
+    </string-array>
+
 </resources>

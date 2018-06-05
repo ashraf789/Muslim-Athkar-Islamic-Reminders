@@ -28,4 +28,28 @@
         <item>দিনে একবার</item>
     </string-array>
 
+
+    <string name="magnetic_sensor_not_available">চৌম্বক সেন্সর পাওয়া যায় না !!</string>
+    <string name="distance_from_qibla">কিবলা থেকে দূরত্ব</string>
+    <string name="contact_with_us">আমাদের সাথে যোগাযোগ করুন</string>
+    <string name="prayer">প্রার্থনা</string>
+    <string name="calculation_method">হিসাব পদ্ধতি</string>
+    <string name="juristic_method">জুরিস্টিক পদ্ধতি</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>Jafari</item>
+        <item>করাচী</item>
+        <item>ইসনা</item>
+        <item>MWL</item>
+        <item>মক্কা</item>
+        <item>মিশর</item>
+        <item>প্রথা</item>
+        <item>তেহরান</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>শাফি শাফি (মান)</item>
+        <item>হানাফী হানাফী</item>
+    </string-array>
+
 </resources>

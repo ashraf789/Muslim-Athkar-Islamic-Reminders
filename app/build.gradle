@@ -5,11 +5,11 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        applicationId "net.a6te.lazycoder.aafwathakkir_islamicreminders"
+        applicationId "net.a6te.lazycoder.muslim_pro_islamicremainders"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.3"
 
         buildConfigField("String", "API_KEY", API_KEY)
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -71,4 +71,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.2.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
 
+    implementation 'com.google.android.gms:play-services-ads:15.0.0'
+    implementation 'com.google.firebase:firebase-ads:15.0.1'
+    implementation 'com.google.firebase:firebase-core:16.0.0'
+
 }
+apply plugin: 'com.google.gms.google-services'
+

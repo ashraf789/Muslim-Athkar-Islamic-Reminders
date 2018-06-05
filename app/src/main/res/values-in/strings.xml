@@ -28,4 +28,33 @@
         <item>Setiap 12 jam</item>
         <item>Sekali sehari</item>
     </string-array>
+
+
+
+
+
+    <string name="magnetic_sensor_not_available">Sensor magnetik tidak tersedia !!</string>
+    <string name="distance_from_qibla">Jarak dari Kiblat</string>
+    <string name="contact_with_us">Kontak dengan kami</string>
+    <string name="prayer">Doa</string>
+    <string name="calculation_method"> Metode perhitungan</string>
+    <string name="juristic_method">Metode Juristik</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>Jafari</item>
+        <item>Karachi</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>Mekah</item>
+        <item>Mesir</item>
+        <item>Custom</item>
+        <item>Teheran</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>Shafii Shafii (standar)</item>
+        <item>Hanafi Hanafi</item>
+    </string-array>
+
+
 </resources>

@@ -28,4 +28,30 @@
         <item>ہر 12 گھنٹے</item>
         <item>دن میں ایک دفحہ</item>
     </string-array>
+
+
+
+    <string name="magnetic_sensor_not_available">مقناطیسی سینسر دستیاب نہیں !!</string>
+    <string name="distance_from_qibla">قبلا سے فاصلہ</string>
+    <string name="contact_with_us">ہمارے ساتھ رابطہ کریں</string>
+    <string name="prayer">نماز</string>
+    <string name="calculation_method">حساب کا طریقہ</string>
+    <string name="juristic_method">پسندی کا طریقہ</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>جعفری</item>
+        <item>کراچی</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>مکہ</item>
+        <item>مصر</item>
+        <item>    اپنی مرضی</item>
+        <item>تہران</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item> شافی شافی (معیاری)</item>
+        <item>حنفی حنفی</item>
+    </string-array>
+
 </resources>

@@ -28,4 +28,29 @@
         <item>每12小時</item>
         <item>每天一次</item>
     </string-array>
+
+
+    <string name="magnetic_sensor_not_available">磁性传感器不可用</string>
+    <string name="distance_from_qibla">与Qibla的距离</string>
+    <string name="contact_with_us">与我们联系</string>
+    <string name="prayer">祷告</string>
+    <string name="calculation_method">计算方法</string>
+    <string name="juristic_method">法律方法</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>贾法里</item>
+        <item>卡拉奇</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>麦加</item>
+        <item>埃及</item>
+        <item>习惯</item>
+        <item>德黑兰</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item> Shafii Shafii (standard)</item>
+        <item>Hanafi Hanafi</item>
+    </string-array>
+
 </resources>

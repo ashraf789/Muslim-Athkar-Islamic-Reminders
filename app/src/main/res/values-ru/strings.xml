@@ -28,4 +28,29 @@
         <item>Каждые 12 часов</item>
         <item>Раз в день</item>
     </string-array>
+
+    <string name="magnetic_sensor_not_available">Магнитный датчик недоступен!</string>
+    <string name="distance_from_qibla">Расстояние от Qibla</string>
+    <string name="contact_with_us"> Связаться с нами</string>
+    <string name="prayer">молитва</string>
+    <string name="calculation_method">Метод расчета</string>
+    <string name="juristic_method">Юристический метод</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>Джафари</item>
+        <item>Карачи</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>Мекка</item>
+        <item>Египет</item>
+        <item>изготовленный на заказ</item>
+        <item>Тегеран</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>Шафии Шафии (стандарт)</item>
+        <item>Ханафи Ханафи</item>
+    </string-array>
+
+
 </resources>

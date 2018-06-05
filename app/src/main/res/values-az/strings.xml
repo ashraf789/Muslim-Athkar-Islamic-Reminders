@@ -30,4 +30,27 @@
         <item>Gündə bir dəfə</item>
     </string-array>
 
+    <string name="magnetic_sensor_not_available">Maqnit sensoru mövcud deyil!</string>
+    <string name="distance_from_qibla">Qibla məsafə</string>
+    <string name="contact_with_us">Bizimlə əlaqə saxlayın</string>
+    <string name="prayer">Dua et</string>
+    <string name="calculation_method">Hesablama metodu</string>
+    <string name="juristic_method">Müdrik üsul</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>Cəfəri</item>
+        <item>Karaçi</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>Məkkə</item>
+        <item>Misir</item>
+        <item>Xüsusi</item>
+        <item>Tehran</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>Shafii Shafii (standart)</item>
+        <item>Hənəfi Hənəfi</item>
+    </string-array>
+
 </resources>

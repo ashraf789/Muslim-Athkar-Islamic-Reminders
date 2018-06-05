@@ -1,41 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AAF WaThakkir - Islamic Reminders</string>
+
+    <!-- release ads details -->
+    <string name="add_unit_id">ca-app-pub-2122789248840144/5923672534</string>
+    <string name="add_publish_id">ca-app-pub-2122789248840144~8466075392</string>
+
+
+    <string name="app_name">Muslim Pro - Islamic Reminders</string>
     <string name="facebook_app_id">179442992713579</string>
-    <string name="forum_name">Forumislam</string>
-    <string name="app_url">www.Forumislam.com</string>
-    <string name="app_google_play_url">http://play.google.com/</string>
+    <string name="forum_name">Muslim Pro</string>
+    <string name="app_email">muslimpro.islamicremainders@gmail.com</string>
+    <!--<string name="app_url">www.IslamicReminders.com</string>-->
+    <string name="app_google_play_url">http://bit.do/emhM3</string>
     <string name="qibla_degree">0.00 °</string>
     <string name="km">KM</string>
     <string name="navigation_drawer_open">Navigation open</string>
     <string name="navigation_drawer_close">Navigation Close</string>
-
-
-
-    <string name="gps_setting_title">GPS settings</string>
-    <string name="settings">Settings</string>
 
     <string name="search_hint">surah name or page no</string>
     <string name="permission_denied">Permission denied</string>
     <string name="location_permission_title">Location Permission</string>
     <string name="ok">OK</string>
     <string name="location_permission_message">Access this device location</string>
-    <string name="cancel">Cancel</string>
     <string name="notification_title">You have one quran athkar to read</string>
     <string name="notification_subtitle">Watch this now?</string>
     <string name="find_surah">Find surah..</string>
     <string name="no_internet_connection">You have no Internet connection</string>
-    <string name="magnetic_sensor_not_present">Sorry magnetic sensor not available</string>
     <string name="refresh_screen_for_permission_message">please refresh screen for permission message</string>
     <string name="new_image_created">New Image Created</string>
     <string name="share_via">Share Via…</string>
     <string name="city_name">City</string>
-    <string name="distance_from_qibla">Distance from Qibla</string>
-    <string name="magnetic_sensor_not_available">Magnetic sensor not available !!</string>
 
-    <string name="prayer">Prayer</string>
-    <string name="calculation_method">Calculation method</string>
-    <string name="juristic_method">Juristic Method</string>
     <string name="gps_permission">GPS is not enabled. Do you want to go to settings menu?.</string>
 
     <string name="required_data_connection">Sorry, this function requires a data connection. Please connect your device to the internet.</string>
@@ -48,7 +43,7 @@
     <string name="app_language">Please choose your language: </string>
     <string name="frequency">How often do you wish to see a verse / reminder?</string>
     <string name="remainder_language">In which languages do you wish to see reminders?  (You can choose many languages below)</string>
-    <string name="app_signature">Download this beautiful free and ad-free app of Koran / Islamic reminders from the </string>
+    <string name="app_signature">Download this beautiful app of Koran / Islamic reminders from the</string>
     <string name="save">Saved</string>
     <string name="share_thanks">Share. Thank you.</string>
     <string name="create_new">New</string>
@@ -59,10 +54,45 @@
     <string name="asr">Asr</string>
     <string name="magrib">Maghrib</string>
     <string name="isha">Isha</string>
-    <string name="app_sub_name">And Remind - Islamic Reminders</string>
-    <string name="app_title">AAF WaThakkir</string>
+    <string name="app_sub_name">Muslim Pro - Islamic Reminders</string>
+    <string name="app_title">Muslim Athkar</string>
     <string name="app_slogan">Islamic Reminders</string>
     <string name="no_data">No data found</string>
+    <string name="gps_setting_title">GPS settings</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">Cancel</string>
+
+
+
+    <string name="magnetic_sensor_not_available">Magnetic sensor not available !!</string>
+    <string name="distance_from_qibla">Distance from Qibla</string>
+    <string name="contact_with_us">Contact with us</string>
+    <string name="prayer">Prayer</string>
+    <string name="calculation_method">Calculation method</string>
+    <string name="juristic_method">Juristic Method</string>
+
+    <string-array name="prayer_calculation_method">
+        <item>Jafari</item>
+        <item>Karachi</item>
+        <item>ISNA</item>
+        <item>MWL</item>
+        <item>Makkah</item>
+        <item>Egypt</item>
+        <item>Custom</item>
+        <item>Tehran</item>
+    </string-array>
+
+    <string-array name="juristic_method">
+        <item>Shafii Shafii (standard)</item>
+        <item>Hanafi Hanafi</item>
+    </string-array>
+
+
+
+
+
+
+
 
     <string-array name="frequency">
         <item>Every 1 hour</item>
@@ -161,262 +191,5 @@
         <item>german</item>
     </string-array>
 
-
-
-
-    <string-array name="prayer_calculation_method">
-        <item>Jafari</item>
-        <item>Karachi</item>
-        <item>ISNA</item>
-        <item>MWL</item>
-        <item>Makkah</item>
-        <item>Egypt</item>
-        <item>Custom</item>
-        <item>Tehran</item>
-    </string-array>
-
-    <string-array name="juristic_method">
-        <item>Shafii Shafii (standard)</item>
-        <item>Hanafi Hanafi</item>
-    </string-array>
-
-
-
-
-    <!--no problem to rearrange bellow string item but don't change array name-->
-    <string-array name="english">
-        <item>Do you not know that to Allah belongs the dominion of the heavens and the earth and [that] you have not besides Allah any protector or any helper? - The Noble Koran</item>
-        <item>And to Allah belongs the east and the west. So wherever you [might] turn, there is the Face of Allah . Indeed, Allah is all-Encompassing and Knowing. - The Noble Koran</item>
-        <item>Our Lord, and make us Muslims [in submission] to You and from our descendants a Muslim nation [in submission] to You. And show us our rites and accept our repentance. Indeed, You are the Accepting of repentance, the Merciful. - The Noble Koran</item>
-        <item>Our Lord, and send among them a messenger from themselves who will recite to them Your verses and teach them the Book and wisdom and purify them. Indeed, You are the Exalted in Might, the Wise." - The Noble Koran</item>
-        <item>When his Lord said to him, "Submit", he said "I have submitted [in Islam] to the Lord of the worlds." - The Noble Koran</item>
-        <item>[And say, "Ours is] the religion of Allah . And who is better than Allah in [ordaining] religion? And we are worshippers of Him." - The Noble Koran</item>
-        <item>For each [religious following] is a direction toward which it faces. So race to [all that is] good. - The Noble Koran</item>
-        <item>So remember Me; I will remember you. And be grateful to Me and do not deny Me. - The Noble Koran</item>
-        <item>O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient. - The Noble Koran</item>
-        <item>And We will surely test you with something of fear and hunger and a loss of wealth and lives and fruits, but give good tidings to the patient, - The Noble Koran</item>
-    </string-array>
-
-
-    <string-array name="arabic">
-        <item>اللهمّ اغنني بفضلك عمّن سواك</item>
-        <item>وإني أشتكي لله مني ، يا عوني ، ويا سندي ، ويا ربي</item>
-        <item>اللهمّ أعني على نفسي ، وكن لي في كل الأمور معينًا</item>
-        <item><![CDATA[سيجبرك الله جبرًا اكبر بكثير من كسرتك …  جبرا يليق برحمته تعالى  ]]></item>
-        <item>اللهّم إنا نحبك ونؤمن بك ولم نعصك عنادًا أو تكبرًا</item>
-        <item>اللهمّ إنما غلبت علينا ذنوبنا وضعفت نفوسنا</item>
-        <item>اللهمّ ليس لنا إلا أنت فارحمنا وتُب علينا</item>
-        <item>اللهمّ لا تجعل حاجتي عند غيرك</item>
-        <item> اللهمّ لا تبيّن ضعفي وقلة حيلتي لأحد سواك</item>
-        <item> تمتِم يا قلب بالدعاء، فرب دعوةٍ تُوافق فتح أبواب السماء</item>
-        <item> ابتسم فسبحان من جعل الابتسامة في ديننا عبادة وعليها نؤجر</item>
-        <item> الصلاة حياة فمن ضيعها فقد مات على قيد الحياه</item>
-    </string-array>
-
-
-    <string-array name="indonesian">
-        <item>Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang - Al Quran : Surat AL FAATIHAH (PEMBUKAAN)</item>
-        <item>Segala puji[2] bagi Allah, Tuhan semesta alam - Al Quran : AL FAATIHAH (PEMBUKAAN)</item>
-        <item>Maha Pemurah lagi Maha Penyayang. Yang menguasai di Hari Pembalasan - Al Quran : AL FAATIHAH (PEMBUKAAN)</item>
-        <item>Hanya Engkaulah yang kami sembah, dan hanya kepada Engkaulah kami meminta pertolongan - Al Quran : AL FAATIHAH (PEMBUKAAN)</item>
-        <item>Tunjukilah kami jalan yang lurus - Al Quran : AL FAATIHAH (PEMBUKAAN)</item>
-        <item>Hanya Engkaulah yang kami sembah, dan hanya kepada Engkaulah kami meminta pertolongan. Tunjukilah kami jalan yang lurus - Al Quran : AL FAATIHAH (PEMBUKAAN)</item>
-        <item>(yaitu) mereka yang beriman[13] kepada yang ghaib[14], yang mendirikan shalat[15], dan menafkahkan sebahagian rezki[16] yang Kami anugerahkan kepada mereka - Al Quran: Surat AL BAQARAH (SAPI BETINA)</item>
-        <item>Kemudian Adam menerima beberapa kalimat[40] dari Tuhannya, maka Allah menerima taubatnya. Sesungguhnya Allah Maha Penerima taubat lagi Maha Penyayang - Al Quran: Surat AL BAQARAH (SAPI BETINA)</item>
-        <item>Dan dirikanlah shalat, tunaikanlah zakat dan ruku'lah beserta orang-orang yang ruku' - Al Quran: Surat AL BAQARAH (SAPI BETINA)</item>
-        <item><![CDATA[ Kitab (Al Quran) ini tidak ada keraguan padanya; petunjuk bagi mereka yang bertakwa, <br> This is the Book in which there is no doubt, a guide for the righteous. (Al Qur'an, Surah Al Baqarah: 2) ]]> </item>
-    </string-array>
-
-    <string-array name="hindi">
-
-        <item>जो कोई अल्लाह और उसके फ़रिश्तों और उसके रसूलों और जिबरील और मीकाईल का शत्रु हो, तो ऐसे इनकार करनेवालों का अल्लाह शत्रु है।". - महान कुरान</item>
-        <item>जो लोग उस चीज़ को छिपाते है जो अल्लाह ने अपनी किताब में से उतारी है और उसके बदले थोड़े मूल्य का सौदा करते है।. - महान कुरान</item>
-        <item>वे तो बस आग खाकर अपने पेट भर रहे है; और क़ियामत के दिन अल्लाह न तो उनसे बात करेगा और न उन्हें निखारेगा; और उनके लिए दुखद यातना है. - महान कुरान</item>
-        <item>यहीं लोग हैं जिन्होंने मार्गदर्शन के बदले पथभ्रष्टका मोल ली; और क्षमा के बदले यातना के ग्राहक बने।. - महान कुरान</item>
-        <item>तो आग को सहन करने के लिए उनका उत्साह कितना बढ़ा हुआ है!. - महान कुरान</item>
-        <item>वह (यातना) इसलिए होगी कि अल्लाह ने तो हक़ के साथ किताब उतारी, किन्तु जिन लोगों ने किताब के मामले में विभेद किया वे हठ और विरोध में बहुत दूर निकल गए. - महान कुरान</item>
-        <item>उसके प्रति प्रेम के बावजूद नातेदारों, अनाथों, मुहताजों, मुसाफ़िरों और माँगनेवालों को दिया और गर्दनें छुड़ाने में भी, और नमाज़ क़ायम की. - महान कुरान</item>
-        <item>ज़कात दी और अपने वचन को ऐसे लोग पूरा करनेवाले है जब वचन दें; और तंगी और विशेष रूप से शारीरिक कष्टों में और लड़ाई के समय में जमनेवाले हैं, तो ऐसे ही लोग है जो सच्चे सिद्ध हुए और वही लोग डर रखनेवाले हैं. - महान कुरान</item>
-        <item>ऐ ईमान लानेवालो! मारे जानेवालों के विषय में हत्यादंड (क़िसास) तुमपर अनिवार्य किया गया, स्वतंत्र-स्वतंत्र बराबर है और ग़़ुलाम-ग़ुलाम बराबर है और औरत-औरत बराबर है।. - महान कुरान</item>
-        <item> फिर यदि किसी को उसके भाई की ओर से कुछ छूट मिल जाए तो सामान्य रीति का पालन करना चाहिए; और भले तरीके से उसे अदा करना चाहिए।. - महान कुरान</item>
-    </string-array>
-
-    <string-array name="urdu">
-        <item> اور تمہیں جو نعمت بھی حاصل ہے سو وہ اللہ ہی کی جانب سے ہے- قرآن كريم 16:53</item>
-        <item> تو) اﷲ کا وعدہ ہے، اﷲ اپنے وعدہ کے خلاف نہیں کرتا، لیکن اکثر لوگ نہیں جانتے،- قرآن كريم 30:6</item>
-        <item> اور اللہ ہی پر ایمان والوں کو بھروسہ کرنا چاہیے- قرآن كريم 9:51</item>
-        <item> وہ سب سے پہلے اور آخری ہے، اور باہر اور اندرونی، اور وہ ہر چیز کا جاننے والا ہے - قرآن كريم 57:03</item>
-        <item> اور ہم نے یقینی طور پر قرآن کو یاد کرنے کے لئے آسان بنا دیا ہے، تو کیا کوئی ہے جو یاد کرے گا؟ - قرآن كريم 54:17</item>
-        <item> ہر چیز کے لئے ایک وقت مقرر ہے. - قرآن كريم 13:38</item>
-        <item> اس نے اپنی ذات پر رحمت لازم فرمالی ہے - قرآن كريم 6:12</item>
-        <item>  اے ایمان والو! اﷲ سے ڈرتے رہو اور اہلِ صدق (کی معیت) میں شامل رہو،- قرآن كريم 9:119</item>
-        <item>  بیشک انسان ہی بڑا ناشکر گزار ہے- قرآن كريم 22:66</item>
-        <item>  تمہارا رب تمہارے بارے میں خوب جانتا ہے - قرآن كريم 17:54</item>
-    </string-array>
-
-
-     <!-- Java not understand html tag example: <br> we need to use <![CDATA[ athkar_line ]]> fot html tag -->
-    <string-array name="bengali">
-        <item><![CDATA[অনেক মানুষ আল্লাহর প্রতি বিশ্বাস স্থাপন করে, কিন্তু সাথে সাথে শিরকও করে।<br><br>     وَمَا يُؤْمِنُ أَكْثَرُهُمْ بِاللَّهِ إِلَّا وَهُمْ مُشْرِكُونَ (يوسف106)  ]]></item>
-        <item><![CDATA[তিনি বললেনঃ আমি তো আমার দুঃখ ও অস্থিরতা আল্লাহর সমীপেই নিবেদন করছি এবং আল্লাহর পক্ষ থেকে আমি যা জানি, তা তোমরা জান না।<br><br>قَالَ إِنَّمَا أَشْكُو بَثِّي وَحُزْنِي إِلَى اللَّهِ وَأَعْلَمُ مِنَ اللَّهِ مَا لَا تَعْلَمُونَ (يوسف86)]]></item>
-        <item><![CDATA[আমি নিজেকে নির্দোষ বলি না। নিশ্চয় মানুষের মন মন্দ কর্মপ্রবণ কিন্তু সে নয়-আমার পালনকর্তা যার প্রতি অনুগ্রহ করেন। নিশ্চয় আমার পালনকর্তা ক্ষমাশীল, দয়ালু।<br><br>وَمَا أُبَرِّئُ نَفْسِي ۚ إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ إِلَّا مَا رَحِمَ رَبِّي ۚ إِنَّ رَبِّي غَفُورٌ رَّحِيمٌ (يوسف53)]]></item>
-        <item><![CDATA[ আর আল্লাহর কাছেই আছে আসমান ও যমীনের গোপন তথ্য; আর সকল কাজের প্রত্যাবর্তন তাঁরই দিকে; অতএব, তাঁরই বন্দেগী কর এবং তাঁর উপর ভরসা রাখ, আর তোমাদের কার্যকলাপ সম্বন্ধে তোমার পালনকর্তা কিন্তু বে-খবর নন।<br><br>وَلِلَّهِ غَيْبُ السَّمَاوَاتِ وَالْأَرْضِ وَإِلَيْهِ يُرْجَعُ الْأَمْرُ كُلُّهُ فَاعْبُدْهُ وَتَوَكَّلْ عَلَيْهِ ۚ وَمَا رَبُّكَ بِغَافِلٍ عَمَّا تَعْمَلُونَ (هود123)]]></item>
-        <item><![CDATA[আর ধৈর্য্যধারণ কর, নিশ্চয়ই আল্লাহ পূণ্যবানদের প্রতিদান বিনষ্ট করেন না।<br><br>وَاصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ (هود115)]]></item>
-        <item><![CDATA[আর দিনের দুই প্রান্তেই নামায ঠিক রাখবে, এবং রাতের প্রান্তভাগে পূর্ণ কাজ অবশ্যই পাপ দূর করে দেয়, যারা স্মরণ রাখে তাদের জন্য এটি এক মহা স্মারক।<br><br>وَأَقِمِ الصَّلَاةَ طَرَفَيِ النَّهَارِ وَزُلَفًا مِنَ اللَّيْلِ ۚ إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ ۚ ذَٰلِكَ ذِكْرَىٰ لِلذَّاكِرِينَ(هود114)]]></item>
-        <item><![CDATA[অতএব, তুমি এবং তোমার সাথে যারা তওবা করেছে সবাই সোজা পথে চলে যাও-যেমন তোমায় হুকুম দেয়া হয়েছে এবং সীমা লঙ্ঘন করবে না, তোমরা যা কিছু করছ, নিশ্চয় তিনি তার প্রতি দৃষ্টি রাখেন।<br><br>فَاسْتَقِمْ كَمَا أُمِرْتَ وَمَنْ تَابَ مَعَكَ وَلَا تَطْغَوْا ۚ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ (هود112)]]></item>
-        <item><![CDATA[আর তোমাদের পালনকর্তার কাছে মার্জনা চাও এবং তাঁরই পানে ফিরে এসো নিশ্চয়ই আমার পরওয়ারদেগার খুবই মেহেরবান অতিস্নেহময়।<br><br>وَاسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا إِلَيْهِ ۚ إِنَّ رَبِّي رَحِيمٌ وَدُودٌ (هود90)]]></item>
-        <item><![CDATA[শোয়ায়েব (আঃ) বললেন-হে দেশবাসী, তোমরা কি মনে কর! আমি যদি আমার পরওয়ারদেগারের পক্ষ হতে সুস্পষ্ট দলীলের উপর কায়েম থাকি আর তিনি যদি নিজের তরফ হতে আমাকে উত্তম রিযিক দান করে থাকেন, (তবে কি আমি তাঁর হুকুম অমান্য করতে পারি?) আর আমি চাই না যে তোমাদেরকে যা ছাড়াতে চাই পরে নিজেই সে কাজে লিপ্ত হব, আমি তো যথাসাধ্য শোধরাতে চাই। আল্লাহর মদদ দ্বারাই কিন্তু কাজ হয়ে থাকে, আমি তাঁর উপরই নির্ভর করি এবং তাঁরই প্রতি ফিরে যাই।<br><br>قَالَ يَا قَوْمِ أَرَأَيْتُمْ إِن كُنتُ عَلَىٰ بَيِّنَةٍ مِّن رَّبِّي وَرَزَقَنِي مِنْهُ رِزْقًا حَسَنًا ۚ وَمَا أُرِيدُ أَنْ أُخَالِفَكُمْ إِلَىٰ مَا أَنْهَاكُمْ عَنْهُ ۚ إِنْ أُرِيدُ إِلَّا الْإِصْلَاحَ مَا اسْتَطَعْتُ ۚ وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ (هود88)]]></item>
-        <item> <![CDATA[ তবে যারা ধৈর্য্যধারণ করেছে এবং সৎকার্য করেছে তাদের জন্য ক্ষমা ও বিরাট প্রতিদান রয়েছে।<br><br>إِلَّا الَّذِينَ صَبَرُوا وَعَمِلُوا الصَّالِحَاتِ أُولَٰئِكَ لَهُمْ مَغْفِرَةٌ وَأَجْرٌ كَبِيرٌ (هود11)]]></item>
-
-    </string-array>
-
-    <string-array name="turkish">
-        <item>Bir insanların ana ve babalarına iyilik etmelerini vasiyet ettik - Kur'an-ı Kerim: Ankebut 8</item>
-        <item>Öfkesini yenenler ve insanların suçunu bağıslayanlar için cennet hazırlanmıştır. Allah muhsinleri sever - Kur'an-ı Kerim: Ali imran 134</item>
-        <item>“Biz o insana anne babasına güzel davranmayı tavsiye ettik. Annesi onu zahmetle karnında taşıdı ve zahmetle doğurdu…” - Kur'an-ı Kerim: Ahkaf 15</item>
-        <item>Yalan sözden, yalan yere şahitlik etmekten katiyyen sakının - Kur'an-ı Kerim: Hac 30</item>
-        <item>Hamd, âlemlerin rabbi Allah’a mahsustur - Kur'an-ı Kerim: Fatiha 1</item>
-        <item>"Rabbimiz, hesabın yapılacağı gün, beni, anne-babamı ve mü'minleri bağışla" - Kur'an-ı Kerim: İbrahim 41</item>
-        <item>Biz insana anne ve babasını (onlara iyilikle davranmayı) tavsiye ettik. Annesi onu, zorluk üstüne zorlukla (karnında) taşımıştır. Onun (sütten) ayrılması, iki yıl içindedir. "Hem Bana, hem anne ve babana şükret, dönüş yalnız Banadır." - Kur'an-ı Kerim: Lokman 14</item>
-        <item>Doğru olan erkekler ve kadınlar, Cenab- I Hak bunlara mağrifet ve büyük ecir hazırlamıstır - Kur'an-ı Kerim: Ahzap 35</item>
-        <item>Ahdinizi yerine getiriniz, çünkü ahdinizden mesulsünüz - Kur'an-ı Kerim: İsra 34</item>
-        <item>Kibirlenip masdan yüzünü çevirme, Yeryüzünde çalımla yüzüme. Çünkü Allah kurulup öğünenlerin hiç birini sevmez - Kur'an-ı Kerim: Lokman 18</item>
-        <item>Ey iman edenler! Kendi evlerinizden başka evlere, geldiğinizi hissettirip (izin alıp) ev sahiplerine selam vermeden girmeyin. Bu davranış sizin için daha hayırlıdır - Kur'an-ı Kerim: Nur 27</item>
-
-
-    </string-array>
-    <string-array name="persian">
-        <item> و او را هیچ کس همتا نیست‌ - قرآن کریم 112:4</item>
-        <item>کسانی که یقین دارند به لقای پروردگارشان می‌رسند و بازگردنده به سوی او هستند - قرآن کریم 2:46</item>
-        <item>آنگاه پس از آن از شما درگذشتیم تا سپاس بگزارید - قرآن کریم 2:52</item>
-        <item> آنگاه، پس از آن روی گرداندید، و اگر بخشش و رحمت الهی در حق شما نبود، از زیانکاران می‌شدید - قرآن کریم 2:64</item>
-        <item> و این [پدیده‌] را مایه عبرت مردم حال و آینده و پندآموز پرهیزگاران ساختیم‌ - قرآن کریم 2:66</item>
-        <item> و کسانی که ایمان آورده‌اند و کارهای شایسته کرده‌اند، بهشتی‌اند و جاودانه در آن ماندگاراند - قرآن کریم 2:82</item>
-        <item> ای بنی‌اسرائیل نعمتم را که بر شما ارزانی داشتم و اینکه شما را بر جهانیان [هم زمانتان‌] برتری بخشیدم، یاد کنید - قرآن کریم 2:122</item>
-        <item> چون پروردگارش به او گفت فرمانبر باش، گفت فرمانبر پروردگار جهانیانم‌ - قرآن کریم 2:131</item>
-        <item> این نگارگری الهی است، و چه کسی خوش نگارتر از خداوند است و ما پرستندگان او هستیم‌ - قرآن کریم 2:138</item>
-        <item> پس مرا یاد کنید تا شما را یاد کنم و مرا سپاس بگزارید و با من ناسپاسی نکنید - قرآن کریم 2:152</item>
-    </string-array>
-    <string-array name="amharic">
-        <item><![CDATA[ሰውን ሁሉ በእርግጥ Memoበልፋት ውስጥ ኾኖ ፈጠርነው፡፡-ቅደስ ቁርአን የሀገር ምዕራፍ (አል በለድ) 4 <br>لَقَدْ خَلَقْنَا الْإِنْسَانَ فِي كَبَدٍ (البلد4)]]></item>
-        <item><![CDATA[ተጣርቶ ከታተመ ጠጅ ይጠጣሉ፡፡ ማተሚያው ምስክ ከኾነ፤ በዚህም ተሽቀዳዳሚዎች ይሽቀዳደሙ፡፡-ቅደስ ቁርአን የሰላቢውች ምዕራፍ (አል-ሙጠፍፊን ) 25-26 <br>يُسْقَوْنَ مِنْ رَحِيقٍ مَخْتُومٍ خِتَامُهُ مِسْكٌ ۚ وَفِي ذَٰلِكَ فَلْيَتَنَافَسِ الْمُتَنَافِسُونَ (المطففين26)]]></item>
-        <item><![CDATA[በጌታው ፊት መቆምን የፈራ ሰውማ ነፍሱንም ከዝንባሌዋ የከለከለ ገነት እርሷ በእርግጥ መኖሪያው ናት፡፡ -ቅደስ ቁርአን የአውጪዎች ምዕራፍ (አል-ናዚዓት) 40-41 <br>وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ (النازعات41)]]></item>
-        <item><![CDATA[እነሆ መስጊዶችም የአላህ ብቻ ናቸው፡፡ (በውስጣቸው) ከአላህ ጋር አንድንም አትገዙ (ማለትም)፡፡ -ቅደስ ቁርአን የጋኔን ምዕራፍ (አል-ጂን) 18 <br>وَأَنَّ الْمَسَاجِدَ لِلَّهِ فَلَا تَدْعُوا مَعَ اللَّهِ أَحَدًا (الجن18)]]></item>
-        <item><![CDATA[ሰው ቅጠ ቢስ ኾኖ ተፈጠረ፡፡ ክፉ ነገር ባገኘው ጊዜ ብስጪተኛ፡፡ መልካምም ነገር (ድሎት) ባገኘ ጊዜ ከልካይ (ኾኖ ተፈጠረ)፡፡ ሰጋጆቹ ብቻ ሲቀሩ፡፡ -ቅደስ ቁርአን የመሰላሎች ምዕራፍ (ሱረቱ አል-መዓሪጅ) 19-22 <br>إِنَّ الْإِنْسَانَ خُلِقَ هَلُوعًا إِذَا مَسَّهُ الشَّرُّ جَزُوعًا وَإِذَا مَسَّهُ الْخَيْرُ مَنُوعًا إِلَّا الْمُصَلِّينَ (المعارج22)]]></item>
-        <item><![CDATA[አንተም በታላቅ ጠባይ ላይ ነህ፡፡ -ቅደስ ቁርአን የብርዕ ምዕራፍ (ሱረቱ አል-ቀለም) 4 <br>وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ (القلم4)]]></item>
-        <item><![CDATA[«አያችሁን? ውሃችሁ ሠራጊ ቢኾን ፈሳሺን ውሃ የሚያመጣላቸሁ ማን ነው?» በላቸው፡፡ (አላህ የዓለማት ጌታ ያመጣዋል)፡፡ -ቅደስ ቁርአን የንግሥና ምዕራፍ (ሱረቱ አል-ሙልክ) 30 <br>قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا فَمَنْ يَأْتِيكُمْ بِمَاءٍ مَعِينٍ (الملك30)]]></item>
-        <item><![CDATA[ያ የትኛችሁ ሥራው ይበልጥ ያማረ መኾኑን ሊሞክራችሁ ሞትንና ሕይወትን የፈጠረ ነው፡፡ እርሱም አሸናፊው መሓሪው ነው፡፡ -ቅደስ ቁርአን የንግሥና ምዕራፍ (ሱረቱ አል-ሙልክ) 2 <br>الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا ۚ وَهُوَ الْعَزِيزُ الْغَفُورُ (الملك2)]]></item>
-        <item><![CDATA[አላህንም ተገዙ፤ መልክተኛውንም ታዘዙ፤ ብትዞሩም (መልክተኛውን አትጎዱም)፤ በመልክተኛውም ላይ ያለበት ግልጽ ማድረስ ብቻ ነው፡፡ -ቅደስ ቁርአን የመጎዳዳት ምዕራፍ (ሱረቱ አልተጋቡን) 12 <br>وَأَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ ۚ فَإِنْ تَوَلَّيْتُمْ فَإِنَّمَا عَلَىٰ رَسُولِنَا الْبَلَاغُ الْمُبِينُ (التغابن12)]]></item>
-        <item><![CDATA[እናንተ ያመናችሁ ሆይ! በዐርብ ቀን ለስግደት ጥሪ በተደረገ ጊዜ ወደ አላህ ማውሳት ኺዱ፡፡ መሸጥንም ተዉ፡፡ ይህ የምታውቁ ብትኾኑ ለእናንተ በጣም የተሻለ ነወ፡፡ -ቅደስ ቁርአን የዐርብ ምዕራፍ (ሱረቱ አል- ጁሙዓህ) 9 <br>يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا نُودِيَ لِلصَّلَاةِ مِنْ يَوْمِ الْجُمُعَةِ فَاسْعَوْا إِلَىٰ ذِكْرِ اللَّهِ وَذَرُوا الْبَيْعَ ۚ ذَٰلِكُمْ خَيْرٌ لَكُمْ إِنْ كُنْتُمْ تَعْلَمُونَ (الجمعة9)]]></item>
-    </string-array>
-
-    <string-array name="pashto">
-        <item><![CDATA[یقینًا یقینًا مونږ انسان په مشقت كې پیدا كړى دى -قرآن كريم- البلد: 4<br>لَقَدْ خَلَقْنَا الْإِنْسَانَ فِي كَبَدٍ (البلد4)]]></item>
-        <item><![CDATA[   په دوى به مُهر (ټاپه) كړى شوي خالص شراب څښولى شي چې د دغو مُهر (ټاپه) به مشك وي، او په دغه (نعمتونو) كې، پس په كار ده چې رغبت كوونكي رغبت وكړي -قرآن كريم- المطففين: 25-26<br>يُسْقَوْنَ مِنْ رَحِيقٍ مَخْتُومٍ خِتَامُهُ مِسْكٌ وَفِي ذَٰلِكَ فَلْيَتَنَافَسِ الْمُتَنَافِسُونَ (المطففين26)]]></item>
-        <item><![CDATA[   او هر چې هغه څوك دى چې د خپل رب په وړاندې له ودرېدلو نه وېرېدلى وي او نفس (ځان) يې له خواهشاتو نه منع كړى وي نو بېشكه چې هم دا جنت (د ده) استوګنه ده -قرآن كريم- النازعات: 40-41<br>وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ (النازعات41)]]></item>
-        <item><![CDATA[   او دا چې یقینًا جوماتونه خاص د الله لپاره دي، نو تاسو له الله سره بل هیڅوك مه بلئ -قرآن كريم- الجن: 18<br>وَأَنَّ الْمَسَاجِدَ لِلَّهِ فَلَا تَدْعُوا مَعَ اللَّهِ أَحَدًا (الجن18)]]></item>
-        <item><![CDATA[   بېشكه انسان بې صبره پیدا كړى شوى دى كله چې ده ته شر (مصیبت) ورسېږي (نو) ډېر فریاد كوونكى وي او كله چې ده ته خیر (او خوشحالي) ورسېږي (نو)، ډېر منع كوونكى (او بخل كوونكى) وي (خو) له لمونځ ګزارو نه غیر -قرآن كريم- المعارج: 19-22<br>إِنَّ الْإِنْسَانَ خُلِقَ هَلُوعًا إِذَا مَسَّهُ الشَّرُّ جَزُوعًا وَإِذَا مَسَّهُ الْخَيْرُ مَنُوعًا إِلَّا الْمُصَلِّينَ (المعارج22)]]></item>
-        <item><![CDATA[   او بېشكه چې ته یقینًا په ډېرو لویو اخلاقو باندې (فايز) يې -قرآن كريم- القلم: 4<br>وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ (القلم4)]]></item>
-        <item><![CDATA[  ته (دوى ته) ووایه چې تاسو ما ته خبر راكړئ! كه چېرې ستاسو اوبه (په ځمكه كې) ډېرې ښكته لاړې شي۔، نو څوك دى چې تاسو ته به روانې اوبه راولي؟ -قرآن كريم- الملك: 30<br>قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا فَمَنْ يَأْتِيكُمْ بِمَاءٍ مَعِينٍ (الملك30)]]></item>
-        <item><![CDATA[   هغه ذات چې مرګ او ژوند يې پیدا كړى دى، د دې لپاره چې تاسو وازمايي چې په تاسو كې د عمل په لحاظ كوم یو ډېر ښه دى۔ او هم دى ښه غالب، ډېر بخښونكى دى -قرآن كريم- الملك: 2<br>الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا وَهُوَ الْعَزِيزُ الْغَفُورُ (الملك2)]]></item>
-        <item><![CDATA[   او تاسو د الله اطاعت وكړئ او د رسول اطاعت وكړئ، نو كه تاسو وګرځېدئ، نو یقینًا زمونږ د رسول په ذمه خو يواځې ښكاره پېغام رسونه ده -قرآن كريم- التغابن: 12<br>وَأَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ فَإِنْ تَوَلَّيْتُمْ فَإِنَّمَا عَلَىٰ رَسُولِنَا الْبَلَاغُ الْمُبِينُ (التغابن12)]]></item>
-        <item><![CDATA[   اى هغو كسانو چې ایمان يې راوړى دى! كله چې د جمعې د ورځې د لمانځه لپاره اذان وویلى شي، نو تاسو د الله ذكر ته منډې وهئ او اخيستل خرڅول پرېږدئ۔، دا تاسو لپاره ډېر غوره دي كه تاسو پوهېږئ -قرآن كريم- الجمعة: 9<br>يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا نُودِيَ لِلصَّلَاةِ مِنْ يَوْمِ الْجُمُعَةِ فَاسْعَوْا إِلَىٰ ذِكْرِ اللَّهِ وَذَرُوا الْبَيْعَ ذَٰلِكُمْ خَيْرٌ لَكُمْ إِنْ كُنْتُمْ تَعْلَمُونَ (الجمعة9)]]></item>
-    </string-array>
-    <string-array name="russian">
-        <item>Аллах - нет божества, кроме Него, Живого, Вседержителя. (Благородный Коран: Семейство Имрана, 2)</item>
-        <item>Он ниспослал тебе Писание с истиной в подтверждение того, что было до него. Он ниспослал Таурат (Тору) и Инджил (Евангелие) (Благородный Коран: Семейство Имрана, 3)</item>
-        <item>Господь наш! Не уклоняй наши сердца в сторону после того, как Ты наставил нас на прямой путь, и даруй нам милость от Себя, ведь Ты - Дарующий! (Благородный Коран: Семейство Имрана, 8)</item>
-        <item>Господь наш! Ты соберешь людей в день, в котором нет сомнения. Воистину, Аллах не нарушает обещания. (Благородный Коран: Семейство Имрана, 9)</item>
-        <item> Аллах засвидетельствовал, что нет божества, кроме Него, а также ангелы и обладающие знанием. Он поддерживает справедливость. Нет божества, кроме Него, Могущественного, Мудрого. (Благородный Коран: Семейство Имрана, 18)</item>
-        <item> Скажи: «Если вы любите Аллаха, то следуйте за мной, и тогда Аллах возлюбит вас и простит вам ваши грехи, ведь Аллах - Прощающий, Милосердный». (Благородный Коран: Семейство Имрана, 31)</item>
-        <item> Она (Мария) сказала: «Господи! Как я могу иметь сына, если меня не касался ни один мужчина». Он сказал: «Так Аллах творит, что пожелает! Когда Он принимает решение, то Ему стоит лишь сказать: «Будь!» - как это сбывается. (Благородный Коран: Семейство Имрана, 47)</item>
-        <item> Давайте женщинам их брачный дар от чистой души. Если же они по доброй воле отдадут вам часть его, то вкушайте это во благо и на здоровье. (Благородный Коран: Женщины, 4)</item>
-        <item> Не отдавайте неразумным людям вашего имущества, которое Аллах сделал средством вашего существования. Кормите и одевайте их из него и говорите им слово доброе. (Благородный Коран: Женщины, 5)</item>
-        <item> Мужчинам принадлежит доля из того, что оставили родители и ближайшие родственники, и женщинам принадлежит доля из того, что оставили родители и ближайшие родственники, будь его мало или много. Таков предписанный удел. (Благородный Коран: Женщины, 7)</item>
-    </string-array>
-    <string-array name="chinese_simplified">
-        <item>奉至仁至慈的真主之名,一切赞颂，全归真主 [古兰经, 开端章] </item>
-        <item>至仁至慈的主，报应日的主。 [古兰经, 开端章]</item>
-        <item> 我们只崇拜你，只求你右助 [古兰经, 开端章]</item>
-        <item>求你引导我们上正路 [古兰经, 开端章]</item>
-        <item> 谨守拜功，并分捨我所给与他们的。[古兰经, 黄牛章]</item>
-        <item>  他们确信降示你的经典，和在你以前降示的经典，并且笃信后世。[古兰经, 黄牛章]</item>
-        <item> 他以大地为你们的席，以天空为你们的幕 [古兰经, 黄牛章]</item>
-        <item> 从云中降下雨水，而借雨水生许多果实，做你们的给养 [古兰经, 黄牛章]</item>
-        <item> 你们当谨守拜功，完纳天课，与鞠躬者同齐鞠躬。[古兰经, 黄牛章]</item>
-        <item> 你们当铭记我所赐你们的恩典，并铭记我曾使你们超越世人。[古兰经, 黄牛章]</item>
-    </string-array>
-    <string-array name="chinese_traditional">
-        <item>奉至仁至慈的真主之名，一切讚頌，全歸真主[古蘭經，開端章]</item>
-        <item>至仁至慈的主，報應日的主。[古蘭經，開端章]</item>
-        <item>我們只崇拜你，只求你右助[古蘭經，開端章]</item>
-        <item>求你引導我們上正路[古蘭經，開端章]</item>
-        <item>謹守拜功，並分舍我所給與與他們的。[古蘭經，黃牛章]</item>
-        <item>他們確信降示你的經典，並在你以前降示的經典，並且篤信後世。[古蘭經，黃牛章]</item>
-        <item> 他以大地為你們的席，以天空為你們的幕[古蘭經，黃牛章]</item>
-        <item>從雲中降下雨水，而藉雨水生許多果實，做你們的給養[古蘭經，黃牛章]</item>
-        <item> 你們當謹守拜功，完納天課，與鞠躬者同齊鞠躬。[古蘭經，黃牛章]</item>
-    </string-array>
-    <string-array name="malay">
-        <item> Dengan nama Allah Yang Maha Pemurah Lagi Maha Penyayang. - Al- Quran: Al-Fatihah: 1</item>
-        <item>Segala puji bagi Allah, Tuhan semesta alam. - Al-Quran: Al-Fatihah: 2</item>
-        <item>Hanya kepada Engkaulah kami menyembah dan hanya kepada Engkaulah kami memohon pertolongan. - Al-Quran: Al-Fatihah: 5</item>
-        <item> Kitab (Al-Quran) ini tidak ada keraguan padanya; petunjuk bagi mereka yang bertakwa. - Al-Quran: Al-Baqarah: 2</item>
-        <item> Wahai manusia, sembahlah Tuhanmu yang telah menciptakanmu dan orang-orang sebelummu, agar kamu bertakwa. - Al-Quran: Al-Baqarah: 21</item>
-        <item> Dan dirikanlah solat, tunaikanlah zakat dan rukuklah berserta orang-orang yang rukuk. - Al-Quran: Al-Baqarah: 43</item>
-        <item> Dan orang-orang yang beriman serta beramal soleh, mereka itu penghuni syurga; mereka kekal didalamnya - Al-Quran: Al-Baqarah: 82</item>
-        <item> Tiadakah kamu mengetahui bahawa kerajaan langit dan bumi adalah kepunyaan Allah? - Al-Quran: Al-Baqarah: 107</item>
-        <item> Dan tiada bagimu selain Allah seorang pelindung mahupun seorang penolong. - Al-Quran: Al-Baqarah: 107</item>
-        <item> Sesungguhnya Allah Maha Luas (rahmat-Nya) lagi Maha Mengetahui. - Al-Quran: Al-Baqarah: 115</item>
-    </string-array>
-    <string-array name="azerbaijani">
-        <item>Bu, qətiyyən şübhə doğurmayan, müttəqilərə doğru yol göstərən bir Kitabdır. (2) (Müqəddəs Quran: Bəqərə surəsi)</item>
-        <item>O kəslər ki, qeybə iman gətirir, namaz qılır və Bizim onlara verdiyimiz ruzidən Allah yolunda xərcləyirlər; (3) (Müqəddəs Quran: Bəqərə surəsi)</item>
-        <item>O kəslər ki, sənə nazil olana və səndən əvvəl nazil olanlara iman gətirir, axirətə də yəqinliklə inanırlar. (4) (Müqəddəs Quran: Bəqərə surəsi)</item>
-        <item>Onlar öz Rəbbindən gələn doğru yoldadırlar. Məhz onlar nicat tapanlardır. (5) (Müqəddəs Quran: Bəqərə surəsi)</item>
-        <item>Ey insanlar! Sizi və sizdən öncəkiləri yaratmış Rəbbinizə ibadət edin ki, bəlkə Allahdan qorxasınız. (21) (Müqəddəs Quran: Bəqərə surəsi)</item>
-        <item> O, sizin üçün yer üzünü döşəmə, göyü isə tavan etdi. Göydən su endirib onunla sizin üçün növbənöv məhsullardan ruzi yetişdirdi. Siz də bunu bildiyiniz halda heç kəsi Allaha tay tutmayın. (22) (Müqəddəs Quran: Bəqərə surəsi)</item>
-        <item> Əgər qulumuza nazil etdiyimizə şübhə edirsinizsə, onda ona bənzər bir surə gətirin və əgər doğru deyirsinizsə, Allahdan savayı bütün şahidlərinizi köməyə çağırın! (23) (Müqəddəs Quran: Bəqərə surəsi)</item>
-        <item> Allahı necə inkar edirsiniz ki, siz ölü idiniz, O sizi diriltdi? Sonra O sizi öldürəcək və yenə dirildəcək, daha sonra isə siz Ona qaytarılacaqsınız. (28) (Müqəddəs Quran: Bəqərə surəsi)</item>
-        <item> Yer üzündə olanların hamısını sizə görə xəlq edən, sonra göyə tərəf yönəlib onu yeddi qat göy edən Odur. O, hər şeyi bilir. (29) (Müqəddəs Quran: Bəqərə surəsi)</item>
-        <item> Allah Adəmə bütün şeylərin adlarını öyrətdi. Sonra onları mələklərə göstərib dedi: “Doğru danışanlarsınızsa, bunların adlarını Mənə deyin!” (31) (Müqəddəs Quran: Bəqərə surəsi)</item>
-    </string-array>
-    <string-array name="spanish">
-        <item>Creen en lo que te ha sido revelado y en lo que fue revelado anteriormente, y están convencidos de la existencia de la otra vida. - El Noble Corán: Sura La Vaca: 2: 4</item>
-        <item>Esos son quienes siguen la guía de tu Señor y quienes triunfarán. - El Noble Corán: Sura La Vaca: 2: 5</item>
-        <item>Por cierto, que a los incrédulos les da lo mismo que les adviertas o no. No creerán. - El Noble Corán: Sura La Vaca: 2: 6</item>
-        <item> Allah ha sellado sus corazones y sus oídos, sus ojos están tapados y recibirán un castigo terrible. - El Noble Corán: Sura La Vaca: 2: 7</item>
-        <item>Entre los hombres hay quienes dicen: Creemos en Allah y en el Último Día, pero en verdad no creen. - El Noble Corán: Sura La Vaca: 2: 8</item>
-        <item>Pretenden engañar a Allah y también a los creyentes pero, sin advertirlo, sólo se engañan a sí mismos. - El Noble Corán: Sura La Vaca: 2: 9</item>
-        <item>Cuando se les dice: ¡No corrompáis en la Tierra! Responden: Somos nosotros quienes procuramos establecer el bienestar en ella. - El Noble Corán: Sura La Vaca: 2: 11</item>
-        <item>¿Acaso no son ellos los corruptores? Pero no se dan cuenta. - El Noble Corán: Sura La Vaca: 2: 12</item>
-        <item> Allah se burlará de ellos y dejará que permanezcan desorientados en su extravío. - El Noble Corán: Sura La Vaca: 2: 15</item>
-        <item> Estos son quienes trocaron el camino recto por el desvío, porque no seguían la guía, y su negocio no les resultó provechoso. - El Noble Corán: Sura La Vaca: 2: 16</item>
-    </string-array>
-    <string-array name="french">
-        <item><![CDATA[Auront-ils une part du royaume, eux qui ne seraient pas capables de donner aux hommes même le creux d'un noyau de datte ? -- Le Coran]]></item>
-        <item><![CDATA[L'homme porte son destin attaché au cou. -- Le Coran]]></item>
-        <item><![CDATA[La vérité plane et ne se laisse jamais dominer. -- Le Coran]]></item>
-        <item><![CDATA[Lorsque le malheur touche l'homme il est plein d'impatience; et lorsque le bonheur l'atteint, il devient insolent. -- Le Coran]]></item>
-        <item><![CDATA[Quant à ceux qui ne croient pas à leur Seigneur, leurs oeuvres ressemblent aux cendres dont s'empare la vent dans un jour de tempête. Ils seront sans pouvoir sur ce qu'ils ont accompli. -- Le Coran]]></item>
-        <item><![CDATA[Quant à ceux qui prétendent aimer les hommes tu peux affirmer sans risquer de te tromper qu’ils sont tout simplement des menteurs non pas des imbéciles ni des illuminés mais des menteurs tout court. <br><b>-- Claude Simon, <i>Le Sacre du Printemps (1954)</i></b>]]></item>
-        <item><![CDATA[Quant à ceux qui sont incroyants, leurs oeuvres sont comme le mirage de la plaine; celui qui a soif prend cela pour de l'eau jusqu'à  ce qu'il y arrive et ne trouve rien. -- Le Coran]]></item>
-        <item><![CDATA[Quiconque commet un péché le commet contre lui-même. -- Le Coran]]></item>
-        <item><![CDATA[Si vous vous vengez, que la vengeance ne dépasse point l'offense. -- Le Coran]]></item>
-       <item><![CDATA[ Ô Allah fais en sorte que je me suffise du licite et passe de l'illicite.]]></item>
-    </string-array>
-    <string-array name="german">
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  1</item>
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  2</item>
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  3</item>
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  4</item>
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  5</item>
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  6</item>
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  7</item>
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  8</item>
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  9</item>
-        <item>Ein paar Worter auf Deutsch. Diese ist die linie  10</item>
-
-    </string-array>
 
 </resources>
