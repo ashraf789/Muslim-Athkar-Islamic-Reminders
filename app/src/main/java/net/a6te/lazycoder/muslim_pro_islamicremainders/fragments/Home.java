@@ -89,7 +89,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
 
 
-        appName = getContext().getResources().getString(R.string.app_title);
+        appName = "Muslim Athkar";
         imageDirectory = new File(Environment.getExternalStorageDirectory() + "/"+appName+"/");
         imageName = "Athkar.jpg";
 

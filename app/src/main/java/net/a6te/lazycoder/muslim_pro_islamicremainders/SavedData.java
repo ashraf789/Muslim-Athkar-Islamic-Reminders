@@ -31,6 +31,7 @@ public class SavedData {
     private static final String ATHKAR_TABLE_NAME = "athkarTableName";
     private static final String FIRST_TIME_DATA_SYNCHRONIZED = "dataFirstTimeAlreadySynchronized";
     private static final String FIRST_TIME_APP_OPEN = "firstTimeAppOpen";
+    private static final String FIRST_TIME_REMAINDER_LANGUAGE_SETUP = "firstTimeRemainderLanguageSetup";
     private static final String LATITUDE = "lat";
     private static final String LONGITUDE = "long";
     private static final String CITY = "city";
@@ -54,6 +55,7 @@ public class SavedData {
             setAppLanguageSelectedId(id);
             return id;
         }
+
         return appSharedPrefs.getInt(APP_LANGUAGE_SELECTED_ID,0);
     }
 
@@ -138,6 +140,32 @@ public class SavedData {
 
     public boolean[] getRemainderLanguages(int defaultSize) {
 
+        if (isRemainderLanguageAlreadySetup()){
+            int id = getUserLocalLanguageId();
+            setAppLanguageSelectedId(id);//this will save user app language ID
+
+            int size = defaultSize;
+            boolean array[] = new boolean[size];
+            boolean allFalse = true;
+            for(int i=0;i<size;i++) {
+
+                array[i] = appSharedPrefs.getBoolean(REMAINDER_LANGUAGES + i, false);
+
+                if (i == id) {
+                    array[i] = appSharedPrefs.getBoolean(REMAINDER_LANGUAGES + i, true);
+                    allFalse = false;
+                }
+            }
+
+            if (allFalse){
+                array[0] = true;
+            }
+
+            storeRemainderLanguages(array);//store our latest remainder language
+
+            return array;
+        }
+
         int size = appSharedPrefs.getInt(REMAINDER_LANGUAGES, defaultSize);
         boolean array[] = new boolean[size];
         boolean allFalse = true;
@@ -200,6 +228,16 @@ public class SavedData {
         saveAppAlreadyOpen();
         return isFirstTime;
     }
+    public void saveAppRemainderLanguageAlreadySet(){
+        prefsEditor.putBoolean(FIRST_TIME_REMAINDER_LANGUAGE_SETUP,false);
+        prefsEditor.commit();
+    }
+    public boolean isRemainderLanguageAlreadySetup(){
+        boolean isFirstTime = appSharedPrefs.getBoolean(FIRST_TIME_REMAINDER_LANGUAGE_SETUP,true);
+        saveAppRemainderLanguageAlreadySet();
+        return isFirstTime;
+    }
+
 
     public void saveLat(float lat){
         prefsEditor.putFloat(LATITUDE,lat);

@@ -8,8 +8,8 @@ android {
         applicationId "net.a6te.lazycoder.muslim_pro_islamicremainders"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 3
-        versionName "1.3"
+        versionCode 6
+        versionName "1.6"
 
         buildConfigField("String", "API_KEY", API_KEY)
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

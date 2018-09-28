@@ -6,9 +6,9 @@
     <string name="add_publish_id">ca-app-pub-2122789248840144~8466075392</string>
 
 
-    <string name="app_name">Muslim Pro - Islamic Reminders</string>
+    <string name="app_name">Muslim Athkar - Islamic Reminders</string>
     <string name="facebook_app_id">179442992713579</string>
-    <string name="forum_name">Muslim Pro</string>
+    <string name="forum_name">Muslim Athkar</string>
     <string name="app_email">muslimpro.islamicremainders@gmail.com</string>
     <!--<string name="app_url">www.IslamicReminders.com</string>-->
     <string name="app_google_play_url">http://bit.do/emhM3</string>
@@ -54,7 +54,7 @@
     <string name="asr">Asr</string>
     <string name="magrib">Maghrib</string>
     <string name="isha">Isha</string>
-    <string name="app_sub_name">Muslim Pro - Islamic Reminders</string>
+    <string name="app_sub_name">Muslim Athkar - Islamic Reminders</string>
     <string name="app_title">Muslim Athkar</string>
     <string name="app_slogan">Islamic Reminders</string>
     <string name="no_data">No data found</string>
