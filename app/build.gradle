@@ -48,6 +48,7 @@ dependencies {
     //material design library
     implementation 'com.android.support:design:27.0.2'
 
+
     //change shape of view i used it only on navigation header
     implementation 'com.github.florent37:shapeofview:1.0.7'
 
@@ -60,8 +61,10 @@ dependencies {
     //prayer time calculation library
     implementation 'net.alhazmy13.PrayerTimes:library:1.0.1-beta'
 
+    implementation group: 'com.github.msarhan', name: 'ummalqura-calendar', version:'1.1.9'
+
     implementation 'com.facebook.android:facebook-share:[4,5)'
-    implementation('com.crashlytics.sdk.android:crashlytics:2.9.2@aar') {
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.5@aar') {
         transitive = true;
     }
 

@@ -32,145 +32,148 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public static final String COL_ID = "id";
     public static final String COL_ATHKAR = "athkar";
+    public static final String COL_TAG = "tag";
     public static final String COL_ATHKAR_ID = "athkar_id";
 
     public static final String AMHARIC_QUERY = "Create Table "
             +TABLE_AMHARIC+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String ARABIC_QUERY = "Create Table "
             +TABLE_ARABIC+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String AZERBAIJANI_QUERY = "Create Table "
             +TABLE_AZERBAIJANI+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String AZERI_QUERY = "Create Table "
             +TABLE_AZERI+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String BEHASA_MALAYU_QUERY = "Create Table "
             +TABLE_BEHASA_MALAYU+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String BENGALI_QUERY = "Create Table "
             +TABLE_BENGALI+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String CHINESE_SIMPLIFIED_QUERY = "Create Table "
             +TABLE_CHINESE_SIMPLIFIED+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String CHINESE_TRADITIONAL_QUERY = "Create Table "
             +TABLE_CHINESE_TRADITIONAL+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String ENGLISH_QUERY = "Create Table "
             +TABLE_ENGLISH+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String FRENCH_QUERY = "Create Table "
             +TABLE_FRENCH+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String GERMAN_QUERY = "Create Table "
             +TABLE_GERMAN+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String HINDI_QUERY = "Create Table "
             +TABLE_HINDI+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String INDONESIAN_QUERY = "Create Table "
             +TABLE_INDONESIAN+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String MALAY_QUERY = "Create Table "
             +TABLE_MALAY+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String PASHTO_QUERY = "Create Table "
             +TABLE_PASHTO+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String PERSIAN_QUERY = "Create Table "
             +TABLE_PERSIAN+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String RUSSIAN_QUERY = "Create Table "
             +TABLE_RUSSIAN+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String SPANISH_QUERY = "Create Table "
             +TABLE_SPANISH+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String TURKISH_QUERY = "Create Table "
             +TABLE_TURKISH+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
     public static final String URDU_QUERY = "Create Table "
             +TABLE_URDU+" ( "
             +COL_ID+" Integer not null PRIMARY KEY AUTOINCREMENT, "
             +COL_ATHKAR_ID+" Integer not null, "
-
-            +COL_ATHKAR+" TEXT );";
+            +COL_ATHKAR+" TEXT, "
+            +COL_TAG+" TEXT );";
 
 
 

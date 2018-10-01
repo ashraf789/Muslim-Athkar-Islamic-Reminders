@@ -23,12 +23,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
 import com.crashlytics.android.Crashlytics;
+import com.github.msarhan.ummalqura.calendar.UmmalquraCalendar;
 
 import net.a6te.lazycoder.muslim_pro_islamicremainders.database.MyDatabase;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.fragments.Home;
@@ -37,6 +39,9 @@ import net.a6te.lazycoder.muslim_pro_islamicremainders.fragments.Qibla;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.fragments.Quran;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.fragments.Settings;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.interfaces.CallAttachBaseContext;
+
+import java.util.Calendar;
+import java.util.Locale;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -67,7 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+//        Fabric.with(this, new Crashlytics());
+
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -123,7 +129,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        swipeLayout.setOnRefreshListener(this);
 
         checkLocationPermission();//this method will take location permission from user
-
 
 
         mServiceIntent = new Intent(this, DownloadData.class);

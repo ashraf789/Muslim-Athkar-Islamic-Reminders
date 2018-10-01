@@ -31,7 +31,7 @@
 
 
     <string name="magnetic_sensor_not_available">Manyetik sensör mevcut değil!</string>
-    <string name="distance_from_qibla">Kıble'den uzaklık</string>
+    <string name="distance_from_qibla">Kıble den uzaklık</string>
     <string name="contact_with_us">Bizimle iletişime geçin</string>
     <string name="prayer">namaz</string>
     <string name="calculation_method"> Hesaplama yöntemi</string>

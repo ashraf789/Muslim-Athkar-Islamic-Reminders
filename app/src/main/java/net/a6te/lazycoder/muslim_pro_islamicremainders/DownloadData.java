@@ -90,6 +90,7 @@ public class DownloadData extends IntentService {
             public void onResponse(Call<Athkar> call, Response<Athkar> response) {
 
                 try {
+
                     if (response.body().getResult().equals(true)){
                         Log.d(TAG, "onResponse: new data came");
 

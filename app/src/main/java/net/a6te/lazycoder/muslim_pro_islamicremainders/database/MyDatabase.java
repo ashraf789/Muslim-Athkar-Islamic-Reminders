@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.util.Log;
 
 
@@ -38,6 +39,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_AMHARIC,null,contentValues);
         }
@@ -45,6 +47,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_ARABIC,null,contentValues);
         }
@@ -52,6 +55,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_AZERBAIJANI,null,contentValues);
         }
@@ -59,6 +63,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_AZERI,null,contentValues);
         }
@@ -66,6 +71,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_BEHASA_MALAYU,null,contentValues);
         }
@@ -73,6 +79,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_BENGALI,null,contentValues);
         }
@@ -80,6 +87,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_CHINESE_SIMPLIFIED,null,contentValues);
         }
@@ -87,6 +95,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_CHINESE_TRADITIONAL,null,contentValues);
         }
@@ -94,6 +103,9 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
+
+            Log.d("data", "insertAthkar: Tag = "+athkar.getTag());
 
             database.insert(dbHelper.TABLE_ENGLISH,null,contentValues);
         }
@@ -101,6 +113,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_FRENCH,null,contentValues);
         }
@@ -108,6 +121,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_GERMAN,null,contentValues);
         }
@@ -115,6 +129,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_HINDI,null,contentValues);
         }
@@ -122,6 +137,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_INDONESIAN,null,contentValues);
         }
@@ -129,6 +145,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_MALAY,null,contentValues);
         }
@@ -136,6 +153,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_PASHTO,null,contentValues);
         }
@@ -143,6 +161,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_PERSIAN,null,contentValues);
         }
@@ -150,6 +169,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_RUSSIAN,null,contentValues);
         }
@@ -157,6 +177,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_SPANISH,null,contentValues);
         }
@@ -164,6 +185,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             database.insert(dbHelper.TABLE_TURKISH,null,contentValues);
         }
@@ -171,6 +193,7 @@ public class MyDatabase {
             ContentValues contentValues = new ContentValues();
             contentValues.put(dbHelper.COL_ATHKAR_ID,athkar.getId());
             contentValues.put(dbHelper.COL_ATHKAR,athkar.getAtkhar());
+            contentValues.put(dbHelper.COL_TAG,athkar.getTag());
 
             dataInserted = database.insert(dbHelper.TABLE_URDU,null,contentValues);
 
@@ -212,6 +235,36 @@ public class MyDatabase {
         Close();
 
         return getData;
+    }
+    public Bundle getAtkhar(String table, String  tag, int id) {
+
+        //if no data found then this will be the message
+        String getData=context.getString(R.string.required_data_connection);
+        Bundle bundle = new Bundle();
+
+        Open();
+
+        try {
+            Cursor cursor = database.query(table,new String[] {dbHelper.COL_ATHKAR}, dbHelper.COL_TAG+"=?", new String[] {tag}, null, null, null);
+
+            if (cursor.moveToFirst()){
+                getData = cursor.getString(cursor.getColumnIndex(dbHelper.COL_ATHKAR));
+                id = cursor.getInt(cursor.getColumnIndex(dbHelper.COL_ID));
+            }else {
+                Cursor cursor2 = database.query(table,new String[] {dbHelper.COL_ATHKAR}, dbHelper.COL_ID+"=?", new String[] {String.valueOf(id)}, null, null, null);
+                cursor2.moveToFirst();
+
+                getData = cursor2.getString(cursor.getColumnIndex(dbHelper.COL_ATHKAR));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        Close();
+
+        bundle.putString("atkhar",getData);
+        bundle.putInt("id",id);
+        return bundle;
     }
 
 

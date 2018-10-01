@@ -36,6 +36,8 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
         context = fragment.getContext();
         savedData = new SavedData(context);
         myDatabase = new MyDatabase(context);
+
+
     }
 
     @Override

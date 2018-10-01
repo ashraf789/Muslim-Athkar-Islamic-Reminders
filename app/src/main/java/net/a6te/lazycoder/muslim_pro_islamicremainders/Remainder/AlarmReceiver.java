@@ -3,8 +3,10 @@ package net.a6te.lazycoder.muslim_pro_islamicremainders.Remainder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 
+import net.a6te.lazycoder.muslim_pro_islamicremainders.HijriSpecialDays;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.LocaleManager;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.MainActivity;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.R;
@@ -23,6 +25,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     private Context context;
     private SavedData savedData;
     private MyDatabase myDatabase;
+    private HijriSpecialDays hijriSpecialDay;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -33,6 +36,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         savedData = new SavedData(context);
         myDatabase = new MyDatabase(context);
+        hijriSpecialDay = new HijriSpecialDays();
+
 
         if (intent.getAction() != null && context != null) {
             if (intent.getAction().equalsIgnoreCase(Intent.ACTION_BOOT_COMPLETED)) {
@@ -44,30 +49,42 @@ public class AlarmReceiver extends BroadcastReceiver {
             }
         }
 
-        int lastAthkarId = savedData.getLastAthkarId()+1;
-        savedData.setLastAthkarId(lastAthkarId);
+
 
         NotificationScheduler.showNotification(context, MainActivity.class,
-                context.getString(R.string.app_sub_name), getAtkhar(lastAthkarId));
+                context.getString(R.string.app_sub_name), getAtkhar());
 
     }
 
-    public String getAtkhar(int id){
+    public String getAtkhar(){
 
-          String  tableName = getTableName();
+        int id = savedData.getLastAthkarId()+1;
+        String  tableName = getTableName();
 
         int lastDataId = myDatabase.getLastDataId(tableName);
         String atkhar;
-
-        if (lastDataId >= id){
-            //still available new data
-            atkhar = myDatabase.getAtkhar(tableName, id);
+        if (!hijriSpecialDay.isTodaySpecialDay().equals("no")){
+            //today is a special islamic day, remain user special day
+            Bundle bundle = myDatabase.getAtkhar(tableName, hijriSpecialDay.isTodaySpecialDay(),id);
+            atkhar = bundle.getString("atkhar");
+            id = bundle.getInt("id");
         }else {
-            //no new data available we already seen last atkhar lets start again from first
-            id = 0;
-            atkhar = myDatabase.getAtkhar(tableName, id);
-            savedData.setLastAthkarId(id);
+            if (lastDataId >= id) {
+                //still available new data
+                atkhar = myDatabase.getAtkhar(tableName, id);
+            } else {
+                //no new data available we already seen last atkhar lets start again from first
+                id = 0;
+                atkhar = myDatabase.getAtkhar(tableName, id);
+            }
         }
+
+
+        Log.d("TodayHijri", "getAtkhar: : "+atkhar+"\n date = "+hijriSpecialDay.isTodaySpecialDay());
+        Log.d("TodayHijri", "id: : "+id);
+
+        savedData.setLastAthkarId(id);
+
         return atkhar;
     }
 

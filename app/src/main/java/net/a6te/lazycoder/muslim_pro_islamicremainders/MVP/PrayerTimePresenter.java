@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
     private MVPView.PrayerTimeView MVPView;
-    private  Fragment fragment;
+    private Fragment fragment;
     private PrayerTimeAdapter adapter;
     private ArrayList<PrayerTimeModel> prayerTimes;
 
@@ -148,6 +148,8 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
         prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.asr),times.get(PrayerTime.Time.Asr)));
         prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.magrib),times.get(PrayerTime.Time.Maghrib)));
         prayerTimes.add(new PrayerTimeModel(mContext.getString(R.string.isha),times.get(PrayerTime.Time.Isha)));
+
+
 
     }
 

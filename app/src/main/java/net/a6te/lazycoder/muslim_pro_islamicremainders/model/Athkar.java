@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Athkar {
+
     @SerializedName("result")
     @Expose
     private Boolean result;
@@ -41,9 +42,6 @@ public class Athkar {
     }
 
 
-
-
-
     public class Amharic {
 
         @SerializedName("id")
@@ -52,6 +50,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -67,6 +68,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -79,6 +88,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -96,8 +108,15 @@ public class Athkar {
             this.atkhar = atkhar;
         }
 
-    }
+        public String getTag() {
+            return tag;
+        }
 
+        public void setTag(String tag) {
+            this.tag = tag;
+        }
+
+    }
 
     public class Azerbaijani {
 
@@ -107,6 +126,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -122,6 +144,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -134,6 +164,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -149,6 +182,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -161,6 +202,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -176,6 +220,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -188,6 +240,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -203,6 +258,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -215,6 +278,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -232,8 +298,15 @@ public class Athkar {
             this.atkhar = atkhar;
         }
 
-    }
+        public String getTag() {
+            return tag;
+        }
 
+        public void setTag(String tag) {
+            this.tag = tag;
+        }
+
+    }
     public class ChineseTraditional {
 
         @SerializedName("id")
@@ -242,6 +315,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -257,6 +333,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -494,6 +578,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -511,7 +598,16 @@ public class Athkar {
             this.atkhar = atkhar;
         }
 
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
+        }
+
     }
+
     public class French {
 
         @SerializedName("id")
@@ -520,6 +616,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -535,6 +634,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -547,6 +654,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -562,6 +672,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -574,6 +692,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -589,6 +710,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -601,6 +730,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -616,6 +748,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -628,6 +768,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -643,6 +786,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -655,6 +806,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -670,6 +824,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -682,6 +844,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -699,8 +864,15 @@ public class Athkar {
             this.atkhar = atkhar;
         }
 
-    }
+        public String getTag() {
+            return tag;
+        }
 
+        public void setTag(String tag) {
+            this.tag = tag;
+        }
+
+    }
     public class Russian {
 
         @SerializedName("id")
@@ -709,6 +881,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -726,8 +901,15 @@ public class Athkar {
             this.atkhar = atkhar;
         }
 
-    }
+        public String getTag() {
+            return tag;
+        }
 
+        public void setTag(String tag) {
+            this.tag = tag;
+        }
+
+    }
     public class Spanish {
 
         @SerializedName("id")
@@ -736,6 +918,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -751,6 +936,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -763,6 +956,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -778,6 +974,14 @@ public class Athkar {
 
         public void setAtkhar(String atkhar) {
             this.atkhar = atkhar;
+        }
+
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
         }
 
     }
@@ -790,6 +994,9 @@ public class Athkar {
         @SerializedName("atkhar")
         @Expose
         private String atkhar;
+        @SerializedName("tag")
+        @Expose
+        private String tag;
 
         public String getId() {
             return id;
@@ -807,5 +1014,12 @@ public class Athkar {
             this.atkhar = atkhar;
         }
 
+        public String getTag() {
+            return tag;
+        }
+
+        public void setTag(String tag) {
+            this.tag = tag;
+        }
     }
 }
