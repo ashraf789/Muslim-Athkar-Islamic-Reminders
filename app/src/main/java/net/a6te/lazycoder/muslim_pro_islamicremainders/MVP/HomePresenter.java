@@ -67,9 +67,9 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
         }
     }
 
-
-
-
+    /*
+    * Convert text{verse} to bitmap
+    * */
     //this method will create a bitmap image from given view
     public Bitmap createBitmapFromView(View layoutView){
         //Define a bitmap with the same size as the view

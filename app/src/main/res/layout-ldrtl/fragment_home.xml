@@ -85,16 +85,6 @@
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:text="@string/create_new"/>
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/add_unit_id">
-        </com.google.android.gms.ads.AdView>
     </RelativeLayout>
 
 </FrameLayout>

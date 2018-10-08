@@ -54,9 +54,7 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
     private SwipeRefreshLayout refreshLayout;
     private CheckInternetConnection internetConnectionTest;
     private MediaPlayer ring;
-    private boolean firstTimeCheckGPS = true;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 100;
-    private AdView mAdView;
 
     public PrayerTime() {
         // Required empty public constructor
@@ -72,6 +70,9 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         return v;
     }
 
+    /*
+    * initialize all necessary variable or initialize object etc
+    * */
     private void initializeAll() {
         presenter = new PrayerTimePresenter(this);
         prayerTimeRV = v.findViewById(R.id.prayerTimeRV);//prayerTime recyclerView(RV)
@@ -95,18 +96,10 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        initializeAdds();
         callPresenter();
         playSound();//it will play allhu akbar sound
     }
-    private void initializeAdds() {
-        MobileAds.initialize(getContext(),
-                getString(R.string.add_publish_id));
 
-        mAdView = v.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-    }
 
     private void callPresenter() {
         if (internetConnectionTest.netCheck(getContext())){
@@ -116,9 +109,6 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
                 unVisibleErrorTv();
             }else {
                 Toast.makeText(getContext(),getResources().getString(R.string.gps_setting_message), Toast.LENGTH_SHORT).show();
-//                errorNoInternetTv.setText(getContext().getResources().getString(R.string.gps_permission));
-//                errorNoInternetTv.setVisibility(View.VISIBLE);
-
                 visibleErrorTv(getContext().getResources().getString(R.string.gps_setting_message));
             }
 
@@ -129,6 +119,9 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         }
     }
 
+    /*
+    * set Recycler view adapter
+    * */
     @Override
     public void initializeRecyclerView(PrayerTimeAdapter adapter) {
         if (adapter != null) {
@@ -150,28 +143,9 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
     }
 
 
-//    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
-//    public void onMessageEvent(MessageEvent event) {
-//
-//
-//        // get the event and remove drom sticky
-////        MessageEvent stickyEvent = EventBus.getDefault().removeStickyEvent(MessageEvent.class);
-////
-////        if(stickyEvent != null) {
-////            if (event.isEmptyValue()){
-////                Toast.makeText(getContext(),getResources().getString(R.string.required_data_connection),Toast.LENGTH_SHORT).show();
-////                errorNoInternetTv.setVisibility(View.VISIBLE);
-////
-////            }else if (event.getEventName().equals(Utils.CITY_NAME)){
-////                errorNoInternetTv.setVisibility(View.GONE);
-////                cityTv.setText(event.getMessage());
-////
-////            }
-////        }
-//
-//    };
-
-
+    /*
+    * if GPS is not turn on this method will show a alert dialog to user to setting enable GPS
+    * */
     @Override
     public void showGpsSettingAlert(){
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
@@ -205,6 +179,7 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
 
     }
 
+
     SwipeRefreshLayout.OnRefreshListener refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
@@ -230,6 +205,9 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         super.onPause();
     }
 
+    /*
+    * Taking runtime permission for location
+    * */
 
     public boolean checkLocationPermission() {
 
@@ -249,6 +227,9 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         }
     }
 
+    /*
+    * check is already permission granted or not
+    * */
     public static boolean hasPermissions(Context context, String... permissions) {
         if (context != null && permissions != null) {
             for (String permission : permissions) {
@@ -284,9 +265,11 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         }
     }
 
+    /*
+    * if user deny to give permission this method will be called
+    * */
     private void permissionDenied() {
         Toast.makeText(getContext(), R.string.permission_denied,Toast.LENGTH_SHORT).show();
-
     }
 
     BroadcastReceiver connectionStatusReceiver = new BroadcastReceiver() {

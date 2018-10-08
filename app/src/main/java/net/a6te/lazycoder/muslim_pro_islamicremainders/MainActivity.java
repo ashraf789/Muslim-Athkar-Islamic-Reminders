@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Fabric.with(this, new Crashlytics());
+        Fabric.with(this, new Crashlytics());
 
 
         setContentView(R.layout.activity_main);
@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navSettingRl = findViewById(R.id.navSettingRl);
         navUrlRl =  findViewById(R.id.navUrlRl);
 
-//        progressBar = findViewById(R.id.mainActivityPB);
 
         navHomeRl.setOnClickListener(this);
         navPrayerRl.setOnClickListener(this);
@@ -125,8 +124,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         transaction = getSupportFragmentManager().beginTransaction();
 
         selectedNav = findViewById(R.id.navHomeRl);//navigation default selected menu is home menu
-//        swipeLayout = findViewById(R.id.swipeLayout);
-//        swipeLayout.setOnRefreshListener(this);
 
         checkLocationPermission();//this method will take location permission from user
 
@@ -146,10 +143,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         LocalBroadcastManager.getInstance(this).registerReceiver(connectionStatusReceiver
                 ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
-//        LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver
-//                ,new IntentFilter(Utils.BROADCAST_ACTION));
-//
-//
         savedData = new SavedData(this);
 
 
@@ -300,8 +293,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (bundle.getBoolean(Utils.DATA_CONNECTION_ENABLE)){
                     startServiceIntent();
             }
-
-
         }
     };
 

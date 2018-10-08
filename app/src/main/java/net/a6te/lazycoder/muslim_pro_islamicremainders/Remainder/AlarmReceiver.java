@@ -49,8 +49,6 @@ public class AlarmReceiver extends BroadcastReceiver {
             }
         }
 
-
-
         NotificationScheduler.showNotification(context, MainActivity.class,
                 context.getString(R.string.app_sub_name), getAtkhar());
 

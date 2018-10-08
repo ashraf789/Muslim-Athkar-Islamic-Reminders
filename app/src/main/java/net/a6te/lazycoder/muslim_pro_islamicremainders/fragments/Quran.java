@@ -52,7 +52,6 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
     private MaterialSearchBar searchBar;
     private CustomSuggestionsAdapter customSuggestionsAdapter;
     private MVPPresenter.QuranPresenter presenter;
-    private AdView mAdView;
     private MediaPlayer ring;
 
 
@@ -88,8 +87,10 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        initializeAdds();
         displayFromAsset(SAMPLE_FILE,0);//default pdf will be start from 0 page
+
+        /*
+        * search bar default settings*/
         try {
             searchBar.setMaxSuggestionCount(2);
             searchBar.setHint(getString(R.string.find_surah));
@@ -102,15 +103,10 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
 
     }
 
-    private void initializeAdds() {
-        MobileAds.initialize(getContext(),
-                getString(R.string.add_publish_id));
 
-        mAdView = view.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-    }
-
+    /*
+    * initialize PDF view [PDF is located on asset folder]
+    * */
     private void displayFromAsset(String assetFileName, int pageNumber) {
         pdfFileName = assetFileName;
 
@@ -149,7 +145,6 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
                 printBookmarksTree(b.getChildren(), sep + "-");
             }
         }
-
 
         presenter.prepareSearchAdapter(inflater,surahs);
 

@@ -66,8 +66,6 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     private MVPPresenter.HomePresenter presenter;
     private MediaPlayer ring;
     public static final int SHARE_IMAGE_REQUEST_CODE=101;
-    private Set<String > test;
-    private AdView mAdView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -78,7 +76,6 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
         return view;
     }
-
 
 
     private void initializeAll() {
@@ -100,37 +97,33 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         ring= MediaPlayer.create(getContext(),R.raw.shared_thank_you);
         TextViewCompat.setAutoSizeTextTypeWithDefaults(autoSizeTv, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM);
 
-        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(connectionStatusReceiver
-                ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
+//        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(connectionStatusReceiver
+//                ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
+//
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(messageReceiver
                 ,new IntentFilter(Utils.BROADCAST_ACTION));
 
     }
 
+    /**
+     * after view create initialize remainders and also show athkar/verse on home page
+     * */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        initializeAdds();
         //initialize remainder
         presenter.initializeRemainder();
         presenter.prepareAtkhar();
     }
 
-    private void initializeAdds() {
-        MobileAds.initialize(getContext(),
-                getString(R.string.add_publish_id));
 
-        mAdView = view.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-    }
-
+    /**
+     * This method will be call from presenter class
+     * */
     @Override
     public void updateRemainder(Context context,int hour, int mint, long interval){
-
         NotificationScheduler.setReminder(context, AlarmReceiver.class, hour, mint,interval);
-
     }
 
     @Override
@@ -146,6 +139,9 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         }
     }
 
+    /**
+     * when user press the share button this method will show user the available social media
+     * */
     private void shareImageBtn(){
         File filePath = new File(imageDirectory,"/"+imageName);
 
@@ -166,18 +162,15 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == SHARE_IMAGE_REQUEST_CODE ){
-
             if (resultCode == RESULT_OK){
                 playSound();
-                Log.d("TEST", "onActivityResult: play sound ");
-
             }
-
-            Log.d("TEST", "onActivityResult: "+resultCode);
         }
     }
 
 
+    /**
+     * show athkar/ verse*/
     @Override
     public void setTodayImage(String  data){
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
@@ -186,6 +179,10 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
             autoSizeTv.setText(Html.fromHtml(data));
         }
     }
+
+    /*
+    * Store athkar image to user phone
+    * */
     @Override
     public void storeBitMapImage(Bitmap bitmap){
 
@@ -212,22 +209,22 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
 
 
     }
-
-    BroadcastReceiver connectionStatusReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Bundle bundle = intent.getExtras();
-            String message = bundle.getString(Utils.CONNECTION_STATUS);
-
-//            if (bundle.getInt(Utils.STATUS_CODE) == Utils.ALL_CONNECTED){
-//                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
 //
-//            }else if (bundle.getInt(Utils.STATUS_CODE) == Utils.NO_CONNECTION_CODE){
-//                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
-//            }
-
-        }
-    };
+//    BroadcastReceiver connectionStatusReceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            Bundle bundle = intent.getExtras();
+//            String message = bundle.getString(Utils.CONNECTION_STATUS);
+//
+////            if (bundle.getInt(Utils.STATUS_CODE) == Utils.ALL_CONNECTED){
+////                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+////
+////            }else if (bundle.getInt(Utils.STATUS_CODE) == Utils.NO_CONNECTION_CODE){
+////                Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+////            }
+//
+//        }
+//    };
 
     public void playSound(){
         ring= MediaPlayer.create(getContext(),R.raw.shared_thank_you);
@@ -247,6 +244,9 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
         super.onPause();
     }
 
+    /*
+    * This method will be call after API call
+    * */
     //broadcast receiver
     BroadcastReceiver messageReceiver = new BroadcastReceiver() {
         @Override

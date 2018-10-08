@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- release ads details -->
-    <string name="add_unit_id">ca-app-pub-2122789248840144/5923672534</string>
-    <string name="add_publish_id">ca-app-pub-2122789248840144~8466075392</string>
-
 
     <string name="app_name">Muslim Athkar - Islamic Reminders</string>
     <string name="facebook_app_id">179442992713579</string>
