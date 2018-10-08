@@ -57,7 +57,6 @@ Recognized by millions of Islam followers through the Muslim world as the most a
 </br>
 
 
-
 ***Google play store link: https://bit.ly/2xu3lz3***
 
 ## License
