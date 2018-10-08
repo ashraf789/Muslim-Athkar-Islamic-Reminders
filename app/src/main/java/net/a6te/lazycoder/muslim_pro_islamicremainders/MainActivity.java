@@ -45,6 +45,13 @@ import java.util.Locale;
 
 import io.fabric.sdk.android.Fabric;
 
+/**
+ *
+ * This project is developed by : Syed Ashraf ullah
+ * Year: 2018
+ * Email: syedashrafullah15@gmail.com
+ * Github: ashraf789
+ * */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext{
 
     private RelativeLayout navHomeRl,navPrayerRl,navQiblaRl,navQuranRl,navSettingRl,navUrlRl;
