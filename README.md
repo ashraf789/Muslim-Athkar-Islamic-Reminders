@@ -59,3 +59,6 @@ Recognized by millions of Islam followers through the Muslim world as the most a
 
 
 ***Google play store link: https://bit.ly/2xu3lz3***
+
+## License
+This project is licensed under the MIT License - see the [License File](LICENSE) for details
