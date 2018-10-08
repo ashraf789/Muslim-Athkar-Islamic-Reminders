@@ -75,6 +75,8 @@
         </RelativeLayout>
 
         <Button
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true"
             android:layout_above="@+id/adView"
             android:textStyle="bold"
             android:textColor="@color/white"

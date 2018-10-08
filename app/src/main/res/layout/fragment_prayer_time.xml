@@ -90,6 +90,7 @@
 
             </android.support.v7.widget.RecyclerView>
             <TextView
+                android:layout_alignParentBottom="true"
                 android:layout_marginBottom="2dp"
                 android:layout_above="@+id/adView"
                 android:padding="5dp"
@@ -104,16 +105,7 @@
                 android:textColor="#252222"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-condensed"/>
-            <com.google.android.gms.ads.AdView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/adView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/add_unit_id">
-            </com.google.android.gms.ads.AdView>
+
         </RelativeLayout>
     </android.support.v7.widget.CardView>
     </android.support.v4.widget.SwipeRefreshLayout>

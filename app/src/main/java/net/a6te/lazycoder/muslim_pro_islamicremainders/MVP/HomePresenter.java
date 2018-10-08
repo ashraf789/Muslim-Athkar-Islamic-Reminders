@@ -112,6 +112,7 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
     public void prepareAtkhar(){
 
         int lastAthkarId = savedData.getLastAthkarId();
+        Log.d("TodayHijri", "prepareAtkhar: "+lastAthkarId);
         String tableName = savedData.getAthkarTableName();//get saved athkar table name
         getAtkhar(lastAthkarId,tableName);
 
@@ -157,8 +158,6 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
         }
         int lastDataId = myDatabase.getLastDataId(tableName);
 
-        Log.d("TEST", "total atkar or table "+tableName+" athkar = "+lastDataId);
-        Log.d("TEST", "get athkar ID : "+lastDataId);
         String atkhar;
 
         if (lastDataId >= id){

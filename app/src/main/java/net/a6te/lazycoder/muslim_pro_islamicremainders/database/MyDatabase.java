@@ -218,7 +218,8 @@ public class MyDatabase {
 
         //if no data found then this will be the message
         String getData=context.getString(R.string.required_data_connection);
-        id++;//array start from 0 but datase start from 1 so we are adding +1 to start it from first row
+//        id++;//array start from 0 but datase start from 1 so we are adding +1 to start it from first row
+        /*todo need to work in here later i have commented the id++; line maybe it is connected with other */
 
 
         Open();
@@ -242,15 +243,17 @@ public class MyDatabase {
         String getData=context.getString(R.string.required_data_connection);
         Bundle bundle = new Bundle();
 
+
         Open();
 
         try {
-            Cursor cursor = database.query(table,new String[] {dbHelper.COL_ATHKAR}, dbHelper.COL_TAG+"=?", new String[] {tag}, null, null, null);
+            Cursor cursor = database.query(table,new String[] {dbHelper.COL_ID,dbHelper.COL_ATHKAR}, dbHelper.COL_TAG+"=?", new String[] {tag}, null, null, null);
 
             if (cursor.moveToFirst()){
                 getData = cursor.getString(cursor.getColumnIndex(dbHelper.COL_ATHKAR));
                 id = cursor.getInt(cursor.getColumnIndex(dbHelper.COL_ID));
-            }else {
+            }
+            else {
                 Cursor cursor2 = database.query(table,new String[] {dbHelper.COL_ATHKAR}, dbHelper.COL_ID+"=?", new String[] {String.valueOf(id)}, null, null, null);
                 cursor2.moveToFirst();
 
@@ -264,6 +267,7 @@ public class MyDatabase {
 
         bundle.putString("atkhar",getData);
         bundle.putInt("id",id);
+
         return bundle;
     }
 
