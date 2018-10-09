@@ -14,7 +14,8 @@ Recognized by millions of Islam followers through the Muslim world as the most a
         5. Search surah name by both English and Arabic language.
 
         6. Change anytime application language.
-
+        
+        7. Islamic special days specific verse example on ramadan app will notify user ramadan related verse 
 
 
 ### Project screenshot
