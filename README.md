@@ -50,7 +50,7 @@ Recognized by millions of Islam followers through the Muslim world as the most a
 <img height='500' width ='300' src="https://i.imgur.com/ofnTIBV.png" />
 </br>
 
-**Search surah**
+**Prayer time**
 
 </br>
 <img height='500' width ='300' src="https://i.imgur.com/EYk1qkp.png" />
