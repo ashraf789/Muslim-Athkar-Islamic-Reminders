@@ -5,6 +5,8 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
+import android.util.Log;
 
 
 import net.a6te.lazycoder.muslim_pro_islamicremainders.GPSTracker;
@@ -79,8 +81,13 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
                 List<Address> addresses = gcd.getFromLocation(latitude, longitude, 1);
                 if (addresses.size() > 0) {
 
-                    if (!addresses.get(0).getLocality().isEmpty()) {
+                    Log.d("TEST", "doInBackground: "+addresses.get(0));
+                    Log.d("TEST", "doInBackground: "+addresses.get(0).getCountryCode());
+                    if (addresses.get(0).getLocality() != null ){
                         savedData.saveUserCity(addresses.get(0).getLocality());
+                        city = savedData.getUserCity();
+                    }else{
+                        savedData.saveUserCity(addresses.get(0).getAdminArea());
                         city = savedData.getUserCity();
                     }
                     return true;
