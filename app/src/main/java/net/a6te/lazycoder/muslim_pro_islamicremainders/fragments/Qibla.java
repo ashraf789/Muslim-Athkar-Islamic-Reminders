@@ -24,10 +24,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-
 import net.a6te.lazycoder.muslim_pro_islamicremainders.DrawCompass;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.MVPPresenter;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.MVPView;
@@ -50,11 +46,6 @@ public class Qibla extends Fragment implements MVPView.QiblaView{
     private Context context;
     private TextView errorTv;
     private MediaPlayer ring;
-
-
-    public Qibla() {
-        // Required empty public constructor
-    }
 
 
     @Override

@@ -5,7 +5,6 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.util.Log;
 
 
@@ -27,13 +26,12 @@ import java.util.concurrent.TimeUnit;
 
 public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
     private MVPView.PrayerTimeView MVPView;
-    private Fragment fragment;
     private PrayerTimeAdapter adapter;
     private ArrayList<PrayerTimeModel> prayerTimes;
 
     private GPSTracker gps;
     private double latitude, longitude;
-    private String city = null;
+    private String city;
     private int calculationMethodId;
     private int juristicMethodId;
     private SavedData savedData;
@@ -41,7 +39,6 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
 
 
     public PrayerTimePresenter(Fragment fragment) {
-        this.fragment = fragment;
         mContext = fragment.getContext();
         this.MVPView = (net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.MVPView.PrayerTimeView) fragment;
         prayerTimes = new ArrayList<>();

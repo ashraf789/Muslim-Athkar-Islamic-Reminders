@@ -11,19 +11,16 @@ import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -44,7 +41,7 @@ import net.a6te.lazycoder.muslim_pro_islamicremainders.interfaces.CallAttachBase
  * Email: syedashrafullah15@gmail.com
  * Github: ashraf789
  *
- * Open source project under the licence of MIT
+ * Open source project under the MIT licence
  * */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext{
 

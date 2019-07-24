@@ -6,7 +6,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 
 import net.a6te.lazycoder.muslim_pro_islamicremainders.BasicCalculation;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.GPSTracker;

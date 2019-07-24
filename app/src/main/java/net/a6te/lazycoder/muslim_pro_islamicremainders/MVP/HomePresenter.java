@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.FileProvider;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 
@@ -22,7 +21,6 @@ import net.a6te.lazycoder.muslim_pro_islamicremainders.database.MyDatabase;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Random;
 

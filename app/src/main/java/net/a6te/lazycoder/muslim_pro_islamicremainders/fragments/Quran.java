@@ -16,9 +16,7 @@ import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+
 import com.mancj.materialsearchbar.MaterialSearchBar;
 import com.shockwave.pdfium.PdfDocument;
 
@@ -42,7 +40,6 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeListener,OnLoadCompleteListener,OnSearchItemClick {
 
     private View view;
-    private static final String TAG = MainActivity.class.getSimpleName();
     public static final String SAMPLE_FILE = "quraan.pdf";
     PDFView pdfView;
     String pdfFileName;
@@ -53,11 +50,6 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
     private CustomSuggestionsAdapter customSuggestionsAdapter;
     private MVPPresenter.QuranPresenter presenter;
     private MediaPlayer ring;
-
-
-    public Quran() {
-        // Required empty public constructor
-    }
 
 
     @Override
@@ -131,7 +123,6 @@ public class Quran extends Fragment implements MVPView.QuranView, OnPageChangeLi
 
     @Override
     public void loadComplete(int nbPages) {
-        PdfDocument.Meta meta = pdfView.getDocumentMeta();
         printBookmarksTree(pdfView.getTableOfContents(), "-");
 
 

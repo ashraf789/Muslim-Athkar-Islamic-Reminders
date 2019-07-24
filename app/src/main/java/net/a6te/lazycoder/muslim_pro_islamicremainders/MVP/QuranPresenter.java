@@ -1,8 +1,6 @@
 package net.a6te.lazycoder.muslim_pro_islamicremainders.MVP;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 
 import net.a6te.lazycoder.muslim_pro_islamicremainders.adapters.CustomSuggestionsAdapter;
@@ -15,7 +13,6 @@ public class QuranPresenter implements MVPPresenter.QuranPresenter {
     private ArrayList<Surah> suggestions;
     private CustomSuggestionsAdapter customSuggestionsAdapter;
     private MVPView.QuranView quranView;
-    private Context context;
     private Fragment fragment;
 
     public QuranPresenter(Fragment fragment) {

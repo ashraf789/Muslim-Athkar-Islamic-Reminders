@@ -24,25 +24,20 @@ public class DrawCompass extends View {
     private int height = 240;
     private float centre_x = width * 0.5f;
     private float centre_y = height * 0.5f;
-    private Context context;
 
     //all constructor
     public DrawCompass(Context context) {
         super(context);
-        this.context = context;
 
         initCompassView();
-        this.context = context;
     }
     public DrawCompass(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        this.context = context;
 
         initCompassView();
     }
     public DrawCompass(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.context = context;
 
         initCompassView();
     }

@@ -1,28 +1,19 @@
 package net.a6te.lazycoder.muslim_pro_islamicremainders.MVP;
 
 import android.app.AlarmManager;
-import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 
-import net.a6te.lazycoder.muslim_pro_islamicremainders.LocaleManager;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.R;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.SavedData;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.adapters.SpinnerAdapter;
-import net.a6te.lazycoder.muslim_pro_islamicremainders.adapters.SpinnerCheckBoxAdapter;
-import net.a6te.lazycoder.muslim_pro_islamicremainders.adapters.SpinnerWithCheckBoxAdapter;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.fragments.Home;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.interfaces.CallAttachBaseContext;
-import net.a6te.lazycoder.muslim_pro_islamicremainders.model.SpinnerWithCheckBoxItem;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 
 public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
@@ -66,7 +57,7 @@ public class SettingsPresenter implements MVPPresenter.SettingsPresenter{
 
         boolean[] selectedLanguage = savedData.getRemainderLanguages(size);
 
-        adapter = new ArrayAdapter<String>(fragment.getContext(), android.R.layout.simple_spinner_item);
+        adapter = new ArrayAdapter<>(fragment.getContext(), android.R.layout.simple_spinner_item);
         for (String data: temp){
             adapter.add(data);
         }

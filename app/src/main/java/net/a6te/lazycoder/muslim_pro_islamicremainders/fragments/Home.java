@@ -7,15 +7,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.FileProvider;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.TextViewCompat;
 import android.text.Html;
@@ -28,11 +25,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-
-import net.a6te.lazycoder.muslim_pro_islamicremainders.BuildConfig;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.HomePresenter;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.MVPPresenter;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.MVPView;
@@ -46,8 +38,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.security.Provider;
-import java.util.Set;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -76,7 +66,7 @@ public class Home extends Fragment implements View.OnClickListener, MVPView.Home
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        
+
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_home, container, false);
         initializeAll();

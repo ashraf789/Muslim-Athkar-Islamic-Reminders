@@ -44,16 +44,7 @@ public class DownloadData extends IntentService {
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         initialize();
-
-//        final long period = 3000;
-//        new Timer().schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                Log.d(TAG, "onHandleIntent: running");
-                download();
-//
-//            }
-//        }, 0, period);
+         download();
     }
 
     private void initialize() {

@@ -15,8 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.thomashaertel.widget.MultiSpinner;
 
 import net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.MVPPresenter;

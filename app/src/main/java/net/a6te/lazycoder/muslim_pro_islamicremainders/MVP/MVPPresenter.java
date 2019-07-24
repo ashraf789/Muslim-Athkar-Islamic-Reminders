@@ -1,6 +1,5 @@
 package net.a6te.lazycoder.muslim_pro_islamicremainders.MVP;
 
-import android.content.Context;
 import android.hardware.SensorManager;
 import android.view.LayoutInflater;
 import android.view.View;
