@@ -33,6 +33,7 @@ import net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.MVPPresenter;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.MVPView;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.MVP.PrayerTimePresenter;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.R;
+import net.a6te.lazycoder.muslim_pro_islamicremainders.SavedData;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.Utils;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.adapters.PrayerTimeAdapter;
 
@@ -52,6 +53,7 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
     private CheckInternetConnection internetConnectionTest;
     private MediaPlayer ring;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 100;
+    private SavedData savedData;
 
     public PrayerTime() {
         // Required empty public constructor
@@ -87,6 +89,7 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(connectionStatusReceiver
                 ,new IntentFilter(Utils.BROADCAST_CONNECTION_STATUS));
 
+        savedData = new SavedData(getContext());
     }
 
     @Override
@@ -99,6 +102,11 @@ public class PrayerTime extends Fragment implements MVPView.PrayerTimeView{
 
 
     private void callPresenter() {
+
+        /** We have old lat and long so we can calculate by old report */
+        if (savedData.getLong() != 0 && savedData.getLat() != 0){
+            presenter.startCalculationPrayerTime();
+        }
         if (internetConnectionTest.netCheck(getContext())){
 
             if (checkLocationPermission()){

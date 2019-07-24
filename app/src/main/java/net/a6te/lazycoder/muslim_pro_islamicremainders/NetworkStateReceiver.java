@@ -29,15 +29,6 @@ public class NetworkStateReceiver extends BroadcastReceiver {
         }
 
     }
-    public void sendMessage(String status,int statusCode){
-        Intent intent = new Intent(Utils.BROADCAST_CONNECTION_STATUS);
-        Bundle bundle = new Bundle();
-        bundle.putInt(Utils.STATUS_CODE,statusCode);
-        bundle.putString(Utils.CONNECTION_STATUS,status);
-        intent.putExtras(bundle);
-
-        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-    }
     public void sendMessage(String status,int statusCode, boolean dataConnectionEnable){
         Intent intent = new Intent(Utils.BROADCAST_CONNECTION_STATUS);
         Bundle bundle = new Bundle();
@@ -57,6 +48,7 @@ public class NetworkStateReceiver extends BroadcastReceiver {
         }
         return false;
     }
+
     private boolean checkLocation() {
         LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);

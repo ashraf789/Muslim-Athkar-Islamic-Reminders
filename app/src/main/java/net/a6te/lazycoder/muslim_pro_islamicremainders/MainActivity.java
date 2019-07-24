@@ -43,6 +43,8 @@ import net.a6te.lazycoder.muslim_pro_islamicremainders.interfaces.CallAttachBase
  * Year: 2018
  * Email: syedashrafullah15@gmail.com
  * Github: ashraf789
+ *
+ * Open source project under the licence of MIT
  * */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, CallAttachBaseContext{
 
@@ -52,13 +54,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FragmentTransaction transaction;
     private RelativeLayout selectedNav;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    private View view;
+
+    // app opening sound, we will use media player
     private MediaPlayer ring;
+
     private Intent mServiceIntent;
+
+    // save app data
     private SavedData savedData;
 
     private NetworkStateReceiver receiver = null;
     private Context mContext;
+
     private MyDatabase database;
 
     @Override
@@ -120,11 +127,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragment = new Home();
         transaction = getSupportFragmentManager().beginTransaction();
 
-        selectedNav = findViewById(R.id.navHomeRl);//navigation default selected menu is home menu
+        /** Navigation default selected menu is home menu */
+        selectedNav = findViewById(R.id.navHomeRl);
 
-        checkLocationPermission();//this method will take location permission from user
-
-
+        /** This method will take location permission from user */
         mServiceIntent = new Intent(this, DownloadData.class);
 
 
@@ -146,8 +152,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    //navigation menu onclick listener
-    //after click on a navigation menu fragment will be change
+    /** Navigation menu onclick listener
+     * After click on a navigation menu fragment will be change
+     */
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -184,47 +192,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         closeDrawer();
     }
 
-    //This method will change selected button background color
-    // and also it will change previous selected navigation menu background to white background
+    /**
+     * This method will change selected button background color
+     * And also it will change previous selected navigation menu background to white background
+     */
+
     public void changeSelectedNavBg(View newSelectedNavId){
         selectedNav.setBackgroundResource(R.color.color_white);
 
         selectedNav = (RelativeLayout) newSelectedNavId;
         selectedNav.setBackgroundResource(R.color.cardview_shadow_start_color);
     }
-    //close navigation drawer
+
+    // Close navigation drawer
     public void closeDrawer(){
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
-    }
-
-
-    public void checkLocationPermission() {
-
-        final String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
-        if(!hasPermissions(this, PERMISSIONS)){
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    PERMISSIONS,
-                    MY_PERMISSIONS_REQUEST_LOCATION);
-
-        } else {
-            //permission already granted
-            //like android version < 5(lollipop) don,t need runtime permission
-        }
-    }
-
-    public static boolean hasPermissions(Context context, String... permissions) {
-        if (context != null && permissions != null) {
-            for (String permission : permissions) {
-                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 
 
@@ -263,11 +248,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(getIntent());
     }
 
-
     public void playSound(){
         ring.start();
     }
 
+    /**
+     * On app destroy stop media player
+     * Un-register all receiver
+     * */
     @Override
     protected void onDestroy() {
         ring.stop();
@@ -288,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Bundle bundle = intent.getExtras();
 
             if (bundle.getBoolean(Utils.DATA_CONNECTION_ENABLE)){
-                    startServiceIntent();
+                startServiceIntent();
             }
         }
     };

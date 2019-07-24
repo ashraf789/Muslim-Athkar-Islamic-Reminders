@@ -7,11 +7,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 
+import net.a6te.lazycoder.muslim_pro_islamicremainders.BuildConfig;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.R;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.SavedData;
 import net.a6te.lazycoder.muslim_pro_islamicremainders.database.MyDatabase;
@@ -98,7 +101,15 @@ public class HomePresenter implements MVPPresenter.HomePresenter {
                 context.getResources().getString(R.string.app_signature)+" "+context.getResources().getString(R.string.app_google_play_url)+".");
 
         shareIntent.setType("image/*");
-        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(filePath));
+
+        /** Build version >=24 we need to use file provider */
+        if(Build.VERSION.SDK_INT>=24){
+            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider",filePath.getAbsoluteFile());
+            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        }else{
+            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(filePath));
+        }
 
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 

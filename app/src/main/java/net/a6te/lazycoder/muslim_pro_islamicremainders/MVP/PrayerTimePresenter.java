@@ -74,8 +74,9 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
         @Override
         protected Boolean doInBackground(Void... voids) {
 
-            calculateTime();
-
+            if (savedData.getLong() != 0){
+                calculateTime();
+            }
             try {
                 Geocoder gcd = new Geocoder(mContext, Locale.getDefault());
                 List<Address> addresses = gcd.getFromLocation(latitude, longitude, 1);
@@ -90,6 +91,8 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
                         savedData.saveUserCity(addresses.get(0).getAdminArea());
                         city = savedData.getUserCity();
                     }
+
+
                     return true;
                 }else return false;
             } catch (IOException e) {
@@ -171,9 +174,14 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
                 savedData.saveLongitude((float) longitude);
                 savedData.saveLat((float) latitude);
                 return true;
-            } else {
+            }else if (savedData.getLat() != 0 && savedData.getLong() != 0){
+                latitude = savedData.getLat();
+                longitude = savedData.getLong();
                 MVPView.showGpsSettingAlert();
+
                 return false;
+            }else{
+                MVPView.showGpsSettingAlert();
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -183,8 +191,8 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
 
     }
 
-    /*
-     * this method will calculate time zone
+    /**
+     * This method will calculate time zone
      * with our required double format
      * */
     public double getTimeZone() {
@@ -196,10 +204,6 @@ public class PrayerTimePresenter implements MVPPresenter.PrayerTimePresenter{
         Double timeZone = Double.valueOf(TimeUnit.HOURS.convert(mGMTOffset, TimeUnit.MILLISECONDS));
 
         return timeZone;
-    }
-
-    public void onDestroy(){
-
     }
 
 }

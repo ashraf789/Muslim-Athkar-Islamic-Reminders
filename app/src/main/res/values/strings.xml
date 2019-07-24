@@ -66,6 +66,7 @@
     <string name="prayer">Prayer</string>
     <string name="calculation_method">Calculation method</string>
     <string name="juristic_method">Juristic Method</string>
+    <string name="please_wait_a_moment">First time use?  Please check your internet connection and wait a moment</string>
 
     <string-array name="prayer_calculation_method">
         <item>Jafari</item>

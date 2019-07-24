@@ -216,11 +216,12 @@ public class MyDatabase {
 
     public String getAtkhar(String table, int id) {
 
-        //if no data found then this will be the message
-        String getData=context.getString(R.string.required_data_connection);
-//        id++;//array start from 0 but datase start from 1 so we are adding +1 to start it from first row
-        /*todo need to work in here later i have commented the id++; line maybe it is connected with other */
-
+        Log.d("TEST", "getAtkhar: "+id);
+        // if no data found then this will be the message
+        String getData=context.getString(R.string.please_wait_a_moment);
+        // array start from 0 but datase start from 1 so we are adding +1 to start it from first row
+        id++;
+        /* TODO: need to work in here later i have commented the id++; line maybe it is connected with other */
 
         Open();
 
@@ -240,9 +241,8 @@ public class MyDatabase {
     public Bundle getAtkhar(String table, String  tag, int id) {
 
         //if no data found then this will be the message
-        String getData=context.getString(R.string.required_data_connection);
+        String getData=context.getString(R.string.please_wait_a_moment);
         Bundle bundle = new Bundle();
-
 
         Open();
 
